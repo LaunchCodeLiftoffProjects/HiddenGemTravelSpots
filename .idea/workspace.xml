@@ -37,26 +37,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/gems/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/gems/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/search-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/search-results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/users/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/users/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/gems/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/gems/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/gems/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/gems/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/search-results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <list id="14920f12-b464-4647-8d17-fbd312e9b898" name="Revert &quot;starter code&quot;" comment="Revert &quot;starter code&quot;&#10;&#10;This reverts commit 30faac57" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,32 +196,36 @@
       <screen x="1920" y="23" width="1360" height="745" />
     </state>
     <state x="2045" y="123" width="1160" height="506" key="DiffContextDialog/1920.23.1360.745/0.23.1920.1005@1920.23.1360.745" timestamp="1607563809033" />
-    <state width="1318" height="172" key="GridCell.Tab.0.bottom" timestamp="1607635781266">
+    <state width="1318" height="172" key="GridCell.Tab.0.bottom" timestamp="1607637074508">
       <screen x="1920" y="23" width="1360" height="745" />
     </state>
     <state width="1318" height="172" key="GridCell.Tab.0.bottom/1920.23.1360.707/0.23.1920.1057@1920.23.1360.707" timestamp="1607576124456" />
     <state width="1318" height="174" key="GridCell.Tab.0.bottom/1920.23.1360.745/0.23.1920.1005@1920.23.1360.745" timestamp="1607564486315" />
+    <state width="1318" height="172" key="GridCell.Tab.0.bottom/1920.23.1360.745/0.23.1920.1006@1920.23.1360.745" timestamp="1607637074508" />
     <state width="1318" height="172" key="GridCell.Tab.0.bottom/1920.23.1360.745/0.23.1920.1007@1920.23.1360.745" timestamp="1607635781266" />
     <state width="1318" height="172" key="GridCell.Tab.0.bottom/1920.23.1360.745/0.23.1920.1008@1920.23.1360.745" timestamp="1607626012917" />
-    <state width="1318" height="172" key="GridCell.Tab.0.center" timestamp="1607635781266">
+    <state width="1318" height="172" key="GridCell.Tab.0.center" timestamp="1607637074507">
       <screen x="1920" y="23" width="1360" height="745" />
     </state>
     <state width="1318" height="172" key="GridCell.Tab.0.center/1920.23.1360.707/0.23.1920.1057@1920.23.1360.707" timestamp="1607576124456" />
     <state width="1318" height="174" key="GridCell.Tab.0.center/1920.23.1360.745/0.23.1920.1005@1920.23.1360.745" timestamp="1607564486314" />
+    <state width="1318" height="172" key="GridCell.Tab.0.center/1920.23.1360.745/0.23.1920.1006@1920.23.1360.745" timestamp="1607637074507" />
     <state width="1318" height="172" key="GridCell.Tab.0.center/1920.23.1360.745/0.23.1920.1007@1920.23.1360.745" timestamp="1607635781266" />
     <state width="1318" height="172" key="GridCell.Tab.0.center/1920.23.1360.745/0.23.1920.1008@1920.23.1360.745" timestamp="1607626012917" />
-    <state width="1318" height="172" key="GridCell.Tab.0.left" timestamp="1607635781265">
+    <state width="1318" height="172" key="GridCell.Tab.0.left" timestamp="1607637074507">
       <screen x="1920" y="23" width="1360" height="745" />
     </state>
     <state width="1318" height="172" key="GridCell.Tab.0.left/1920.23.1360.707/0.23.1920.1057@1920.23.1360.707" timestamp="1607576124455" />
     <state width="1318" height="174" key="GridCell.Tab.0.left/1920.23.1360.745/0.23.1920.1005@1920.23.1360.745" timestamp="1607564486314" />
+    <state width="1318" height="172" key="GridCell.Tab.0.left/1920.23.1360.745/0.23.1920.1006@1920.23.1360.745" timestamp="1607637074507" />
     <state width="1318" height="172" key="GridCell.Tab.0.left/1920.23.1360.745/0.23.1920.1007@1920.23.1360.745" timestamp="1607635781265" />
     <state width="1318" height="172" key="GridCell.Tab.0.left/1920.23.1360.745/0.23.1920.1008@1920.23.1360.745" timestamp="1607626012916" />
-    <state width="1318" height="172" key="GridCell.Tab.0.right" timestamp="1607635781266">
+    <state width="1318" height="172" key="GridCell.Tab.0.right" timestamp="1607637074508">
       <screen x="1920" y="23" width="1360" height="745" />
     </state>
     <state width="1318" height="172" key="GridCell.Tab.0.right/1920.23.1360.707/0.23.1920.1057@1920.23.1360.707" timestamp="1607576124456" />
     <state width="1318" height="174" key="GridCell.Tab.0.right/1920.23.1360.745/0.23.1920.1005@1920.23.1360.745" timestamp="1607564486315" />
+    <state width="1318" height="172" key="GridCell.Tab.0.right/1920.23.1360.745/0.23.1920.1006@1920.23.1360.745" timestamp="1607637074508" />
     <state width="1318" height="172" key="GridCell.Tab.0.right/1920.23.1360.745/0.23.1920.1007@1920.23.1360.745" timestamp="1607635781266" />
     <state width="1318" height="172" key="GridCell.Tab.0.right/1920.23.1360.745/0.23.1920.1008@1920.23.1360.745" timestamp="1607626012917" />
     <state x="2266" y="144" key="MultipleFileMergeDialog" timestamp="1607563473029">

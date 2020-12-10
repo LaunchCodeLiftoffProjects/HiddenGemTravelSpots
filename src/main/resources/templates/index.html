@@ -10,13 +10,7 @@
         <h1 th:text="${'Welcome!'}">Default Title</h1>
     </div>
 
-    <div class="form" th:action="@{/search-results}" method = "post">
-            <p>
-                <input type="text" name="searchTerm" id="searchTerm" placeholder="Search"/>
-                <input type="submit" value="Search" />
-            </p>
 
-    </div>
 
     <footer th:replace="fragments :: footer"></footer>
 </body>

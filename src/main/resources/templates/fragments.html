@@ -22,6 +22,14 @@
                 <li class="nav-item"><a class="nav-link" th:href="@{/search}">Search</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/add}">Add Gem</a></li>
             </ul>
+            <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
+                <div class="input-group">
+                <input type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
+                <div class="input-group-btn">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+                </div>
+            </form>
                 <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item"><a class="nav-link"th:href="@{/login}">Sign In</a></li>
@@ -44,9 +52,10 @@
             <ul class="nav navbar-nav navbar-center">
                 <li class="nav-item"><a class="nav-link" th:href="@{/login}">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/add}">About</a></li>
-                <li class="nav-item"><a class="nav-link">&copy; Liftoff 2020 Quarateam </a></li>
             </ul>
-
+            <span class="navbar-text">
+                &copy; Liftoff 2020 Quarateam
+            </span>
         </div>
     </nav>
     <br>
