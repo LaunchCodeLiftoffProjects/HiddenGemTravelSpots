@@ -1,0 +1,20 @@
+com/hiddengems/hiddengems/models/AbstractEntity.java
+ com.hiddengems.hiddengems.models.AbstractEntity
+com/hiddengems/hiddengems/models/data/UserRepository.java
+ com.hiddengems.hiddengems.models.data.UserRepository
+com/hiddengems/hiddengems/models/dto/RegisterFormDTO.java
+ com.hiddengems.hiddengems.models.dto.RegisterFormDTO
+com/hiddengems/hiddengems/models/User.java
+ com.hiddengems.hiddengems.models.User
+com/hiddengems/hiddengems/HiddenGemsApplication.java
+ com.hiddengems.hiddengems.HiddenGemsApplication
+com/hiddengems/hiddengems/models/dto/LoginFormDTO.java
+ com.hiddengems.hiddengems.models.dto.LoginFormDTO
+com/hiddengems/hiddengems/controllers/AuthenticationController.java
+ com.hiddengems.hiddengems.controllers.AuthenticationController
+com/hiddengems/hiddengems/models/WebApplicationConfig.java
+ com.hiddengems.hiddengems.models.WebApplicationConfig
+com/hiddengems/hiddengems/models/AuthenticationFilter.java
+ com.hiddengems.hiddengems.models.AuthenticationFilter
+com/hiddengems/hiddengems/controllers/HelloController.java
+ com.hiddengems.hiddengems.controllers.HelloController
