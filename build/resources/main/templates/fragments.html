@@ -22,7 +22,6 @@
                 <li class="nav-item"><a class="nav-link" th:href="@{/login}">Sign In</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/search}">Search</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/add}">Add Gem</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
@@ -30,5 +29,22 @@
     </nav>
 </header>
 
+
+<footer th:fragment="footer">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-center">
+                <li class="nav-item"><a class="nav-link" th:href="@{/login}">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/add}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">&copy; Liftoff 2020 Quarateam </a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <br>
+
+</footer>
+
 </body>
+
 </html>
