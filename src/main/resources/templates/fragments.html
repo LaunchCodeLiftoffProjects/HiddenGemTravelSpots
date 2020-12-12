@@ -18,17 +18,50 @@
             <a th:href="@{/}" class="navbar-brand">Hidden Gems</a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" th:href="@{/login}">Sign In</a></li>
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" th:href="@{/search}">Search</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/add}">Add Gem</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+            </ul>
+            <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
+                <div class="input-group">
+                <input type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
+                <div class="input-group-btn">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+                </div>
+            </form>
+                <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item"><a class="nav-link"th:href="@{/login}">Sign In</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/login}">Logout</a></li>
+<!--LOGIN/LOGOUT VISIBILITY BASED ON USER BEING LOGGED IN IS NOT WORKING-->
+                    <!--                    <td>-->
+                    <!--                        <li class="nav-item" th:if="${user == null}"><a class="nav-link"  th:href="@{/login}">Sign In</a></li>-->
+<!--                        <li class="nav-item" th:if="${user == null}"><a class="nav-link"  th:href="@{/login}">Logout</a></li>-->
+<!--                    </td>-->
             </ul>
         </div>
     </div>
     </nav>
 </header>
 
+
+<footer th:fragment="footer">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-center">
+                <li class="nav-item"><a class="nav-link" th:href="@{/login}">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/add}">About</a></li>
+            </ul>
+            <span class="navbar-text">
+                &copy; Liftoff 2020 Quarateam
+            </span>
+        </div>
+    </nav>
+    <br>
+
+</footer>
+
 </body>
+
 </html>
