@@ -68,7 +68,9 @@ body {
   line-height: 1.5;
   color: #888;
   text-align: left;
+  background-image: url(splash.jpg);
   background-color: #fff;
+  background-size: cover;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -288,9 +290,9 @@ button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
-  padding: 0;
   border-style: none;
 }
+  padding: 0;
 
 input[type="radio"],
 input[type="checkbox"] {
@@ -362,12 +364,19 @@ template {
   display: none !important;
 }
 
+@font-face {
+font-family: retrocycles;
+src: url(Retrocycles.otf);
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin-left: 1rem;
+  /*font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;*/
+  font-family: retrocycles;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 2.0;
   color: #5a5a5a;
 }
 
@@ -4346,11 +4355,12 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
+  font-family: retrocycles;
   display: inline-block;
   padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
+  padding-bottom: 0.3rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 4rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -10565,23 +10575,3 @@ legend {
 .list-group-item h6 {
   color: inherit;
 }
-
-div.form
-{
-    display: block;
-    text-align: center;
-}
-form
-{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
-
-.navbar-nav.navbar-center {
- margin-left: auto;
- margin-right: auto;
- left: 0;
- right: 0;
- }
