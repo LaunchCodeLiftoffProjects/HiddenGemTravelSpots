@@ -1,5 +1,7 @@
 com/hiddengems/hiddengems/models/AbstractEntity.java
  com.hiddengems.hiddengems.models.AbstractEntity
+com/hiddengems/hiddengems/models/Review.java
+ com.hiddengems.hiddengems.models.Review
 com/hiddengems/hiddengems/models/data/UserRepository.java
  com.hiddengems.hiddengems.models.data.UserRepository
 com/hiddengems/hiddengems/models/dto/RegisterFormDTO.java
@@ -10,6 +12,8 @@ com/hiddengems/hiddengems/HiddenGemsApplication.java
  com.hiddengems.hiddengems.HiddenGemsApplication
 com/hiddengems/hiddengems/models/dto/LoginFormDTO.java
  com.hiddengems.hiddengems.models.dto.LoginFormDTO
+com/hiddengems/hiddengems/models/Gem.java
+ com.hiddengems.hiddengems.models.Gem
 com/hiddengems/hiddengems/controllers/AuthenticationController.java
  com.hiddengems.hiddengems.controllers.AuthenticationController
 com/hiddengems/hiddengems/models/WebApplicationConfig.java
