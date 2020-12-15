@@ -28,10 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css" afterDir="false" />
-    </list>
+    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="" />
     <list id="14920f12-b464-4647-8d17-fbd312e9b898" name="Revert &quot;starter code&quot;" comment="Revert &quot;starter code&quot;&#10;&#10;This reverts commit 30faac57" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
