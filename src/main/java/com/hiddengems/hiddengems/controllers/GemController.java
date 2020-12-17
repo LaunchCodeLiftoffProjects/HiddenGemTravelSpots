@@ -12,14 +12,14 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-    @RequestMapping("gem")
+    @RequestMapping("gems")
     public class GemController {
 
         @Autowired
         private GemRepository gemRepository;
 
 
-        @GetMapping
+        @GetMapping ("index")
         public String index(Model model) {
 
             model.addAttribute("Gems", "All Gems");
@@ -38,7 +38,7 @@ import java.util.Optional;
                                         Errors errors, Model model) {
 
             if (errors.hasErrors()) {
-                return "gems../index";
+                return "gems/index";
             }
             gemRepository.save(newGem);
             return "redirect:../";
