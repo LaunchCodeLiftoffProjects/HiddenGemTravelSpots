@@ -33,10 +33,7 @@ public class Gem extends AbstractEntity {
 //    @OneToMany
 //    @JoinColumn
 //    private final List<Photo> photos = new ArrayList<>();
-//
-//    @OneToMany
-//    @JoinColumn
-//    private final List<Review> reviews = new ArrayList<>();
+
 
     public Gem() {}
 
@@ -44,12 +41,24 @@ public class Gem extends AbstractEntity {
         return gemName;
     }
 
+    public void setGemName(String gemName) {
+        this.gemName = gemName;
+    }
+
     public double getLatitude() {
         return latitude;
     }
 
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
     public double getLongitude() {
         return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getDescription() {
