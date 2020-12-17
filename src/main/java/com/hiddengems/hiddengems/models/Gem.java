@@ -25,6 +25,10 @@ public class Gem extends AbstractEntity {
     @NotNull
     private String description;
 
+    @OneToMany
+    @JoinColumn
+    private final List<Review> jobs = new ArrayList<>();
+
 
 //    @OneToMany
 //    @JoinColumn
@@ -36,5 +40,27 @@ public class Gem extends AbstractEntity {
 
     public Gem() {}
 
+    public String getGemName() {
+        return gemName;
+    }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Review> getJobs() {
+        return jobs;
+    }
 }

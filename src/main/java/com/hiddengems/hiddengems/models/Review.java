@@ -10,8 +10,8 @@ public class Review extends AbstractEntity{
     @NotNull
     private String thumbsup;
 
-//    @ManyToOne
-//    private Gem gem;
+    @ManyToOne
+    private Gem gem;
 
     @ManyToOne
     private User user;
@@ -28,14 +28,10 @@ public class Review extends AbstractEntity{
         this.thumbsup = thumbsup;
     }
 
-    //    public Gem getGem() {
-//        return gem;
-//    }
-//
-//    public void setGem(Gem gem) {
-//        this.gem = gem;
-//    }
-//
+    public Gem getGem() { return gem; }
+
+    public void setGem(Gem gem) { this.gem = gem; }
+
     public User getUser() {
         return user;
     }
