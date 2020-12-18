@@ -38,6 +38,9 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
+<button type="button" class="btn btn-danger" th:if="(${edit})">Delete</button>
+
 
 <footer th:replace="fragments :: footer"></footer>
 </body>

@@ -1,6 +1,7 @@
 package com.hiddengems.hiddengems.controllers;
 
 
+import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.Review;
 import com.hiddengems.hiddengems.models.User;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,5 +69,22 @@ public class ReviewController {
 
         return "redirect:";
     }
+
+    @GetMapping("/edit/{reviewId}")
+    public String displayEditReviewForm(Model model, @PathVariable int reviewId) {
+
+        Optional<Review> review = reviewRepository.findById(reviewId);
+        if (review.isPresent()) {
+            Review oldReview = (Review) review.get();
+            model.addAttribute("review", oldReview);
+            model.addAttribute("edit", true);
+            return "review";
+        } else {
+            return "redirect:../";
+        }
+    }
+
+    // TODO: Update the Review template with conditional statements to populate the fields with pre-existing review data & flip the Submit button to Save
+    // TODO: Add 'Delete' handlers
 
 }
