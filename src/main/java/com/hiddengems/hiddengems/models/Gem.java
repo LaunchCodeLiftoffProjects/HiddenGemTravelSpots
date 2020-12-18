@@ -27,7 +27,7 @@ public class Gem extends AbstractEntity {
 
     @OneToMany
     @JoinColumn
-    private final List<Review> jobs = new ArrayList<>();
+    private final List<Review> reviews = new ArrayList<>();
 
 
 //    @OneToMany
@@ -69,7 +69,7 @@ public class Gem extends AbstractEntity {
         this.description = description;
     }
 
-    public List<Review> getJobs() {
-        return jobs;
+    public List<Review> getReviews() {
+        return reviews;
     }
 }
