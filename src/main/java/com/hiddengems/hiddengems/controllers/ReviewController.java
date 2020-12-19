@@ -84,6 +84,33 @@ public class ReviewController {
         }
     }
 
+    @PostMapping("/edit/{reviewId}")
+    public String processEditReviewForm(@PathVariable int reviewId, @ModelAttribute @Valid Review updatedReview, Error errors,
+                                        HttpServletRequest request, Model model) {
+
+
+        Optional<Review> review = reviewRepository.findById(reviewId);
+
+
+
+        if (review.isPresent()) {
+            Review newReview = (Review) review.get();
+            User user = getUserFromSession(request.getSession());
+
+            if (newReview.getUser().getId() == user.getId()) {
+                reviewRepository.save(newReview);// TODO: Not Updating
+                return "redirect:../";
+            } else {
+                // redirect to error page
+            }
+        }
+
+
+
+        // TODO: redirect to error page (create error page)
+        return "redirect:../";
+    }
+
     // TODO: Update the Review template with conditional statements to populate the fields with pre-existing review data & flip the Submit button to Save
     // TODO: Add 'Delete' handlers
 

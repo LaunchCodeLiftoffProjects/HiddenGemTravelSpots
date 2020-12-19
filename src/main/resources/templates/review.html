@@ -36,7 +36,8 @@
         <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" th:unless="(${edit})">Submit</button>
+    <button type="submit" class="btn btn-primary" th:if="(${edit})">Save</button>
 </form>
 <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
 <button type="button" class="btn btn-danger" th:if="(${edit})">Delete</button>
