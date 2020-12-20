@@ -10575,3 +10575,45 @@ legend {
 .list-group-item h6 {
   color: inherit;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.profileimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+.main {
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+.profile-navbar .nav-item .nav-link {
+  color: #6c7293;
+}
+
+.profile-navbar .nav-item .nav-link.active {
+  color: #20c997;
+}
+
+.profile-navbar .nav-item .nav-link i {
+  font-size: 1.25rem;
+}
+
+.profile-feed-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e9e9e9;
+}
+.img-sm {
+    width: 43px;
+    height: 43px;
+}
