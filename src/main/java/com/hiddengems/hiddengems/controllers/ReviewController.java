@@ -101,17 +101,23 @@ public class ReviewController {
                 newReview.setUser(user);
                 newReview.setReviewText(updatedReview.getReviewText());
                 newReview.setThumbsup(updatedReview.getThumbsup());
-                reviewRepository.save(newReview);// TODO: Not Updating
+                reviewRepository.save(newReview);
                 return "success-test";
             } else {
-                // redirect to error page
+                // TODO: redirect to error page (create error page)
             }
         }
 
-
-
-        // TODO: redirect to error page (create error page)
         return "redirect:../";
+    }
+
+    @PostMapping("/delete/")
+    public String processDeleteReview(@ModelAttribute Review review, HttpServletRequest request, Model model) {
+//        Optional<Review> review2 = reviewRepository.findById(review.getId());
+//        Review newReview = (Review) review2.get();
+//        model.addAttribute("message", "This will delete the review eventually. Review ID = " + newReview.getId());
+        model.addAttribute("message", "This will delete the review eventually.");
+        return "success-test";
     }
 
     // TODO: Update the Review template with conditional statements to populate the fields with pre-existing review data & flip the Submit button to Save

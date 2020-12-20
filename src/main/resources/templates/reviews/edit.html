@@ -12,8 +12,13 @@
 <div>
     <h1 th:text="${title}">Default Text</h1>
 </div>
+
 <div th:replace="fragments :: review-form"></div>
-<button type="button" class="btn btn-danger" th:if="(${edit})">Delete</button>
+
+<form th:action="@{/delete/(${review.id})}" method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
 
 
 <footer th:replace="fragments :: footer"></footer>
