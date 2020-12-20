@@ -47,30 +47,30 @@ public class ReviewController {
         return user.get();
     }
 
-    @GetMapping("/review")
+    @GetMapping("/reviews/add")
     public String displayReviewForm(HttpServletRequest request, Model model) {
         model.addAttribute("title", "Review a Gem");
         model.addAttribute(new Review());
-        return "review";
+        return "reviews/add";
     }
 
-    @PostMapping("/review")
+    @PostMapping("/reviews/add")
     public String processReviewForm(@ModelAttribute @Valid Review newReview,
                                     Errors errors, HttpServletRequest request, Model model) {
 
         User user = getUserFromSession(request.getSession());
 
         if (errors.hasErrors()) {
-            return "review";
+            return "reviews/add.html";
         } else {
             newReview.setUser(user);
             reviewRepository.save(newReview);
         }
 
-        return "redirect:";
+        return "redirect:../";
     }
 
-    @GetMapping("/edit/{reviewId}")
+    @GetMapping("/reviews/edit/{reviewId}")
     public String displayEditReviewForm(Model model, @PathVariable int reviewId) {
 
         Optional<Review> review = reviewRepository.findById(reviewId);
@@ -78,14 +78,14 @@ public class ReviewController {
             Review oldReview = (Review) review.get();
             model.addAttribute("review", oldReview);
             model.addAttribute("edit", true);
-            return "review";
+            return "reviews/edit.html";
         } else {
             return "redirect:../";
         }
     }
 
-    @PostMapping("/edit/{reviewId}")
-    public String processEditReviewForm(@PathVariable int reviewId, @ModelAttribute @Valid Review updatedReview, Error errors,
+    @PostMapping("/reviews/edit/{reviewId}")
+    public String processEditReviewForm(@PathVariable Integer reviewId, @ModelAttribute @Valid Review updatedReview, Error errors,
                                         HttpServletRequest request, Model model) {
 
 
@@ -98,8 +98,11 @@ public class ReviewController {
             User user = getUserFromSession(request.getSession());
 
             if (newReview.getUser().getId() == user.getId()) {
+                newReview.setUser(user);
+                newReview.setReviewText(updatedReview.getReviewText());
+                newReview.setThumbsup(updatedReview.getThumbsup());
                 reviewRepository.save(newReview);// TODO: Not Updating
-                return "redirect:../";
+                return "success-test";
             } else {
                 // redirect to error page
             }
