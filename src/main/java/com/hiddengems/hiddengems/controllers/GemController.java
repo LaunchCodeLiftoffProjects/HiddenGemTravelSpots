@@ -65,22 +65,22 @@ public class GemController {
                                     Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            return "gems/index";
+            return "gems/add";
         }
         gemRepository.save(newGem);
-        return "redirect:../";
+        return "gems/detail";
     }
 
-    @GetMapping("view/{gemId}")
+    @GetMapping("detail/{gemId}")
     public String displayViewGem(Model model, @PathVariable int gemId) {
 
         Optional<Gem> optGem = gemRepository.findById(gemId);
         if (optGem.isPresent()) {
             Gem gem = (Gem) optGem.get();
             model.addAttribute("gem", gem);
-            return "gems/view";
+            return "gems/detail";
         } else {
-            return "redirect:../";
+            return "redirect:";
         }
     }
 }
