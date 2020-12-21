@@ -2,6 +2,7 @@ package com.hiddengems.hiddengems.models;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -25,17 +26,25 @@ public class Gem extends AbstractEntity {
     @NotNull
     private String description;
 
+    private GemCategory category;
+
     @OneToMany
     @JoinColumn
     private final List<Review> reviews = new ArrayList<>();
 
+//    @ManyToMany
+//    private final List<GemCategory> categories = new ArrayList<>();
 
 //    @OneToMany
 //    @JoinColumn
 //    private final List<Photo> photos = new ArrayList<>();
 
 
-    public Gem(String description) {this.description = description; }
+    public Gem(String description, GemCategory category) {
+        this.description = description;
+        this.category = category;
+    }
+
     public Gem() {}
 
     public String getGemName() {
@@ -74,6 +83,17 @@ public class Gem extends AbstractEntity {
         return reviews;
     }
 
+    public GemCategory getCategory(){
+        return category;
+    }
+
+    public void setCategory(){
+        this.category = category;
+    }
+//
+//    public List<GemCategory> getCategories() {
+//        return categories;
+//    }
     @Override
     public String toString() {
         return gemName;
