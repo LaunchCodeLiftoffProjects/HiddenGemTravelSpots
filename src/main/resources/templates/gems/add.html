@@ -13,23 +13,23 @@
 <form action="/upload" method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label th:for="gemName">Gem Name</label>
-        <input class="form-control" th:field="${gem.name}" />
-        <span th:errors="${gem.name}" class="error"> </span>
+        <input class="form-control" th:field="${gem.gemName}" />
+        <span th:errors="${gem.gemName}" class="error"> </span>
     </div>
 
-    <div class="form-group">
-        <label th:for="location">Location</label>
-        <input class="form-control" th:field="${gem.location}" />
-        <span th:errors="${gem.location}: class="error></span>
-    </div>
-    <div class="form-group">
-        <input type="radio" id="address" name="location" value="address">
-        <label for="address">Address</label><br>
-        <input type="radio" id="coordinates" name="location" value="coordinates">
-        <label for="coordinates">Coordinates</label><br>
-        <input type="radio" id="currentLocation" name="location" value="currentLocation">
-        <label for="currentLocation">Current Location</label>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label th:for="location">Location</label>-->
+<!--        <input class="form-control" th:field="${gem.location}" />-->
+<!--        <span th:errors="${gem.location}: class="error></span>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <input type="radio" id="address" name="location" value="address">-->
+<!--        <label for="address">Address</label><br>-->
+<!--        <input type="radio" id="coordinates" name="location" value="coordinates">-->
+<!--        <label for="coordinates">Coordinates</label><br>-->
+<!--        <input type="radio" id="currentLocation" name="location" value="currentLocation">-->
+<!--        <label for="currentLocation">Current Location</label>-->
+<!--    </div>-->
 
 
     <!-- NEED TO FIGURE OUT HOW TO CHANGE INPUTS BASED ON USER CHOICE -->
