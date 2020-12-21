@@ -1,6 +1,7 @@
 package com.hiddengems.hiddengems.controllers;
 
 import com.hiddengems.hiddengems.models.Gem;
+import com.hiddengems.hiddengems.models.GemCategory;
 import com.hiddengems.hiddengems.models.User;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
@@ -57,6 +58,7 @@ public class GemController {
     @GetMapping("add")
     public String displayAddGemForm(Model model) {
         model.addAttribute(new Gem());
+        model.addAttribute("categories", GemCategory.values());
         return "gems/add";
     }
 
