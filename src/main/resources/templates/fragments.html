@@ -57,11 +57,11 @@
 
         <div class="form-group">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="radio" name="rating" th:field="${review.thumbsup}" id="thumbsUp" value="thumbsup" autocomplete="off" checked><i class="fa fa-thumbs-up fa-3x"></i>
+                <label class="btn btn-primary active">
+                    <input type="radio" name="rating" th:field="${review.thumbsup}" id="thumbsUp" value="true" autocomplete="off" checked=""><i class="fa fa-thumbs-up fa-3x"></i>
                 </label>
                 <label class="btn btn-primary">
-                    <input type="radio" name="rating" th:field="${review.thumbsup}" id="thumbsDown" value="thumbsdown" autocomplete="off"> <i class="fa fa-thumbs-down fa-3x"></i>
+                    <input type="radio" name="rating" th:field="${review.thumbsup}" id="thumbsDown" value="false" autocomplete="off"> <i class="fa fa-thumbs-down fa-3x"></i>
                 </label>
             </div>
         </div>

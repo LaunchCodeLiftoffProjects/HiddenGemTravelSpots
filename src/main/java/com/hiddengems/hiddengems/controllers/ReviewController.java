@@ -100,7 +100,7 @@ public class ReviewController {
             if (newReview.getUser().getId() == user.getId()) {
                 newReview.setUser(user);
                 newReview.setReviewText(updatedReview.getReviewText());
-                newReview.setThumbsup(updatedReview.getThumbsup());
+                newReview.setThumbsup(updatedReview.isThumbsup());
                 reviewRepository.save(newReview);
                 return "success-test";
             } else {
