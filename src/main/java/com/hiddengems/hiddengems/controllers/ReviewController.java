@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -112,11 +109,12 @@ public class ReviewController {
     }
 
     @PostMapping("/delete/")
-    public String processDeleteReview(@ModelAttribute Review review, HttpServletRequest request, Model model) {
-//        Optional<Review> review2 = reviewRepository.findById(review.getId());
-//        Review newReview = (Review) review2.get();
-//        model.addAttribute("message", "This will delete the review eventually. Review ID = " + newReview.getId());
-        model.addAttribute("message", "This will delete the review eventually.");
+    public String processDeleteReview(@RequestParam int reviewId, HttpServletRequest request, Model model) {
+        reviewRepository.deleteById(reviewId);
+        //model.addAttribute("message", "This will delete the review eventually. Review ID = " + newReview.getId());
+        //model.addAttribute("message", "This will delete the review eventually.");
+        // TODO: Change annotations in Review, Gem, User to "mapped by" instead of @JoinColumn (maybe) and then remove Review from the lists in the other classes fields
+        // https://stackoverflow.com/questions/36058977/hibernate-many-to-one-delete-only-child
         return "success-test";
     }
 
