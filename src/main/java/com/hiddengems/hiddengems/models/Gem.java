@@ -28,8 +28,7 @@ public class Gem extends AbstractEntity {
 
     private GemCategory category;
 
-    @OneToMany
-    @JoinColumn
+    @OneToMany(mappedBy = "gem")
     private final List<Review> reviews = new ArrayList<>();
 
 //    @ManyToMany

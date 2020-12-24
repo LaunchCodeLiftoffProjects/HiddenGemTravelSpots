@@ -82,6 +82,9 @@
         <button type="submit" class="btn btn-primary" th:if="(${edit})">Save</button>
         <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
     </form>
+    <ul th:each="error : ${errors}">
+        <li th:text="${error}"></li>
+    </ul>
 </div>
 
 

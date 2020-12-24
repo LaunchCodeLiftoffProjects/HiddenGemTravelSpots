@@ -16,7 +16,7 @@
 <div th:replace="fragments :: review-form"></div>
 
 <!--<form th:action="@{/delete/(${review.id})}" method="post">-->
-<form method="post">
+<form method="post" th:action="@{/delete/reviewId=(${review.id})}">
     <input type="hidden" th:field="${review.id}" id="reviewId">
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>

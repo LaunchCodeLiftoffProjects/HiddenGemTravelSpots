@@ -20,6 +20,11 @@ public class Review extends AbstractEntity{
     @Size(max = 500, message = "Review must be no more than 500 characters in length")
     private String reviewText;
 
+    public Review(String reviewText, Gem gem) {
+        this.reviewText = reviewText;
+        this.gem = gem;
+    }
+
     public Review() {}
 
     public boolean isThumbsup() {

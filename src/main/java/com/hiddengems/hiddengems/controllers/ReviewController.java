@@ -4,6 +4,7 @@ package com.hiddengems.hiddengems.controllers;
 import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.Review;
 import com.hiddengems.hiddengems.models.User;
+import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class ReviewController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private GemRepository gemRepository;
+
     private static final String userSessionKey = "user";
 
     public User getUserFromSession(HttpSession session) {
@@ -44,23 +48,34 @@ public class ReviewController {
         return user.get();
     }
 
-    @GetMapping("/reviews/add")
-    public String displayReviewForm(HttpServletRequest request, Model model) {
+    @GetMapping("/reviews/add")//localhost:8080/reviews/add?gemId=
+    public String displayReviewForm(@RequestParam(required = true) Integer gemId, HttpServletRequest request, Model model) {
+        Optional<Gem> gemOpt = gemRepository.findById(gemId);
+
+        if(gemOpt.isPresent()) {
+            model.addAttribute("gem", (Gem) gemOpt.get());
+        } else {
+            model.addAttribute("message", "No such Gem exists with this Id");
+            return "../error";
+        }
+
         model.addAttribute("title", "Review a Gem");
         model.addAttribute(new Review());
         return "reviews/add";
     }
 
     @PostMapping("/reviews/add")
-    public String processReviewForm(@ModelAttribute @Valid Review newReview,
+    public String processReviewForm(@ModelAttribute @Valid Review newReview, @ModelAttribute @Valid Gem gem,
                                     Errors errors, HttpServletRequest request, Model model) {
 
         User user = getUserFromSession(request.getSession());
 
         if (errors.hasErrors()) {
+            model.addAttribute("errors", errors);
             return "reviews/add.html";
         } else {
             newReview.setUser(user);
+            newReview.setGem(gem);
             reviewRepository.save(newReview);
         }
 
@@ -94,6 +109,7 @@ public class ReviewController {
             Review newReview = (Review) review.get();
             User user = getUserFromSession(request.getSession());
 
+
             if (newReview.getUser().getId() == user.getId()) {
                 newReview.setUser(user);
                 newReview.setReviewText(updatedReview.getReviewText());
@@ -101,14 +117,15 @@ public class ReviewController {
                 reviewRepository.save(newReview);
                 return "success-test";
             } else {
-                // TODO: redirect to error page (create error page)
+                model.addAttribute("message", "You are not authorized to edit this Gem Review.");
+                return "../error";
             }
         }
 
         return "redirect:../";
     }
 
-    @PostMapping("/delete/")
+    @PostMapping("delete")
     public String processDeleteReview(@RequestParam int reviewId, HttpServletRequest request, Model model) {
         reviewRepository.deleteById(reviewId);
         //model.addAttribute("message", "This will delete the review eventually. Review ID = " + newReview.getId());
