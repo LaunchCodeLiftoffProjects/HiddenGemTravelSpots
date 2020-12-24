@@ -8,8 +8,8 @@ import javax.validation.constraints.NotNull;
 
 public class ReviewFormDTO {
 
-//    @NotNull
-//    private Gem gem;
+    @NotNull
+    private Gem gem;
 
     @NotNull
     private User user;
@@ -19,15 +19,27 @@ public class ReviewFormDTO {
 
     public ReviewFormDTO() { }
 
-//    public Gem getGem() { return gem; }
+    public Gem getGem() {
+        return gem;
+    }
 
-    public Review getReview() { return review; }
+    public void setGem(Gem gem) {
+        this.gem = gem;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Review getReview() {
+        return review;
+    }
 
     public void setReview(Review review) {
         this.review = review;
     }
-
-
-
-
 }

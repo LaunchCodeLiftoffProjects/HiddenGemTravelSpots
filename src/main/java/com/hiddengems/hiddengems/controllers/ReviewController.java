@@ -7,6 +7,7 @@ import com.hiddengems.hiddengems.models.User;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
+import com.hiddengems.hiddengems.models.dto.ReviewFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,34 +50,48 @@ public class ReviewController {
     }
 
     @GetMapping("/reviews/add")//localhost:8080/reviews/add?gemId=
-    public String displayReviewForm(@RequestParam(required = true) Integer gemId, HttpServletRequest request, Model model) {
+    public String displayReviewForm(@RequestParam Integer gemId, HttpServletRequest request, Model model) {
         Optional<Gem> gemOpt = gemRepository.findById(gemId);
+        User user = getUserFromSession(request.getSession());
 
-        if(gemOpt.isPresent()) {
-            model.addAttribute("gem", (Gem) gemOpt.get());
+        if(gemOpt.isPresent() && user != null) {
+            // model.addAttribute("gem", (Gem) gemOpt.get());
+            Gem gem = gemOpt.get();
+            ReviewFormDTO reviewDTO = new ReviewFormDTO();
+            Review review = new Review();
+            reviewDTO.setGem(gem);
+            reviewDTO.setUser(user);
+            model.addAttribute("review", review);
+            model.addAttribute("reviewDTO", reviewDTO);
+            model.addAttribute("title", "Leave a review for: " + gem.getGemName());
         } else {
             model.addAttribute("message", "No such Gem exists with this Id");
             return "../error";
         }
 
-        model.addAttribute("title", "Review a Gem");
+
         model.addAttribute(new Review());
         return "reviews/add";
     }
 
     @PostMapping("/reviews/add")
-    public String processReviewForm(@ModelAttribute @Valid Review newReview, @ModelAttribute @Valid Gem gem,
+    public String processReviewForm(@ModelAttribute @Valid ReviewFormDTO review,
                                     Errors errors, HttpServletRequest request, Model model) {
 
         User user = getUserFromSession(request.getSession());
 
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
+            model.addAttribute("gemInfo", review.getGem().toString());
             return "reviews/add.html";
         } else {
-            newReview.setUser(user);
-            newReview.setGem(gem);
-            reviewRepository.save(newReview);
+//            review.setUser(user);
+//            review.setGem(gem);
+            Review newReview = review.getReview();
+            Gem gem = review.getGem();
+            gemRepository.save(gem);
+
+            //reviewRepository.save(newReview);
         }
 
         return "redirect:../";

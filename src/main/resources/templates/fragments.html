@@ -69,7 +69,7 @@
         <div class="form-group">
             <label for="reviewDescription">Description:</label>
             <textarea class="form-control" th:field="${review.reviewText}" id="reviewDescription" rows="5"></textarea>
-            <div class="invalid-feedback" th:errors="${review.reviewText}">Sorry, that username's taken. Try another?</div>
+            <div class="invalid-feedback" th:errors="${review.reviewText}">Review must be no more than 500 characters in length.</div>
         </div>
 
         <div class="form-group">
@@ -78,14 +78,21 @@
             <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
         </div>
 
+<!--        <input type="hidden" th:field="${gem}" id="gem">-->
+
         <button type="submit" class="btn btn-primary" th:unless="(${edit})">Submit</button>
         <button type="submit" class="btn btn-primary" th:if="(${edit})">Save</button>
         <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
     </form>
-    <ul th:each="error : ${errors}">
-        <li th:text="${error}"></li>
-    </ul>
+<!--    Testing Only!  Remove when Review is complete!-->
+<!--    <ul th:each="error : ${errors}">-->
+<!--        <li th:text="${error}"></li>-->
+<!--    </ul>-->
+<!--    <p th:text="${gemInfo}">GEM INFO</p>-->
+<!--    END OF TEST CODE-->
 </div>
+
+
 
 
 <footer th:fragment="footer">
