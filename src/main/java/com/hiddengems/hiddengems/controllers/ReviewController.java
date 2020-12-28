@@ -99,12 +99,26 @@ public class ReviewController {
     }
 
     @GetMapping("/reviews/edit/{reviewId}")
-    public String displayEditReviewForm(Model model, @PathVariable int reviewId) {
+    public String displayEditReviewForm(Model model, @PathVariable int reviewId, HttpServletRequest request) {
 
+        User user = getUserFromSession(request.getSession());
         Optional<Review> review = reviewRepository.findById(reviewId);
+
+
+
+
         if (review.isPresent()) {
             Review oldReview = (Review) review.get();
-            model.addAttribute("review", oldReview);
+
+            Optional<Gem> gemOpt = gemRepository.findById(oldReview.getGem().getId());
+            if (gemOpt.isEmpty()) {
+                return "redirect:../";
+            }
+            Gem gem = gemOpt.get();
+
+            ReviewFormDTO reviewDTO = new ReviewFormDTO(oldReview, gem, user);
+            model.addAttribute("reviewDTO", reviewDTO);
+            //model.addAttribute("review", oldReview);
             model.addAttribute("edit", true);
             return "reviews/edit.html";
         } else {
@@ -113,7 +127,7 @@ public class ReviewController {
     }
 
     @PostMapping("/reviews/edit/{reviewId}")
-    public String processEditReviewForm(@PathVariable Integer reviewId, @ModelAttribute @Valid Review updatedReview, Error errors,
+    public String processEditReviewForm(@PathVariable Integer reviewId, @ModelAttribute @Valid ReviewFormDTO reviewDTO, Error errors,
                                         HttpServletRequest request, Model model) {
 
 
@@ -128,8 +142,8 @@ public class ReviewController {
 
             if (newReview.getUser().getId() == user.getId()) {
                 newReview.setUser(user);
-                newReview.setReviewText(updatedReview.getReviewText());
-                newReview.setThumbsup(updatedReview.isThumbsup());
+                newReview.setReviewText(reviewDTO.getReview().getReviewText());
+                newReview.setThumbsup(reviewDTO.getReview().isThumbsup());
                 reviewRepository.save(newReview);
                 return "success-test";
             } else {

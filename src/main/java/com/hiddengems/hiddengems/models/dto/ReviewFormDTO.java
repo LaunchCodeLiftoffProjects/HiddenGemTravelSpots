@@ -19,6 +19,12 @@ public class ReviewFormDTO {
 
     public ReviewFormDTO() { }
 
+    public ReviewFormDTO(Review review, Gem gem, User user) {
+        this.review = review;
+        this.gem = gem;
+        this.user = user;
+    }
+
     public Gem getGem() {
         return gem;
     }
