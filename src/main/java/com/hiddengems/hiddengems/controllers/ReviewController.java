@@ -61,6 +61,7 @@ public class ReviewController {
             Review review = new Review();
             reviewDTO.setGem(gem);
             reviewDTO.setUser(user);
+            reviewDTO.setReview(review);
             model.addAttribute("review", review);
             model.addAttribute("reviewDTO", reviewDTO);
             model.addAttribute("title", "Leave a review for: " + gem.getGemName());
@@ -82,16 +83,16 @@ public class ReviewController {
 
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
-            model.addAttribute("gemInfo", review.getGem().toString());
-            return "reviews/add.html";
+            return "reviews/add";
         } else {
-//            review.setUser(user);
-//            review.setGem(gem);
-            Review newReview = review.getReview();
+
             Gem gem = review.getGem();
             gemRepository.save(gem);
 
-            //reviewRepository.save(newReview);
+            Review newReview = review.getReview();
+            newReview.setUser(user);
+            newReview.setGem(gem);
+            reviewRepository.save(newReview);
         }
 
         return "redirect:../";
