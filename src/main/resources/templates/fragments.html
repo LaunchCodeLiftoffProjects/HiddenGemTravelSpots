@@ -57,18 +57,21 @@
 
         <div class="form-group">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="radio" name="rating" th:field="${review.thumbsup}" id="thumbsUp" value="thumbsup" autocomplete="off" checked><i class="fa fa-thumbs-up fa-3x"></i>
+                <input type="hidden" th:field="${reviewDTO.gem}">
+                <input type="hidden" th:field="${reviewDTO.user}">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="rating" th:field="${reviewDTO.review.thumbsup}" id="thumbsUp" value="true" autocomplete="off" checked=""><i class="fa fa-thumbs-up fa-3x"></i>
                 </label>
                 <label class="btn btn-primary">
-                    <input type="radio" name="rating" th:field="${review.thumbsup}" id="thumbsDown" value="thumbsdown" autocomplete="off"> <i class="fa fa-thumbs-down fa-3x"></i>
+                    <input type="radio" th:field="${reviewDTO.review.thumbsup}" id="thumbsDown" value="false" autocomplete="off"> <i class="fa fa-thumbs-down fa-3x"></i>
                 </label>
             </div>
         </div>
 
         <div class="form-group">
             <label for="reviewDescription">Description:</label>
-            <textarea class="form-control" th:field="${review.reviewText}" id="reviewDescription" rows="5"></textarea>
+            <textarea class="form-control" th:field="${reviewDTO.review.reviewText}" id="reviewDescription" rows="5"></textarea>
+            <div class="invalid-feedback" th:errors="${reviewDTO.review.reviewText}">Review must be no more than 500 characters in length.</div>
         </div>
 
         <div class="form-group">
@@ -77,11 +80,21 @@
             <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
         </div>
 
+        <!--        <input type="hidden" th:field="${gem}" id="gem">-->
+
         <button type="submit" class="btn btn-primary" th:unless="(${edit})">Submit</button>
         <button type="submit" class="btn btn-primary" th:if="(${edit})">Save</button>
         <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
     </form>
+    <!--    Testing Only!  Remove when Review is complete!-->
+    <!--    <ul th:each="error : ${errors}">-->
+    <!--        <li th:text="${error}"></li>-->
+    <!--    </ul>-->
+    <!--    <p th:text="${gemInfo}">GEM INFO</p>-->
+    <!--    END OF TEST CODE-->
 </div>
+
+
 
 
 <footer th:fragment="footer">
