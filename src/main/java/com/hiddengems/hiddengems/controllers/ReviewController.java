@@ -55,7 +55,6 @@ public class ReviewController {
         User user = getUserFromSession(request.getSession());
 
         if(gemOpt.isPresent() && user != null) {
-            // model.addAttribute("gem", (Gem) gemOpt.get());
             Gem gem = gemOpt.get();
             ReviewFormDTO reviewDTO = new ReviewFormDTO();
             Review review = new Review();
@@ -106,21 +105,28 @@ public class ReviewController {
 
 
 
-
         if (review.isPresent()) {
+
             Review oldReview = (Review) review.get();
 
-            Optional<Gem> gemOpt = gemRepository.findById(oldReview.getGem().getId());
-            if (gemOpt.isEmpty()) {
-                return "redirect:../";
-            }
-            Gem gem = gemOpt.get();
+            if (oldReview.getUser().getId() == user.getId()) {
+                Optional<Gem> gemOpt = gemRepository.findById(oldReview.getGem().getId());
+                if (gemOpt.isEmpty()) {
+                    return "redirect:../";
+                }
+                Gem gem = gemOpt.get();
 
-            ReviewFormDTO reviewDTO = new ReviewFormDTO(oldReview, gem, user);
-            model.addAttribute("reviewDTO", reviewDTO);
-            //model.addAttribute("review", oldReview);
-            model.addAttribute("edit", true);
-            return "reviews/edit.html";
+                ReviewFormDTO reviewDTO = new ReviewFormDTO(oldReview, gem, user);
+                //ReviewFormDTO reviewDTO = new ReviewFormDTO();
+                model.addAttribute("reviewDTO", reviewDTO);
+                model.addAttribute("review", oldReview);
+                model.addAttribute("edit", true);
+                return "reviews/edit.html";
+            } else {
+                model.addAttribute("message", "You are not authorized to edit this Gem Review.");
+                return "../error";
+            }
+
         } else {
             return "redirect:../";
         }
@@ -139,12 +145,12 @@ public class ReviewController {
             Review newReview = (Review) review.get();
             User user = getUserFromSession(request.getSession());
 
-
             if (newReview.getUser().getId() == user.getId()) {
                 newReview.setUser(user);
                 newReview.setReviewText(reviewDTO.getReview().getReviewText());
                 newReview.setThumbsup(reviewDTO.getReview().isThumbsup());
                 reviewRepository.save(newReview);
+                model.addAttribute("reviewDTO", reviewDTO);
                 return "success-test";
             } else {
                 model.addAttribute("message", "You are not authorized to edit this Gem Review.");
@@ -155,17 +161,67 @@ public class ReviewController {
         return "redirect:../";
     }
 
-    @PostMapping("delete")
-    public String processDeleteReview(@RequestParam int reviewId, HttpServletRequest request, Model model) {
+    @PostMapping("delete/{reviewId}")
+    public String processDeleteReview(@PathVariable Integer reviewId, HttpServletRequest request, Model model) {
+
+//        Optional<Review> reviewOptional = reviewRepository.findById(reviewId);
+//        User user = getUserFromSession(request.getSession());
+//
+//        if (reviewOptional.isPresent() && user != null) {
+//            Review review = (Review) reviewOptional.get();
+//
+//            Optional<Gem> gemOpt = gemRepository.findById(review.getGem().getId());
+//            if (gemOpt.isEmpty()) {
+//                return "redirect:../";
+//            }
+//            Gem gem = gemOpt.get();
+//
+//            if (review.getUser().getId() == user.getId()) {
+//                review.setGem(gem);
+//                review.setUser(user);
+//                review.setReviewText(reviewDTO.getReview().getReviewText());
+//                review.setThumbsup(reviewDTO.getReview().isThumbsup());
+//                reviewRepository.delete(review);
+//            } else {
+//                model.addAttribute("message", "You are not authorized to delete this Gem Review.");
+//                return "../error";
+//            }
+//        } else {
+//            model.addAttribute("message", "Gem or associated user id not found");
+//            return "../error";
+//        }
+
+// IN PROGRESS SHIT
+
+//        Optional<Review> reviewOptional = reviewRepository.findById(reviewId);
+//        User user = getUserFromSession(request.getSession());
+//
+//        if (reviewOptional.isPresent() && user != null) {
+//            reviewRepository.delete(reviewDTO.getReview());
+//        } else {
+//            model.addAttribute("message", "Gem or associated user id not found");
+//            return "../error";
+//        }
+
+        //model.addAttribute("message", errors);
         reviewRepository.deleteById(reviewId);
+
+
+
+
+
+
+
+
+
+
+
+        //reviewRepository.deleteById(reviewId);
         //model.addAttribute("message", "This will delete the review eventually. Review ID = " + newReview.getId());
         //model.addAttribute("message", "This will delete the review eventually.");
         // TODO: Change annotations in Review, Gem, User to "mapped by" instead of @JoinColumn (maybe) and then remove Review from the lists in the other classes fields
         // https://stackoverflow.com/questions/36058977/hibernate-many-to-one-delete-only-child
         return "success-test";
     }
-
-    // TODO: Update the Review template with conditional statements to populate the fields with pre-existing review data & flip the Submit button to Save
-    // TODO: Add 'Delete' handlers
 
 }
