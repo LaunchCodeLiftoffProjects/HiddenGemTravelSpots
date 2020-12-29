@@ -1,7 +1,7 @@
 package com.hiddengems.hiddengems.controllers;
 
-import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.GemCategory;
+import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.User;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -28,6 +30,7 @@ public class GemController {
 
     @Autowired
     private UserRepository userRepository;
+
 
     private static final String userSessionKey = "user";
 
@@ -47,6 +50,7 @@ public class GemController {
         return user.get();
     }
 
+
     @GetMapping ("index")
     public String index(Model model) {
 
@@ -64,12 +68,15 @@ public class GemController {
 
     @PostMapping("add")
     public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
-                                    Errors errors, Model model) {
+                                    Errors errors, Model model, @RequestParam List<GemCategory> categories) {
 
         if (errors.hasErrors()) {
             return "gems/add";
         }
+         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
+        newGem.setCategories(categoryObjs);
         gemRepository.save(newGem);
+
         return "gems/detail";
     }
 
@@ -80,6 +87,7 @@ public class GemController {
         if (optGem.isPresent()) {
             Gem gem = (Gem) optGem.get();
             model.addAttribute("gem", gem);
+            model.addAttribute("categories", gem.getCategories());
             return "gems/detail";
         } else {
             return "redirect:";
