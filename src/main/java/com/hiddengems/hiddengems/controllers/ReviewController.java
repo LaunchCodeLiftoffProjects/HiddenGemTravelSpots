@@ -3,7 +3,7 @@ package com.hiddengems.hiddengems.controllers;
 
 import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.Review;
-import com.hiddengems.hiddengems.models.User;
+import com.hiddengems.hiddengems.models.UserAccount;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
@@ -33,14 +33,14 @@ public class ReviewController {
 
     private static final String userSessionKey = "user";
 
-    public User getUserFromSession(HttpSession session) {
+    public UserAccount getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
 
         if (userId == null) {
             return null;
         }
 
-        Optional<User> user = userRepository.findById(userId);
+        Optional<UserAccount> user = userRepository.findById(userId);
 
         if (user.isEmpty()) {
             return null;
@@ -52,14 +52,14 @@ public class ReviewController {
     @GetMapping("/reviews/add")//localhost:8080/reviews/add?gemId=
     public String displayReviewForm(@RequestParam Integer gemId, HttpServletRequest request, Model model) {
         Optional<Gem> gemOpt = gemRepository.findById(gemId);
-        User user = getUserFromSession(request.getSession());
+        UserAccount userAccount = getUserFromSession(request.getSession());
 
-        if(gemOpt.isPresent() && user != null) {
+        if(gemOpt.isPresent() && userAccount != null) {
             Gem gem = gemOpt.get();
             ReviewFormDTO reviewDTO = new ReviewFormDTO();
             Review review = new Review();
             reviewDTO.setGem(gem);
-            reviewDTO.setUser(user);
+            reviewDTO.setUserAccount(userAccount);
             reviewDTO.setReview(review);
             model.addAttribute("review", review);
             model.addAttribute("reviewDTO", reviewDTO);
@@ -78,7 +78,7 @@ public class ReviewController {
     public String processReviewForm(@ModelAttribute @Valid ReviewFormDTO review,
                                     Errors errors, HttpServletRequest request, Model model) {
 
-        User user = getUserFromSession(request.getSession());
+        UserAccount userAccount = getUserFromSession(request.getSession());
 
         if (errors.hasErrors()) {
             model.addAttribute("errors", errors);
@@ -89,7 +89,7 @@ public class ReviewController {
             gemRepository.save(gem);
 
             Review newReview = review.getReview();
-            newReview.setUser(user);
+            newReview.setUser(userAccount);
             newReview.setGem(gem);
             reviewRepository.save(newReview);
         }
@@ -100,7 +100,7 @@ public class ReviewController {
     @GetMapping("/reviews/edit/{reviewId}")
     public String displayEditReviewForm(Model model, @PathVariable int reviewId, HttpServletRequest request) {
 
-        User user = getUserFromSession(request.getSession());
+        UserAccount userAccount = getUserFromSession(request.getSession());
         Optional<Review> review = reviewRepository.findById(reviewId);
 
 
@@ -109,14 +109,14 @@ public class ReviewController {
 
             Review oldReview = (Review) review.get();
 
-            if (oldReview.getUser().getId() == user.getId()) {
+            if (oldReview.getUser().getId() == userAccount.getId()) {
                 Optional<Gem> gemOpt = gemRepository.findById(oldReview.getGem().getId());
                 if (gemOpt.isEmpty()) {
                     return "redirect:../";
                 }
                 Gem gem = gemOpt.get();
 
-                ReviewFormDTO reviewDTO = new ReviewFormDTO(oldReview, gem, user);
+                ReviewFormDTO reviewDTO = new ReviewFormDTO(oldReview, gem, userAccount);
                 //ReviewFormDTO reviewDTO = new ReviewFormDTO();
                 model.addAttribute("reviewDTO", reviewDTO);
                 model.addAttribute("review", oldReview);
@@ -143,10 +143,10 @@ public class ReviewController {
 
         if (review.isPresent()) {
             Review newReview = (Review) review.get();
-            User user = getUserFromSession(request.getSession());
+            UserAccount userAccount = getUserFromSession(request.getSession());
 
-            if (newReview.getUser().getId() == user.getId()) {
-                newReview.setUser(user);
+            if (newReview.getUser().getId() == userAccount.getId()) {
+                newReview.setUser(userAccount);
                 newReview.setReviewText(reviewDTO.getReview().getReviewText());
                 newReview.setThumbsup(reviewDTO.getReview().isThumbsup());
                 reviewRepository.save(newReview);

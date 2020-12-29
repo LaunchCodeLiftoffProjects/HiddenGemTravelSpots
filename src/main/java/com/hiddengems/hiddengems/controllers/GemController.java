@@ -2,7 +2,7 @@ package com.hiddengems.hiddengems.controllers;
 
 import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.GemCategory;
-import com.hiddengems.hiddengems.models.User;
+import com.hiddengems.hiddengems.models.UserAccount;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
@@ -31,14 +31,14 @@ public class GemController {
 
     private static final String userSessionKey = "user";
 
-    public User getUserFromSession(HttpSession session) {
+    public UserAccount getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
 
         if (userId == null) {
             return null;
         }
 
-        Optional<User> user = userRepository.findById(userId);
+        Optional<UserAccount> user = userRepository.findById(userId);
 
         if (user.isEmpty()) {
             return null;

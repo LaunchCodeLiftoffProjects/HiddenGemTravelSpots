@@ -41,8 +41,8 @@
                         <li class="nav-item"><a class="nav-link" th:href="@{/login}">Logout</a></li>
 <!--LOGIN/LOGOUT VISIBILITY BASED ON USER BEING LOGGED IN IS NOT WORKING-->
                     <!--                    <td>-->
-                    <!--                        <li class="nav-item" th:if="${user == null}"><a class="nav-link"  th:href="@{/login}">Sign In</a></li>-->
-<!--                        <li class="nav-item" th:if="${user == null}"><a class="nav-link"  th:href="@{/login}">Logout</a></li>-->
+                    <!--                        <li class="nav-item" th:if="${userAccount == null}"><a class="nav-link"  th:href="@{/login}">Sign In</a></li>-->
+<!--                        <li class="nav-item" th:if="${userAccount == null}"><a class="nav-link"  th:href="@{/login}">Logout</a></li>-->
 <!--                    </td>-->
             </ul>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <input type="hidden" th:field="${reviewDTO.gem}">
-                <input type="hidden" th:field="${reviewDTO.user}">
+                <input type="hidden" th:field="${reviewDTO.userAccount}">
                 <label class="btn btn-primary active">
                     <input type="radio" name="rating" th:field="${reviewDTO.review.thumbsup}" id="thumbsUp" value="true" autocomplete="off" checked=""><i class="fa fa-thumbs-up fa-3x"></i>
                 </label>
