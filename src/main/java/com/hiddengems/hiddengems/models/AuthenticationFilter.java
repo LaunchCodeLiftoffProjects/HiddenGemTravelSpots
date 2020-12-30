@@ -43,10 +43,10 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         }
 
         HttpSession session = request.getSession();
-        User user = authenticationController.getUserFromSession(session);
+        UserAccount userAccount = authenticationController.getUserFromSession(session);
 
         // The user is logged in
-        if (user != null) {
+        if (userAccount != null) {
             return true;
         }
 

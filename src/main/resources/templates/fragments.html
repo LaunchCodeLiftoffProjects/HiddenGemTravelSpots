@@ -41,8 +41,8 @@
                         <li class="nav-item"><a class="nav-link" th:href="@{/login}">Logout</a></li>
 <!--LOGIN/LOGOUT VISIBILITY BASED ON USER BEING LOGGED IN IS NOT WORKING-->
                     <!--                    <td>-->
-                    <!--                        <li class="nav-item" th:if="${user == null}"><a class="nav-link"  th:href="@{/login}">Sign In</a></li>-->
-<!--                        <li class="nav-item" th:if="${user == null}"><a class="nav-link"  th:href="@{/login}">Logout</a></li>-->
+                    <!--                        <li class="nav-item" th:if="${userAccount == null}"><a class="nav-link"  th:href="@{/login}">Sign In</a></li>-->
+<!--                        <li class="nav-item" th:if="${userAccount == null}"><a class="nav-link"  th:href="@{/login}">Logout</a></li>-->
 <!--                    </td>-->
             </ul>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <input type="hidden" th:field="${reviewDTO.gem}">
-                <input type="hidden" th:field="${reviewDTO.user}">
+                <input type="hidden" th:field="${reviewDTO.userAccount}">
                 <label class="btn btn-primary active">
                     <input type="radio" name="rating" th:field="${reviewDTO.review.thumbsup}" id="thumbsUp" value="true" autocomplete="off" checked=""><i class="fa fa-thumbs-up fa-3x"></i>
                 </label>
@@ -80,18 +80,9 @@
             <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
         </div>
 
-        <!--        <input type="hidden" th:field="${gem}" id="gem">-->
-
-        <button type="submit" class="btn btn-primary" th:unless="(${edit})">Submit</button>
-        <button type="submit" class="btn btn-primary" th:if="(${edit})">Save</button>
+        <button type="submit" class="btn btn-primary" th:text="(${submitBtnText})">Submit</button>
         <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
     </form>
-    <!--    Testing Only!  Remove when Review is complete!-->
-    <!--    <ul th:each="error : ${errors}">-->
-    <!--        <li th:text="${error}"></li>-->
-    <!--    </ul>-->
-    <!--    <p th:text="${gemInfo}">GEM INFO</p>-->
-    <!--    END OF TEST CODE-->
 </div>
 
 

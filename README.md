@@ -1,7 +1,7 @@
 # Hidden Gems Travel App
 We are developing Hidden Gems Travel App to help you find off-the-beaten-path tourist destinations that fit your needs and location. We here at QuaranTeam find that when traveling we desire to see the lesser known parts of the world.  If we're in New York we want to see the now-renovated fancy bar that once housed a legendary night club - not the Statue of Liberty!  We want to find that great hiking trail near our motel in Peoria, not the fastest route to Navy Pier.  Hidden Gems brings those experiences to your fingertips.
 
-Hidden Gems searches near your location for user-submitted sights and experiences that fit your needs.  With filtering based on activity type, age/family friendliness, accessibility and cost filters you can be sure you will find the best and most relevant travel activities every time you log in to our app.  You can also befriend other users on the platform to stay on top of their latest and greatest adventures.
+Hidden Gems searches near your location for userAccount-submitted sights and experiences that fit your needs.  With filtering based on activity type, age/family friendliness, accessibility and cost filters you can be sure you will find the best and most relevant travel activities every time you log in to our app.  You can also befriend other users on the platform to stay on top of their latest and greatest adventures.
 ### Features
 * A geolocation functionality so the users can see any activities within the chosen radius from their location.
     * Users can do the following:
@@ -31,7 +31,7 @@ Hidden Gems searches near your location for user-submitted sights and experience
         * delete review
         * attach pictures to the review
 
-* A user functionality so that users can friend each other and see each other's feeds.
+* A userAccount functionality so that users can friend each other and see each other's feeds.
     * Users can do the following:
         * send and accept friend requests.
         * delete friends.
@@ -39,7 +39,7 @@ Hidden Gems searches near your location for user-submitted sights and experience
         * see a list of their friends.
         * see their friend's feeds.
 
-* A user functionality to create and authenticate their account.
+* A userAccount functionality to create and authenticate their account.
     * Users can do the following:
         * create an account
         * delete their account

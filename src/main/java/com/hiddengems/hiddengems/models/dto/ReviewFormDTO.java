@@ -2,7 +2,7 @@ package com.hiddengems.hiddengems.models.dto;
 
 import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.Review;
-import com.hiddengems.hiddengems.models.User;
+import com.hiddengems.hiddengems.models.UserAccount;
 
 import javax.validation.constraints.NotNull;
 
@@ -12,17 +12,17 @@ public class ReviewFormDTO {
     private Gem gem;
 
     @NotNull
-    private User user;
+    private UserAccount userAccount;
 
     @NotNull
     private Review review;
 
     public ReviewFormDTO() { }
 
-    public ReviewFormDTO(Review review, Gem gem, User user) {
+    public ReviewFormDTO(Review review, Gem gem, UserAccount userAccount) {
         this.review = review;
         this.gem = gem;
-        this.user = user;
+        this.userAccount = userAccount;
     }
 
     public Gem getGem() {
@@ -33,12 +33,12 @@ public class ReviewFormDTO {
         this.gem = gem;
     }
 
-    public User getUser() {
-        return user;
+    public UserAccount getUserAccount() {
+        return userAccount;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     public Review getReview() {
