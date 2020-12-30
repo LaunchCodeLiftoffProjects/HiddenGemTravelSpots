@@ -80,18 +80,9 @@
             <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
         </div>
 
-        <!--        <input type="hidden" th:field="${gem}" id="gem">-->
-
-        <button type="submit" class="btn btn-primary" th:unless="(${edit})">Submit</button>
-        <button type="submit" class="btn btn-primary" th:if="(${edit})">Save</button>
+        <button type="submit" class="btn btn-primary" th:text="(${submitBtnText})">Submit</button>
         <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
     </form>
-    <!--    Testing Only!  Remove when Review is complete!-->
-    <!--    <ul th:each="error : ${errors}">-->
-    <!--        <li th:text="${error}"></li>-->
-    <!--    </ul>-->
-    <!--    <p th:text="${gemInfo}">GEM INFO</p>-->
-    <!--    END OF TEST CODE-->
 </div>
 
 
