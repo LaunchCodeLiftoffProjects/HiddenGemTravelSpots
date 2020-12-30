@@ -1,35 +1,38 @@
 package com.hiddengems.hiddengems.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public enum GemCategory {
-    INDOOR("Indoor activity", 1),
-    OUTDOOR ("Outdoor activity", 2),
-    SEASONAL ("Seasonal activity", 3),
-    FAMILY ("Family-friendly", 4),
-    WHEELCHAIR ("Wheelchair access", 5),
-    CDC ("Meets CDC Guidelines",6),
-    PET ("Pet-friendly",7),
-    FREEPARKING ("Free parking",8),
-    FOODDRINK ("Food and drinks",9);
+    INDOOR( "Indoor activity"),
+    OUTDOOR ( "Outdoor activity"),
+    SEASONAL ("Seasonal activity"),
+    FAMILY ("Family-friendly"),
+    WHEELCHAIR ("Wheelchair access"),
+    CDC ("Meets CDC Guidelines"),
+    PET ("Pet-friendly"),
+    FREEPARKING ("Free parking"),
+    FOODDRINK ("Food and drinks");
+//    INDOOR(1, "Indoor activity"),
+//    OUTDOOR (2, "Outdoor activity"),
+//    SEASONAL (3,"Seasonal activity"),
+//    FAMILY (4,"Family-friendly"),
+//    WHEELCHAIR (5,"Wheelchair access"),
+//    CDC (6,"Meets CDC Guidelines"),
+//    PET (7,"Pet-friendly"),
+//    FREEPARKING (8,"Free parking"),
+//    FOODDRINK (9,"Food and drinks");
 
-    private final String categoryName;
+//    @Id
+//    private int id;
+    private String categoryName;
 
-    @Id
-    private final int id;
-
-    GemCategory(String categoryName, int id) {
+    GemCategory(String categoryName) {
         this.categoryName = categoryName;
-        this.id = id;
     }
+
+//    public int getId() {
+//        return id;
+//    }
 
     public String getCategoryName() {
-        return this.categoryName;
-    }
-
-    public int getId() {
-        return id;
+        return categoryName;
     }
 }
