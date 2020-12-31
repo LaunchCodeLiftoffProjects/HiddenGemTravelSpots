@@ -3,28 +3,35 @@ package com.hiddengems.hiddengems.models;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Review extends AbstractEntity{
 
     @NotNull
-    private String thumbsup;
+    private boolean thumbsup;
 
     @ManyToOne
     private Gem gem;
 
     @ManyToOne
-    private User user;
+    private UserAccount userAccount;
 
+    @Size(max = 500, message = "Review must be no more than 500 characters in length")
     private String reviewText;
+
+    public Review(String reviewText, Gem gem) {
+        this.reviewText = reviewText;
+        this.gem = gem;
+    }
 
     public Review() {}
 
-    public String getThumbsup() {
+    public boolean isThumbsup() {
         return thumbsup;
     }
 
-    public void setThumbsup(String thumbsup) {
+    public void setThumbsup(boolean thumbsup) {
         this.thumbsup = thumbsup;
     }
 
@@ -32,12 +39,12 @@ public class Review extends AbstractEntity{
 
     public void setGem(Gem gem) { this.gem = gem; }
 
-    public User getUser() {
-        return user;
+    public UserAccount getUser() {
+        return userAccount;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     public String getReviewText() {

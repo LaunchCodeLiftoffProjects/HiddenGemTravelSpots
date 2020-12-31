@@ -3,17 +3,16 @@ package com.hiddengems.hiddengems.controllers;
 
 import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.Review;
-import com.hiddengems.hiddengems.models.User;
+import com.hiddengems.hiddengems.models.UserAccount;
+import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
+import com.hiddengems.hiddengems.models.dto.ReviewFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,16 +28,19 @@ public class ReviewController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private GemRepository gemRepository;
+
     private static final String userSessionKey = "user";
 
-    public User getUserFromSession(HttpSession session) {
+    public UserAccount getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
 
         if (userId == null) {
             return null;
         }
 
-        Optional<User> user = userRepository.findById(userId);
+        Optional<UserAccount> user = userRepository.findById(userId);
 
         if (user.isEmpty()) {
             return null;
@@ -47,80 +49,107 @@ public class ReviewController {
         return user.get();
     }
 
-    @GetMapping("/reviews/add")
-    public String displayReviewForm(HttpServletRequest request, Model model) {
-        model.addAttribute("title", "Review a Gem");
-        model.addAttribute(new Review());
-        return "reviews/add";
+    public Review getReviewById(Integer reviewId) {
+        Optional<Review> review = reviewRepository.findById(reviewId);
+        return (Review) review.orElse(null);
+    }
+
+    public Gem getGemById(Integer gemId) {
+        Optional<Gem> gem = gemRepository.findById(gemId);
+        return (Gem) gem.orElse(null);
+    }
+
+    @GetMapping("/reviews/add")//localhost:8080/reviews/add?gemId=
+    public String displayReviewForm(@RequestParam Integer gemId, HttpServletRequest request, Model model) {
+
+        Gem gem = getGemById(gemId);
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if(gem != null && userAccount != null) {
+            model.addAttribute("reviewDTO", new ReviewFormDTO(new Review(), gem, userAccount));
+            model.addAttribute("title", "Leave a review for: " + gem.getGemName());
+            model.addAttribute("submitBtnText", "Submit!");
+            return "reviews/add";
+        } else {
+            model.addAttribute("message", "No such Gem exists with this Id");
+            return "../error";
+        }
     }
 
     @PostMapping("/reviews/add")
-    public String processReviewForm(@ModelAttribute @Valid Review newReview,
+    public String processReviewForm(@ModelAttribute @Valid ReviewFormDTO review,
                                     Errors errors, HttpServletRequest request, Model model) {
 
-        User user = getUserFromSession(request.getSession());
+        UserAccount userAccount = getUserFromSession(request.getSession());
 
-        if (errors.hasErrors()) {
-            return "reviews/add.html";
-        } else {
-            newReview.setUser(user);
+        if (!errors.hasErrors()) {
+            Gem gem = review.getGem();
+            gemRepository.save(gem);
+
+            Review newReview = review.getReview();
+            newReview.setUser(userAccount);
+            newReview.setGem(gem);
             reviewRepository.save(newReview);
-        }
 
-        return "redirect:../";
+            return "redirect:../";
+        } else {
+            model.addAttribute("errors", errors);
+            return "reviews/add";
+        }
     }
 
     @GetMapping("/reviews/edit/{reviewId}")
-    public String displayEditReviewForm(Model model, @PathVariable int reviewId) {
+    public String displayEditReviewForm(Model model, @PathVariable int reviewId, HttpServletRequest request) {
 
-        Optional<Review> review = reviewRepository.findById(reviewId);
-        if (review.isPresent()) {
-            Review oldReview = (Review) review.get();
-            model.addAttribute("review", oldReview);
-            model.addAttribute("edit", true);
+        Review review = getReviewById(reviewId);
+        Gem gem = getGemById(review.getGem().getId());
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if (review != null && review.getUser().getId() == userAccount.getId() && gem != null) {
+            ReviewFormDTO reviewDTO = new ReviewFormDTO(review, gem, userAccount);
+            model.addAttribute("reviewDTO", reviewDTO);
+            model.addAttribute("review", review);
+            model.addAttribute("submitBtnText", "Save");
             return "reviews/edit.html";
         } else {
-            return "redirect:../";
+            model.addAttribute("message", "You are not authorized to edit this Gem Review.");
+            return "../error";
         }
+
+
     }
 
     @PostMapping("/reviews/edit/{reviewId}")
-    public String processEditReviewForm(@PathVariable Integer reviewId, @ModelAttribute @Valid Review updatedReview, Error errors,
-                                        HttpServletRequest request, Model model) {
+    public String processEditReviewForm(@ModelAttribute @Valid ReviewFormDTO reviewDTO, Errors errors,
+                                        @PathVariable Integer reviewId, HttpServletRequest request, Model model) {
 
+        Review review = getReviewById(reviewId);
+        UserAccount userAccount = getUserFromSession(request.getSession());
 
-        Optional<Review> review = reviewRepository.findById(reviewId);
-
-
-
-        if (review.isPresent()) {
-            Review newReview = (Review) review.get();
-            User user = getUserFromSession(request.getSession());
-
-            if (newReview.getUser().getId() == user.getId()) {
-                newReview.setUser(user);
-                newReview.setReviewText(updatedReview.getReviewText());
-                newReview.setThumbsup(updatedReview.getThumbsup());
-                reviewRepository.save(newReview);
-                return "success-test";
-            } else {
-                // TODO: redirect to error page (create error page)
-            }
+        if (review != null && review.getUser().getId() == userAccount.getId() && !errors.hasErrors()) {
+            review.setUser(userAccount);
+            review.setReviewText(reviewDTO.getReview().getReviewText());
+            review.setThumbsup(reviewDTO.getReview().isThumbsup());
+            reviewRepository.save(review);
+            return "redirect:../../";
+        } else {
+            model.addAttribute("message", "You are not authorized to edit this Gem Review.");
+            return "../error";
         }
-
-        return "redirect:../";
     }
 
-    @PostMapping("/delete/")
-    public String processDeleteReview(@ModelAttribute Review review, HttpServletRequest request, Model model) {
-//        Optional<Review> review2 = reviewRepository.findById(review.getId());
-//        Review newReview = (Review) review2.get();
-//        model.addAttribute("message", "This will delete the review eventually. Review ID = " + newReview.getId());
-        model.addAttribute("message", "This will delete the review eventually.");
-        return "success-test";
+    @PostMapping("delete/{reviewId}")
+    public String processDeleteReview(@PathVariable Integer reviewId, HttpServletRequest request, Model model) {
+
+        Review review = getReviewById(reviewId);
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if (review != null && review.getUser().getId() == userAccount.getId()) {
+            reviewRepository.deleteById(reviewId);
+            return "redirect:../";
+        } else {
+            model.addAttribute("message", "You are not authorized to delete this Gem Review.");
+            return "../error";
+        }
     }
-
-    // TODO: Update the Review template with conditional statements to populate the fields with pre-existing review data & flip the Submit button to Save
-    // TODO: Add 'Delete' handlers
-
 }

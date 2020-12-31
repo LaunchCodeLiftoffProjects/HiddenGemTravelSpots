@@ -1,8 +1,8 @@
 package com.hiddengems.hiddengems.models.data;
 
-import com.hiddengems.hiddengems.models.User;
+import com.hiddengems.hiddengems.models.UserAccount;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<User, Integer> {
-    User findByUsername(String username);
+public interface UserRepository extends CrudRepository<UserAccount, Integer> {
+    UserAccount findByUsername(String username);
 }

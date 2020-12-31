@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class User extends AbstractEntity {
+public class UserAccount extends AbstractEntity {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -17,9 +17,9 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
-    public User() {}
+    public UserAccount() {}
 
-    public User(String username, String password) {
+    public UserAccount(String username, String password) {
         this.username = username;
         this.pwHash = encoder.encode(password);
     }

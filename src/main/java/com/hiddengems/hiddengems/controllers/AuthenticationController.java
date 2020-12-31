@@ -1,6 +1,6 @@
 package com.hiddengems.hiddengems.controllers;
 
-import com.hiddengems.hiddengems.models.User;
+import com.hiddengems.hiddengems.models.UserAccount;
 import com.hiddengems.hiddengems.models.data.UserRepository;
 import com.hiddengems.hiddengems.models.dto.LoginFormDTO;
 import com.hiddengems.hiddengems.models.dto.RegisterFormDTO;
@@ -25,13 +25,13 @@ public class AuthenticationController {
 
     private static final String userSessionKey = "user";
 
-    public User getUserFromSession(HttpSession session) {
+    public UserAccount getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
         if (userId == null) {
             return null;
         }
 
-        Optional<User> user = userRepository.findById(userId);
+        Optional<UserAccount> user = userRepository.findById(userId);
 
         if (user.isEmpty()) {
             return null;
@@ -40,8 +40,8 @@ public class AuthenticationController {
         return user.get();
     }
 
-    private static void setUserInSession(HttpSession session, User user) {
-        session.setAttribute(userSessionKey, user.getId());
+    private static void setUserInSession(HttpSession session, UserAccount userAccount) {
+        session.setAttribute(userSessionKey, userAccount.getId());
     }
 
     @GetMapping("/register")
@@ -61,9 +61,9 @@ public class AuthenticationController {
             return "register";
         }
 
-        User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
+        UserAccount existingUserAccount = userRepository.findByUsername(registerFormDTO.getUsername());
 
-        if (existingUser != null) {
+        if (existingUserAccount != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
             model.addAttribute("title", "Register");
             return "register";
@@ -77,9 +77,9 @@ public class AuthenticationController {
             return "register";
         }
 
-        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
-        userRepository.save(newUser);
-        setUserInSession(request.getSession(), newUser);
+        UserAccount newUserAccount = new UserAccount(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        userRepository.save(newUserAccount);
+        setUserInSession(request.getSession(), newUserAccount);
 
         return "redirect:";
     }
@@ -101,9 +101,9 @@ public class AuthenticationController {
             return "login";
         }
 
-        User theUser = userRepository.findByUsername(loginFormDTO.getUsername());
+        UserAccount theUserAccount = userRepository.findByUsername(loginFormDTO.getUsername());
 
-        if (theUser == null) {
+        if (theUserAccount == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
             model.addAttribute("title", "Log In");
             return "login";
@@ -111,13 +111,13 @@ public class AuthenticationController {
 
         String password = loginFormDTO.getPassword();
 
-        if (!theUser.isMatchingPassword(password)) {
+        if (!theUserAccount.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             model.addAttribute("title", "Log In");
             return "login";
         }
 
-        setUserInSession(request.getSession(), theUser);
+        setUserInSession(request.getSession(), theUserAccount);
 
         return "index";
     }
