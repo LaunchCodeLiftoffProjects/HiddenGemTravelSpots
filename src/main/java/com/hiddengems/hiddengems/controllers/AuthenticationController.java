@@ -81,7 +81,7 @@ public class AuthenticationController {
         userRepository.save(newUserAccount);
         setUserInSession(request.getSession(), newUserAccount);
 
-        return "redirect:";
+        return "profile/create";
     }
 
     @GetMapping("/login")

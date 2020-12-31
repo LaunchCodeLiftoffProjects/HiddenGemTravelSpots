@@ -3,18 +3,23 @@
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
 <head th:replace="fragments :: head">
 </head>
-    <body>
-        <header th:replace="fragments :: header"></header>
+<body>
+    <header th:replace="fragments :: header"></header>
 
         <div>
-            <center><h1 th:text="${'Welcome!'}">Default Title</h1></center>
+            <center><h1 th:text="${'User Profile Settings'}">Pass Title To Model!!!</h1></center>
         </div>
 
         <div class="row">
             <div class="side">
-                <h2>Profile</h2>
+                <h2 th:text="${user.displayName}">Display Name</h2>
                 <div class="profileimg" style="height:200px;">Profile Image</div>
-                <p th:text="${user.displayName}"> Username:  </p>
+                <div class="form-group">
+                    <label for="gemPics">File input</label>
+                    <input type="file" class="form-control-file" id="gemPics" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                </div>
+                <p> Username:  </p>
             </div>
 
             <div class="main">
