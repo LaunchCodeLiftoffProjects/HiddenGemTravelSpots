@@ -1,0 +1,2 @@
+com/hiddengems/hiddengems/HiddenGemsApplicationTests.java
+ com.hiddengems.hiddengems.HiddenGemsApplicationTests

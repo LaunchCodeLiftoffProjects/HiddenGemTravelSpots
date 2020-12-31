@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head">
+</head>
+<body>
+<header th:replace="fragments :: header"> </header>
+
+<div> <title>All Gems: </title> </div>
+<div class="gem-index">
+    <li th:each="gem : ${gems}">
+        <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+        <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.description}"></a>
+</div>
+
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
