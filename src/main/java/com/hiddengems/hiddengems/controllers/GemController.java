@@ -53,11 +53,11 @@ public class GemController {
 
     @GetMapping ("index")
     public String index(Model model) {
-
         model.addAttribute("Gems", "All Gems");
         model.addAttribute("gem", gemRepository.findAll());
         return "gems/index";
     }
+
 
     @GetMapping("add")
     public String displayAddGemForm(Model model) {
@@ -93,4 +93,5 @@ public class GemController {
             return "redirect:";
         }
     }
+
 }

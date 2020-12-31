@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/search" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search function working" />
+    <list id="14920f12-b464-4647-8d17-fbd312e9b898" name="Revert &quot;starter code&quot;" comment="Revert &quot;starter code&quot;&#10;&#10;This reverts commit 30faac57" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Thymeleaf" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1mD8Sam5gViic6uwEuRcWpdIZu5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="HiddenGemTravelSpots [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
+        <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
+        <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
+        <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="" />
+      <created>1609016802084</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609016802084</updated>
+    </task>
+    <task id="LOCAL-00001" summary="search function working">
+      <created>1609283737324</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609283737324</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added SearchController again after rollback">
+      <created>1609374325405</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609374325405</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added SearchController again after rollback">
+      <created>1609377006720</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609377006720</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/search" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="search function working" />
+    <MESSAGE value="added SearchController again after rollback" />
+    <option name="LAST_COMMIT_MESSAGE" value="added SearchController again after rollback" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609035929567">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="-918" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608772409271" />
+    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1609035929567" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1608781150317">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608781150317" />
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1609350326407">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="172" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958570" />
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1609350326407">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="172" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958555" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1609350326407">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="172" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958555" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1609350326407">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="172" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958570" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1609304195240">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1609304195240">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1609304195240">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1609304195240">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
+    <state x="335" y="66" key="RollbackChangesDialog" timestamp="1609303729919">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="335" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1609303729919" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1609303581282">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1609303581282" />
+    <state x="24" y="128" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609304195803">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="24" y="128" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1609304195803" />
+  </component>
+</project>

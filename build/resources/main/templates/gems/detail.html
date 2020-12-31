@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head">
+</head>
+<body>
+<header th:replace="fragments :: header"> </header>
+
+<div> <title>Gem Details</title> </div>
+
+<div class="gem-details">
+    <p th:text="${'Gem Name: ' + gem.gemName}"></p>
+    <p th:text="${'Description: ' + gem.description}"></p>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
