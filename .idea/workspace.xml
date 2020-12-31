@@ -26,94 +26,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search function working">
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileContent/fileContent.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_20_2020_1_51_PM_[Default_Changelist]/HiddenGemsApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_20_2020_1_51_PM_[Default_Changelist]/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_20_2020_1_51_PM_[Default_Changelist]/javaCompile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/bootRunMainClassName" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/HiddenGemsApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/AuthenticationController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemCategoryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/HelloController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/ReviewController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/SearchController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/AbstractEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/AuthenticationFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Gem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemCategory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Review.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/WebApplicationConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/data/GemRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/data/ReviewRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/data/UserRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/dto/LoginFormDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/dto/RegisterFormDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/dto/ReviewFormDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/com/hiddengems/hiddengems/HiddenGemsApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/Retrocycles.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/austin-neill-jB8WaHvHmoY-unsplash.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/splash.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/reviews/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/reviews/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/search-results.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/users/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/templates/users/view.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
-    </list>
+    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search function working" />
     <list id="14920f12-b464-4647-8d17-fbd312e9b898" name="Revert &quot;starter code&quot;" comment="Revert &quot;starter code&quot;&#10;&#10;This reverts commit 30faac57" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +88,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -233,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609374325405</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added SearchController again after rollback">
+      <created>1609377006720</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609377006720</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
