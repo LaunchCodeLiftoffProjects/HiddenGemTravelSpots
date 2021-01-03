@@ -48,12 +48,11 @@ public class UserProfileController {
         if (userProfile.isEmpty()) {
             profile = new UserProfile(userAccount);
         } else {
-            profile = userProfile.get();
+            profile = userAccount.getUserProfile();
         }
 
         model.addAttribute("title", "Edit User Profile");
         model.addAttribute("userProfile", profile);
-
         return "profile/settings";
     }
 

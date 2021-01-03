@@ -6,6 +6,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -25,6 +27,9 @@ public class UserAccount extends AbstractEntity {
 
     @UpdateTimestamp
     private Date lastLogin;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount")
+    private UserProfile userProfile;
 
     public UserAccount() {}
 
@@ -48,6 +53,14 @@ public class UserAccount extends AbstractEntity {
 
     public Date getLastLogin() {
         return lastLogin;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 }
 

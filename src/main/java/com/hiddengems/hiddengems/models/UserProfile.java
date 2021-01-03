@@ -2,6 +2,7 @@ package com.hiddengems.hiddengems.models;
 
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Digits;
@@ -14,6 +15,7 @@ import java.util.List;
 public class UserProfile extends AbstractEntity {
 
     @OneToOne
+    @JoinColumn(name = "user_account_id")
     private UserAccount userAccount;
 
     @NotBlank
