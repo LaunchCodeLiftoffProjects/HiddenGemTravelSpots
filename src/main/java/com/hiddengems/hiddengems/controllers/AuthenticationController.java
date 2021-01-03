@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -77,11 +78,12 @@ public class AuthenticationController {
             return "register";
         }
 
-        UserAccount newUserAccount = new UserAccount(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        Date date = new Date();
+        UserAccount newUserAccount = new UserAccount(registerFormDTO.getUsername(), registerFormDTO.getPassword(), date);
         userRepository.save(newUserAccount);
         setUserInSession(request.getSession(), newUserAccount);
 
-        return "profile/create";
+        return "index";
     }
 
     @GetMapping("/login")
@@ -118,6 +120,7 @@ public class AuthenticationController {
         }
 
         setUserInSession(request.getSession(), theUserAccount);
+        userRepository.save(theUserAccount);//update last login timestamp
 
         return "index";
     }

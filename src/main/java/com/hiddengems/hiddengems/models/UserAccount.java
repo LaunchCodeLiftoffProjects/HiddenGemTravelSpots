@@ -1,12 +1,13 @@
 package com.hiddengems.hiddengems.models;
 
 
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.validation.constraints.*;
-import java.util.List;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 public class UserAccount extends AbstractEntity {
@@ -19,28 +20,18 @@ public class UserAccount extends AbstractEntity {
     @NotNull
     private String pwHash;
 
-    @NotBlank
-    @Email(message = "Please enter a valid email address format (username@example.com)")
-    private String emailAddress;
+    @CreatedDate
+    private Date acctCreationDate;
 
-    @NotBlank
-    @Size(min = 2, max = 25, message = "Display name must be between 2 and 25 characters in length")
-    private String displayName;
-
-    @Digits(integer = 5, fraction = 0, message = "Please enter a valid 5-digit US Zip Code or leave blank")
-    private Integer zipCode;
-
-    @Size(min = 0, max = 500, message = "We get it - you contain multitudes - but there is a 500 character limit")
-    private String bio;
-
-    @ManyToMany
-    private List<UserAccount> friends;
+    @UpdateTimestamp
+    private Date lastLogin;
 
     public UserAccount() {}
 
-    public UserAccount(String username, String password) {
+    public UserAccount(String username, String password, Date acctCreationDate) {
         this.username = username;
         this.pwHash = encoder.encode(password);
+        this.acctCreationDate = acctCreationDate;
     }
 
     public String getUsername() {
@@ -51,48 +42,12 @@ public class UserAccount extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public Date getAcctCreationDate() {
+        return acctCreationDate;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public Integer getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(Integer zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    public List<UserAccount> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<UserAccount> friends) {
-        this.friends = friends;
-    }
-
-    public void addFriend(UserAccount friend) {
-        this.friends.add(friend);
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
+    public Date getLastLogin() {
+        return lastLogin;
     }
 }
 

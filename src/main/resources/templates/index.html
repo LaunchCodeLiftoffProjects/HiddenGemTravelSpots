@@ -14,7 +14,9 @@
             <div class="side">
                 <h2>Profile</h2>
                 <div class="profileimg" style="height:200px;">Profile Image</div>
-                <p th:text="${user.displayName}"> Username:  </p>
+<!--                <p th:text="${user.displayName}"> Username:  </p>-->
+                <p> Username:  </p>
+                <a th:href="@{/profile/settings}">Edit Profile</a>
             </div>
 
             <div class="main">
