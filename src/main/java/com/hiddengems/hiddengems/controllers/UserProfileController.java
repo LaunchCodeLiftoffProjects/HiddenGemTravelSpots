@@ -45,10 +45,16 @@ public class UserProfileController {
         Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(userAccount));
         UserProfile profile;
 
-        if (userProfile.isEmpty()) {
-            profile = new UserProfile(userAccount);
-        } else {
+//        if (userProfile.isEmpty()) {
+//            profile = new UserProfile(userAccount);
+//        } else {
+//            profile = userAccount.getUserProfile();
+//        }
+
+        if (userProfile.isPresent()) {
             profile = userAccount.getUserProfile();
+        } else {
+            profile = new UserProfile(userAccount);
         }
 
         model.addAttribute("title", "Edit User Profile");
@@ -57,14 +63,20 @@ public class UserProfileController {
     }
 
     @PostMapping("/profile/settings")
-    public String processUserProfileSettings(UserProfile userProfile, Errors errors, Model model) {
+    public String processUserProfileSettings(UserProfile userProfile, Errors errors, HttpServletRequest request, Model model) {
 
         if(errors.hasErrors()) {
-            return "settings";
+            model.addAttribute("errors", errors);
+            model.addAttribute("message", "Errors has errors, fix it.");
+            return "../error";
         }
+
+        userProfile.setUserAccount(getUserFromSession(request.getSession()));
+
+
 
         userProfileRepository.save(userProfile);
 
-        return "redirect:../index";
+        return "redirect:../";
     }
 }

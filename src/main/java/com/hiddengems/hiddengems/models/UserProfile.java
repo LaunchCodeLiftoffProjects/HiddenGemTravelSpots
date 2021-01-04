@@ -1,10 +1,7 @@
 package com.hiddengems.hiddengems.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -14,7 +11,7 @@ import java.util.List;
 @Entity
 public class UserProfile extends AbstractEntity {
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_account_id")
     private UserAccount userAccount;
 
@@ -83,5 +80,13 @@ public class UserProfile extends AbstractEntity {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 }
