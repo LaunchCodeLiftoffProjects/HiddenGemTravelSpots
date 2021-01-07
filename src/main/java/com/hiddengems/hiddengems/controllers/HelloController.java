@@ -1,15 +1,47 @@
 package com.hiddengems.hiddengems.controllers;
+import com.hiddengems.hiddengems.models.UserAccount;
+import com.hiddengems.hiddengems.models.data.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Controller
 public class HelloController {
 
+    @Autowired
+    private UserRepository userRepository;
+
+    private static final String userSessionKey = "user";
+
+    public UserAccount getUserFromSession(HttpSession session) {
+        Integer userId = (Integer) session.getAttribute(userSessionKey);
+        if (userId == null) {
+            return null;
+        }
+
+        Optional<UserAccount> user = userRepository.findById(userId);
+
+        if (user.isEmpty()) {
+            return null;
+        }
+
+        return user.get();
+    }
+
     @RequestMapping("")
-    public String index(Model model) {
+    public String index(HttpServletRequest request, Model model) {
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if (userAccount != null) {
+            model.addAttribute("user", userAccount);
+        }
+
         return "index";
     }
 

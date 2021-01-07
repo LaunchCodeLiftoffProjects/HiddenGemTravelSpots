@@ -7,9 +7,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class UserAccount extends AbstractEntity {
@@ -30,6 +32,9 @@ public class UserAccount extends AbstractEntity {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount")
     private UserProfile userProfile;
+
+    @ManyToMany
+    private List<UserAccount> friends;
 
     public UserAccount() {}
 
@@ -61,6 +66,18 @@ public class UserAccount extends AbstractEntity {
 
     public void setUserProfile(UserProfile userProfile) {
         this.userProfile = userProfile;
+    }
+
+    public List<UserAccount> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<UserAccount> friends) {
+        this.friends = friends;
+    }
+
+    public void addFriend(UserAccount friend) {
+        this.friends.add(friend);
     }
 }
 

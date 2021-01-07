@@ -1,12 +1,14 @@
 package com.hiddengems.hiddengems.models;
 
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 public class UserProfile extends AbstractEntity {
@@ -29,13 +31,18 @@ public class UserProfile extends AbstractEntity {
     @Size(min = 0, max = 500, message = "We get it - you contain multitudes - but there is a 500 character limit")
     private String bio;
 
-    @ManyToMany
-    private List<UserAccount> friends;
-
     public UserProfile() { }
 
     public UserProfile(UserAccount userAccount) {
         this.userAccount = userAccount;
+    }
+
+    public UserProfile(UserAccount userAccount, @NotBlank @Email(message = "Please enter a valid email address format (username@example.com)") String emailAddress, @NotBlank @Size(min = 2, max = 25, message = "Display name must be between 2 and 25 characters in length") String displayName, @Digits(integer = 5, fraction = 0, message = "Please enter a valid 5-digit US Zip Code or leave blank") Integer zipCode, @Size(min = 0, max = 500, message = "We get it - you contain multitudes - but there is a 500 character limit") String bio) {
+        this.userAccount = userAccount;
+        this.emailAddress = emailAddress;
+        this.displayName = displayName;
+        this.zipCode = zipCode;
+        this.bio = bio;
     }
 
     public String getEmailAddress() {
@@ -60,18 +67,6 @@ public class UserProfile extends AbstractEntity {
 
     public void setZipCode(Integer zipCode) {
         this.zipCode = zipCode;
-    }
-
-    public List<UserAccount> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<UserAccount> friends) {
-        this.friends = friends;
-    }
-
-    public void addFriend(UserAccount friend) {
-        this.friends.add(friend);
     }
 
     public String getBio() {
