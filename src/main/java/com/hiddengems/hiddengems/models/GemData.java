@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GemData {
 
-    public static ArrayList<Gem> findByColumnAndValue(String value, Iterable<Gem> allGems) {
+    public static ArrayList<Gem> findByColumnAndValue(String column, String value, Iterable<Gem> allGems) {
         ArrayList<Gem> results = new ArrayList<>();
 
         if (value.toLowerCase().equals("all")) {

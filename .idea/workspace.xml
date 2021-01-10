@@ -26,7 +26,53 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search function working" />
+    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search function working">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/AuthenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemCategoryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/ReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/ReviewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/SearchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/AuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/AuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Gem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Gem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/data/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/data/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/dto/ReviewFormDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/dto/ReviewFormDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/gems/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/gems/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/gems/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviews/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviews/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/GemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/GemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/GemData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/GemData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/gems/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/gems/index.html" afterDir="false" />
+    </list>
     <list id="14920f12-b464-4647-8d17-fbd312e9b898" name="Revert &quot;starter code&quot;" comment="Revert &quot;starter code&quot;&#10;&#10;This reverts commit 30faac57" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +81,11 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -70,15 +121,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Thymeleaf" />
         <option value="Class" />
+        <option value="Thymeleaf" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="listGems" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -154,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609377006720</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added browse template">
+      <created>1609528597560</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609528597560</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -199,38 +257,39 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="search function working" />
     <MESSAGE value="added SearchController again after rollback" />
-    <option name="LAST_COMMIT_MESSAGE" value="added SearchController again after rollback" />
+    <MESSAGE value="added browse template" />
+    <option name="LAST_COMMIT_MESSAGE" value="added browse template" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609035929567">
+    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1610160460102">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-918" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608772409271" />
-    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1609035929567" />
+    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1610160460102" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1608781150317">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608781150317" />
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1609350326407">
+    <state width="1323" height="77" key="GridCell.Tab.0.bottom" timestamp="1610244646034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="172" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958570" />
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
-    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1609350326407">
+    <state width="1323" height="77" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610244646034" />
+    <state width="1323" height="77" key="GridCell.Tab.0.center" timestamp="1610244646034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="172" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958555" />
-    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
-    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1609350326407">
+    <state width="1323" height="77" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610244646034" />
+    <state width="1323" height="77" key="GridCell.Tab.0.left" timestamp="1610244646034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="172" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958555" />
-    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
-    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1609350326407">
+    <state width="1323" height="77" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610244646034" />
+    <state width="1323" height="77" key="GridCell.Tab.0.right" timestamp="1610244646034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="172" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958570" />
-    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
+    <state width="1323" height="77" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610244646034" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1609304195240">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -251,10 +310,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="335" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1609303729919" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1609303581282">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1609528711359">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1609303581282" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1609528711359" />
     <state x="24" y="128" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609304195803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

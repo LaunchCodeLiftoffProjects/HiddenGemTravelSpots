@@ -18,13 +18,6 @@ public class SearchController {
     @Autowired
     private GemRepository gemRepository;
 
-//    @RequestMapping("/search-results")
-//    public String search(Model model){
-//        model.addAttribute("searchTerm", gemRepository);
-//        return "search-results";
-//    }
-
-
     @PostMapping("/search-results")
     public String displaySearchResults(Model model, @RequestParam String searchTerm){
         Iterable<Gem> gems;

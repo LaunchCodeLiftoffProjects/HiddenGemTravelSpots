@@ -1,8 +1,8 @@
 package com.hiddengems.hiddengems.controllers;
 
+import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.GemCategory;
 import com.hiddengems.hiddengems.models.UserAccount;
-import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +33,7 @@ public class GemController {
 
     private static final String userSessionKey = "user";
 
+
     public UserAccount getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
 
@@ -48,14 +48,6 @@ public class GemController {
         }
 
         return user.get();
-    }
-
-
-    @GetMapping ("index")
-    public String index(Model model) {
-        model.addAttribute("Gems", "All Gems");
-        model.addAttribute("gem", gemRepository.findAll());
-        return "gems/index";
     }
 
 
@@ -94,4 +86,12 @@ public class GemController {
         }
     }
 
+    @GetMapping("gems/index")
+    public String index(Model model){
+        Iterable<Gem> gems;
+        gems = gemRepository.findAll();
+        model.addAttribute("title", "All Gems");
+        model.addAttribute("gems", gems);
+        return "gems/index";
+    }
 }

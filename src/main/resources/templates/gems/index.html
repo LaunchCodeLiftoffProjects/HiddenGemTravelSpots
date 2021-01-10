@@ -6,11 +6,18 @@
 <body>
 <header th:replace="fragments :: header"> </header>
 
-<div> <title>All Gems: </title> </div>
+<div> All Gems:  </div>
 <div class="gem-index">
-    <li th:each="gem : ${gems}">
-        <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
-        <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.description}"></a>
+    <table>
+        <tr th:each="gem : ${gems}">
+            <td>
+                <p>
+                    <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                </p>
+            </td>
+        </tr>
+
+    </table>
 </div>
 
 
