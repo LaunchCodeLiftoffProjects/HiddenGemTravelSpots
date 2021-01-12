@@ -71,16 +71,16 @@ public class UserProfileController {
 
         Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(getUserFromSession(request.getSession())));
 
-        UserProfile userProfileOld;
+        UserProfile profile;
         UserProfile userProfileUpdated;
 
         if (userProfile.isPresent()) {
-            userProfileOld = userProfile.get();
-            userProfileUpdated = new UserProfile(userProfileOld.getUserAccount(), userProfileOld.getEmailAddress(),
-                                                    userProfileOld.getDisplayName(), userProfileOld.getZipCode(),
-                                                    userProfileOld.getBio());
-            userProfileRepository.save(userProfileUpdated);
-
+            profile = userProfile.get();
+            profile.setDisplayName(userProfileNew.getDisplayName());
+            profile.setBio(userProfileNew.getBio());
+            profile.setEmailAddress(userProfileNew.getEmailAddress());
+            profile.setZipCode(userProfileNew.getZipCode());
+            userProfileRepository.save(profile);
         } else {
             userProfileNew.setUserAccount(getUserFromSession(request.getSession()));
             userProfileRepository.save(userProfileNew);
@@ -88,8 +88,7 @@ public class UserProfileController {
 
 
 
-        userProfileNew.setUserAccount(getUserFromSession(request.getSession()));
 
-        return "redirect:../";
+        return "redirect:../../";
     }
 }

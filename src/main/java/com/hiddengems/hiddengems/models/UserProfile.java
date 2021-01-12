@@ -31,18 +31,15 @@ public class UserProfile extends AbstractEntity {
     @Size(min = 0, max = 500, message = "We get it - you contain multitudes - but there is a 500 character limit")
     private String bio;
 
+//    @OneToMany(mappedBy = "userProfile")
+//    private List<Review> reviews;
+
+    private String avatar;
+
     public UserProfile() { }
 
     public UserProfile(UserAccount userAccount) {
         this.userAccount = userAccount;
-    }
-
-    public UserProfile(UserAccount userAccount, @NotBlank @Email(message = "Please enter a valid email address format (username@example.com)") String emailAddress, @NotBlank @Size(min = 2, max = 25, message = "Display name must be between 2 and 25 characters in length") String displayName, @Digits(integer = 5, fraction = 0, message = "Please enter a valid 5-digit US Zip Code or leave blank") Integer zipCode, @Size(min = 0, max = 500, message = "We get it - you contain multitudes - but there is a 500 character limit") String bio) {
-        this.userAccount = userAccount;
-        this.emailAddress = emailAddress;
-        this.displayName = displayName;
-        this.zipCode = zipCode;
-        this.bio = bio;
     }
 
     public String getEmailAddress() {

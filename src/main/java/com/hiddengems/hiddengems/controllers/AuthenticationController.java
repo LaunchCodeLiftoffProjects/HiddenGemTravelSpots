@@ -50,6 +50,16 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, userAccount.getId());
     }
 
+    public UserProfile getProfileByUser(UserAccount userAccount) {
+        Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(userAccount));
+
+        if (userProfile.isEmpty()) {
+            return null;
+        }
+
+        return userProfile.get();
+    }
+
 
     @GetMapping("/register")
     public String displayRegistrationForm(Model model) {
@@ -132,6 +142,7 @@ public class AuthenticationController {
         setUserInSession(request.getSession(), theUserAccount);
         userRepository.save(theUserAccount);//update last login timestamp
         model.addAttribute("user", theUserAccount);
+        model.addAttribute("profile", getProfileByUser(theUserAccount));
 
         return "index";
     }
