@@ -8,14 +8,12 @@ import com.hiddengems.hiddengems.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -50,6 +48,7 @@ public class UserProfileController {
         if (userProfile.isPresent()) {
             profile = userAccount.getUserProfile();
             model.addAttribute("title", "Edit User Profile");
+            model.addAttribute("existing", true);
         } else {
             profile = new UserProfile(userAccount);
             model.addAttribute("title", "Create User Profile");
@@ -60,14 +59,7 @@ public class UserProfileController {
     }
 
     @PostMapping("/profile/settings")
-    public String processUserProfileSettings(@ModelAttribute @Valid UserProfile userProfileNew, Errors errors, HttpServletRequest request, Model model) {
-
-        if(errors.hasErrors()) {
-            model.addAttribute("errors", errors);
-            model.addAttribute("message", "Errors has errors, fix it.");
-            errors.rejectValue("displayName", "displayName.empty", "You must pick a display name");
-            return "settings";
-        }
+    public String processUserProfileSettings(@ModelAttribute UserProfile userProfileNew, HttpServletRequest request, Model model) {
 
         Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(getUserFromSession(request.getSession())));
 
@@ -81,14 +73,34 @@ public class UserProfileController {
             profile.setEmailAddress(userProfileNew.getEmailAddress());
             profile.setZipCode(userProfileNew.getZipCode());
             userProfileRepository.save(profile);
+            return "redirect:../../";
         } else {
             userProfileNew.setUserAccount(getUserFromSession(request.getSession()));
             userProfileRepository.save(userProfileNew);
+            return "redirect:/";
         }
 
-
-
-
-        return "redirect:../../";
     }
+
+    @PostMapping("/delete-user")
+    public String processDeleteUserAccount(HttpServletRequest request, Model model) {
+        UserAccount userAccount = getUserFromSession(request.getSession());
+        Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(userAccount));
+
+
+
+        if (userAccount != null) {
+            userRepository.delete(userAccount);
+        }
+
+        if (userProfile.isPresent()) {
+            UserProfile profile = userProfile.get();
+            userProfileRepository.delete(profile);
+        }
+
+        request.getSession().invalidate();
+
+        return "redirect:/";
+    }
+
 }
