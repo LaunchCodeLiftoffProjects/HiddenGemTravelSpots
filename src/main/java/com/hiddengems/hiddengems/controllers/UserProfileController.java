@@ -62,12 +62,12 @@ public class UserProfileController {
     @PostMapping("/profile/settings")
     public String processUserProfileSettings(@ModelAttribute @Valid UserProfile userProfileNew, Errors errors, HttpServletRequest request, Model model) {
 
-        if(errors.hasErrors()) {
-            model.addAttribute("errors", errors);
-            model.addAttribute("message", "Errors has errors, fix it.");
-            errors.rejectValue("displayName", "displayName.empty", "You must pick a display name");
-            return "settings";
-        }
+//        if(errors.hasErrors()) {
+//            model.addAttribute("errors", errors);
+//            model.addAttribute("message", "Errors has errors, fix it.");
+//            errors.rejectValue("displayName", "displayName.empty", "You must pick a display name");
+//            return "settings";
+//        }
 
         Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(getUserFromSession(request.getSession())));
 
@@ -81,14 +81,14 @@ public class UserProfileController {
             profile.setEmailAddress(userProfileNew.getEmailAddress());
             profile.setZipCode(userProfileNew.getZipCode());
             userProfileRepository.save(profile);
+
+            return "redirect:../../";
         } else {
             userProfileNew.setUserAccount(getUserFromSession(request.getSession()));
             userProfileRepository.save(userProfileNew);
         }
 
+        return "redirect:/";
 
-
-
-        return "redirect:../../";
     }
 }
