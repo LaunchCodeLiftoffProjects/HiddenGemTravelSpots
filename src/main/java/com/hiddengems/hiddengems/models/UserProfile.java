@@ -30,9 +30,6 @@ public class UserProfile extends AbstractEntity {
     @Size(min = 0, max = 500, message = "We get it - you contain multitudes - but there is a 500 character limit")
     private String bio;
 
-//    @OneToMany(mappedBy = "userProfile")
-//    private List<Review> reviews;
-
     private String avatar;
 
     public UserProfile() { }
