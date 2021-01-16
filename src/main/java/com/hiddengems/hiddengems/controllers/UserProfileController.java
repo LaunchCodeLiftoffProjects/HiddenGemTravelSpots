@@ -87,8 +87,6 @@ public class UserProfileController {
         UserAccount userAccount = getUserFromSession(request.getSession());
         Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(userAccount));
 
-
-
         if (userAccount != null) {
             userRepository.delete(userAccount);
         }
