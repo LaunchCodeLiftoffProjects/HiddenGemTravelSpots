@@ -144,6 +144,13 @@ public class Gem extends AbstractEntity {
         return gemName;
     }
 
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
 }
 
 

@@ -1,8 +1,8 @@
 package com.hiddengems.hiddengems.controllers;
 
+import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.GemCategory;
 import com.hiddengems.hiddengems.models.UserAccount;
-import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
@@ -12,9 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +52,11 @@ public class GemController {
         return user.get();
     }
 
+    public Gem getGemById(Integer gemId) { // helper method for finding a Gem by its ID
+        Optional<Gem> gem = gemRepository.findById(gemId);
+        return (Gem) gem.orElse(null);
+    }
+
 
     @GetMapping ("index")
     public String index(Model model) {
@@ -63,18 +70,25 @@ public class GemController {
     public String displayAddGemForm(Model model) {
         model.addAttribute(new Gem());
         model.addAttribute("categories", GemCategory.values());
+        model.addAttribute("title", "Submit new Hidden Gem!");
+        model.addAttribute("submitBtn", "Submit Gem");
+        model.addAttribute("editing", false);
         return "gems/add";
     }
 
     @PostMapping("add")
-    public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
-                                    Errors errors, Model model, @RequestParam List<GemCategory> categories) {
+    public String processAddGemForm(@ModelAttribute @Valid Gem newGem, Errors errors, HttpServletRequest request,
+                                    Model model, @RequestParam List<GemCategory> categories) {
 
         if (errors.hasErrors()) {
             return "gems/add";
         }
-         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
+        List <GemCategory> categoryObjs = (List<GemCategory>) categories;
         newGem.setCategories(categoryObjs);
+
+        UserAccount userAccount = getUserFromSession(request.getSession());
+        newGem.setUserAccount(userAccount);
+
         gemRepository.save(newGem);
 
         return "gems/detail";
@@ -92,6 +106,38 @@ public class GemController {
         } else {
             return "redirect:";
         }
+    }
+
+    @GetMapping("edit")//localhost:8080/gems/edit?gemId=
+    public String displayEditGemForm(@RequestParam Integer gemId, HttpServletRequest request, Model model) {
+        Gem gem = getGemById(gemId);
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if(gem == null || userAccount == null) { // null check
+            model.addAttribute("message", "Problem loading Gem or User Account from database.");
+            return "error";
+        } else if (!gem.getUserAccount().equals(userAccount) || gem.getUserAccount() == null) { // checks if editing user is 'owning' user of Gem
+            model.addAttribute("message", "You are not authorized to edit this Gem.  If a correction" +
+                    "needs to be made please contact the original submitting user of this Gem or a Hidden Gems administrator.");
+            return "error";
+        }
+
+        List<GemCategory> categoryList = new ArrayList<GemCategory>(EnumSet.allOf(GemCategory.class));
+        model.addAttribute("categoryList", categoryList);
+        model.addAttribute("title", "Edit Gem details for: " + gem.getGemName());
+        model.addAttribute("submitBtn", "Save Changes");
+        model.addAttribute("editing", true);
+        model.addAttribute("gem", gem);
+        return "gems/edit";
+    }
+
+    @PostMapping("edit")
+    public String processEditGemForm(@ModelAttribute @Valid Gem newGem, @RequestParam Integer gemId, HttpServletRequest request, Model model) {
+        // TODO: Technically works but creates a new (duplicate) Gem - fix that
+
+        gemRepository.save(newGem);
+
+        return "redirect:/";
     }
 
 }
