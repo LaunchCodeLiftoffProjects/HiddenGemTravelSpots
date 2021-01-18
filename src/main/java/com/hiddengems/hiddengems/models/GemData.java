@@ -1,29 +1,38 @@
 package com.hiddengems.hiddengems.models;
 
+import com.hiddengems.hiddengems.models.dto.GemDTO;
+
 import java.util.ArrayList;
 
 public class GemData {
 
-    public static ArrayList<Gem> findByColumnAndValue(String column, String value, Iterable<Gem> allGems) {
+    public static ArrayList<Gem> findByColumnAndValue(GemDTO category, String value, Iterable<Gem> allGems) {
         ArrayList<Gem> results = new ArrayList<>();
 
         if (value.toLowerCase().equals("all")) {
-            //return (ArrayList<Gem>) allGems;
+            return (ArrayList<Gem>) allGems;
+        }
+
+        if (category.toString().equals("all")) {
             results = findByValue(value, allGems);
             return results;
         }
-
-//        if (column.equals("all")) {
-//            results = findByValue(value, allGems);
-//            return results;
-//        }
         for (Gem gem: allGems) {
-            String aValue = getFieldValue(gem, value);
+            String aValue = getCategoryValue(gem, category);
             if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
                 results.add(gem);
             }
         }
         return results;
+    }
+
+    //TODO: for loop iterates over gemCategories
+    public static String getCategoryValue(Gem gem, GemDTO categoryName){
+        String theValue = "";
+        if (categoryName.toString().equals("categoryName")){
+            theValue= gem.getCategoryName();
+        }
+        return theValue;
     }
 
     public static String getFieldValue(Gem gem, String fieldName){

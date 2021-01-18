@@ -35,4 +35,8 @@ public enum GemCategory {
     public String getCategoryName() {
         return categoryName;
     }
+
+//    @NotNull
+//    @ManyToMany(mappedBy="categories")
+//    private List<Gem> gems = new ArrayList<>();
 }

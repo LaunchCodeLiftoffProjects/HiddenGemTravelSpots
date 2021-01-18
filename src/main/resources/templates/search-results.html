@@ -11,7 +11,7 @@
         <table>
             <tr th:each="gem : ${gems}">
                 <td>
-                    <p> Gems with "<a th:text="${gem.gemName}"></a>"</p>
+<!--                    <p> Gems with "<a th:text="${gem.gemName}"></a>"</p>-->
                     <p>
                         <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
                     </p>
@@ -19,7 +19,6 @@
             </tr>
 
         </table>
-
 
         <footer th:replace="fragments :: footer"></footer>
     </body>
