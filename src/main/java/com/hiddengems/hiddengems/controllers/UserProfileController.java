@@ -59,6 +59,7 @@ public class UserProfileController {
     }
 
     @PostMapping("/profile/settings")
+
     public String processUserProfileSettings(@ModelAttribute UserProfile userProfileNew, HttpServletRequest request, Model model) {
 
         Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(getUserFromSession(request.getSession())));
