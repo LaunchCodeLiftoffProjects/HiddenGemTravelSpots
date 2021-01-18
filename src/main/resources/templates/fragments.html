@@ -89,6 +89,7 @@
 
 
 <footer th:fragment="footer">
+    <br><br><br>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
         <div class="container">
             <ul class="nav navbar-nav navbar-center">
@@ -149,25 +150,19 @@
             <span th:errors="${gem.description}" class="error"> </span>
         </div>
 
-        <!-- START CATEGORIES /// TODO: See if the logic can be DRYed out here -->
-        <th:block th:if="${editing}"><!-- EDIT-GEM CATEGORIES -->
-            <div class="form-group">
-                <label th:for="categoryList">Categories (check all that apply): </label>
-                <th:block th:each="category : ${categoryList}">
-                    <input type="checkbox" name="categoryList" th:object="${categories}"  th:value="${category}" th:checked="${#lists.contains(gem.categories, category)}">
-                    <label th:text="${category.categoryName}"></label>
-                </th:block>
-            </div>
-        </th:block>
-        <th:block th:unless="${editing}"><!-- ADD-GEM CATEGORIES -->
+        <!-- START CATEGORIES -->
             <div class="form-group">
                 <label th:for="categories">Categories (check all that apply): </label>
                 <th:block th:each="category : ${categories}">
-                    <input type="checkbox" name="categories" th:object="${categories}"  th:value="${category}">
+                    <th:block th:if="${editing}">
+                        <input type="checkbox" name="categories" th:object="${categories}"  th:value="${category}" th:checked="${#lists.contains(categoryList, category)}">
+                    </th:block>
+                    <th:block th:unless="${editing}">
+                        <input type="checkbox" name="categories" th:object="${categories}"  th:value="${category}">
+                    </th:block>
                     <label th:text="${category.categoryName}"></label>
                 </th:block>
             </div>
-        </th:block>
         <!-- END CATEGORIES -->
 
         <!--            <select th:object="${gem.categories}">-->

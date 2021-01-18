@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -119,11 +117,11 @@ public class GemController {
         } else if (!gem.getUserAccount().equals(userAccount) || gem.getUserAccount() == null) { // checks if editing user is 'owning' user of Gem
             model.addAttribute("message", "You are not authorized to edit this Gem.  If a correction" +
                     "needs to be made please contact the original submitting user of this Gem or a Hidden Gems administrator.");
-            return "error";
+            return "/error";
         }
 
-        List<GemCategory> categoryList = new ArrayList<GemCategory>(EnumSet.allOf(GemCategory.class));
-        model.addAttribute("categoryList", categoryList);
+        model.addAttribute("categories", GemCategory.values()); // all the categories
+        model.addAttribute("categoryList", gem.getCategories()); // the selected categories
         model.addAttribute("title", "Edit Gem details for: " + gem.getGemName());
         model.addAttribute("submitBtn", "Save Changes");
         model.addAttribute("editing", true);
@@ -132,10 +130,31 @@ public class GemController {
     }
 
     @PostMapping("edit")
-    public String processEditGemForm(@ModelAttribute @Valid Gem newGem, @RequestParam Integer gemId, HttpServletRequest request, Model model) {
-        // TODO: Technically works but creates a new (duplicate) Gem - fix that
+    public String processEditGemForm(@ModelAttribute @Valid Gem newGem, @RequestParam Integer gemId,
+                                     @RequestParam List<GemCategory> categories,
+                                     HttpServletRequest request, Model model) {
 
-        gemRepository.save(newGem);
+        Gem gem = getGemById(gemId);
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if (gem == null || userAccount == null) { // null check
+            model.addAttribute("message", "Problem loading Gem or User Account from database.");
+            return "/error";
+        } else if (!gem.getUserAccount().equals(userAccount) || gem.getUserAccount() == null) { // checks if editing user is 'owning' user of Gem
+            model.addAttribute("message", "You are not authorized to edit this Gem.  If a correction" +
+                    "needs to be made please contact the original submitting user of this Gem or a Hidden Gems administrator.");
+            return "/error";
+        }
+
+        gem.setUserAccount(userAccount);
+        gem.setCategories(categories);
+        gem.setDescription(newGem.getDescription());
+        gem.setGemName(newGem.getGemName());
+        gem.setGemPoint(newGem.getGemPoint());
+        gem.setLatitude(newGem.getLatitude());
+        gem.setLongitude(newGem.getLongitude());
+
+        gemRepository.save(gem);
 
         return "redirect:/";
     }

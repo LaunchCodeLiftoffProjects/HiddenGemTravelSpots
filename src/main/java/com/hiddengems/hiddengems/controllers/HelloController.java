@@ -69,9 +69,17 @@ public class HelloController {
     }
 
     @GetMapping("errors")
+
     public String errors(Model model) {
         model.addAttribute("message", "Page Not Found");
-        return "../error";
+        return "error";
     }
+
+    @GetMapping("error")
+    public String error(Model model) {
+        model.addAttribute("message", "Page Not Found");
+        return "error";
+    }
+
 
 }
