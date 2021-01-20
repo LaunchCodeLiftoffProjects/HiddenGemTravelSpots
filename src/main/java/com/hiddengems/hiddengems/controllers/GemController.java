@@ -74,9 +74,10 @@ public class GemController {
         if (errors.hasErrors()) {
             return "gems/add";
         }
-         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
+        List <GemCategory> categoryObjs = (List<GemCategory>) categories;
         newGem.setCategories(categoryObjs);
         newGem.setUser(userAccount);
+        userAccount.addGem(newGem);
         gemRepository.save(newGem);
 
         return "gems/detail";

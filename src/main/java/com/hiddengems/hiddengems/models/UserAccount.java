@@ -32,7 +32,7 @@ public class UserAccount extends AbstractEntity {
     private UserProfile userProfile;
 
     @OneToMany
-    private List<Gem> myGems = new ArrayList<>();
+    private List<Gem> myGems = new ArrayList<Gem>();
 
     @ManyToMany
     private List<UserAccount> friends;
@@ -84,6 +84,8 @@ public class UserAccount extends AbstractEntity {
     public List<Gem> getMyGems() {
         return myGems;
     }
+
+    public void addGem(Gem gem){this.myGems.add(gem);}
 
     public void setMyGems(List<Gem> myGems) {
         this.myGems = myGems;

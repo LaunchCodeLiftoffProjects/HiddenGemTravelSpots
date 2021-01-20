@@ -148,7 +148,7 @@ public class AuthenticationController {
         model.addAttribute("user", theUserAccount);
         model.addAttribute("profile", getProfileByUser(theUserAccount));
         UserAccount userAccount = getUserFromSession(request.getSession());
-        model.addAttribute("myGems", gemRepository.findByUserAccount(userAccount));
+        model.addAttribute("myGems", userAccount.getMyGems());
         return "index";
     }
 
