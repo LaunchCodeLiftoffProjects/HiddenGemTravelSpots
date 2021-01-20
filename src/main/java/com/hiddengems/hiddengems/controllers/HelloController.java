@@ -23,6 +23,7 @@ public class HelloController {
     @Autowired
     private UserProfileRepository userProfileRepository;
 
+
     private static final String userSessionKey = "user";
 
     public UserAccount getUserFromSession(HttpSession session) {
@@ -63,6 +64,7 @@ public class HelloController {
 
         if (userProfile != null) {
             model.addAttribute("profile", userProfile);
+            model.addAttribute("myGems", userAccount.getMyGems());
 
         }
 
