@@ -47,15 +47,21 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-feed" role="tabpanel" aria-labelledby="list-feed-list">Here is my feed</div>
-                        <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list">Here are my Gems</div>
-                        <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">Here are my reviews</div>
-                        <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">Here are my friends</div>
+                        <div class="tab-pane fade show active" id="list-feed" role="tabpanel" aria-labelledby="list-feed-list">You don't have anything in your feed yet</div>
+                        <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list"> You have not added any gems yet
+                            <ul>
+                                <li th:each="gem : ${myGems}">
+                                 <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">You don't have any gem reviews yet</div>
+                        <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">You are not following anyone yet</div>
                     </div>
                 </div>
                 </div>
             </div>
-        </div>
+
 
         <footer th:replace="fragments :: footer"></footer>
     </body>

@@ -63,6 +63,7 @@ public class HelloController {
 
         if (userProfile != null) {
             model.addAttribute("profile", userProfile);
+
         }
 
         return "index";

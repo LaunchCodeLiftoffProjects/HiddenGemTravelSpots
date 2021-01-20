@@ -5,11 +5,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,6 +30,9 @@ public class UserAccount extends AbstractEntity {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount")
     private UserProfile userProfile;
+
+    @OneToMany
+    private List<Gem> myGems = new ArrayList<>();
 
     @ManyToMany
     private List<UserAccount> friends;
@@ -78,6 +79,14 @@ public class UserAccount extends AbstractEntity {
 
     public void addFriend(UserAccount friend) {
         this.friends.add(friend);
+    }
+
+    public List<Gem> getMyGems() {
+        return myGems;
+    }
+
+    public void setMyGems(List<Gem> myGems) {
+        this.myGems = myGems;
     }
 }
 

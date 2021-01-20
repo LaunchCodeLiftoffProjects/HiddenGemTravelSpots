@@ -11,6 +11,11 @@
 <div class="gem-details">
     <p th:text="${'Gem Name: ' + gem.gemName}"></p>
     <p th:text="${'Description: ' + gem.description}"></p>
+    <p>Categories:
+        <ul>
+            <li th:each="category : ${gem.categories}" th:text="${category.categoryName}">
+            </li>
+</ul></p>
 </div>
 <footer th:replace="fragments :: footer"></footer>
 </body>

@@ -24,7 +24,8 @@ public class Gem extends AbstractEntity {
     @NotNull
     private String description;
 
-//    private GemCategory category;
+    @ManyToOne
+    private UserAccount userAccount;
 
     @OneToMany(mappedBy = "gem")
     private final List<Review> reviews = new ArrayList<>();
@@ -37,10 +38,6 @@ public class Gem extends AbstractEntity {
 //    private final List<Photo> photos = new ArrayList<>();
 
 
-//    public Gem(String description, GemCategory category) {
-//        this.description = description;
-//        this.category = category;
-//    }
     public Gem(String description, List <GemCategory> categories) {
         this.description = description;
         this.categories = categories;
@@ -84,13 +81,13 @@ public class Gem extends AbstractEntity {
         return reviews;
     }
 
-//    public GemCategory getCategory(){
-//        return category;
-//    }
+    public UserAccount getUser() {
+        return userAccount;
+    }
 
-//    public void setCategory(){
-//        this.category = category;
-//    }
+    public void setUser(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
 
     public List<GemCategory> getCategories() {
         return categories;

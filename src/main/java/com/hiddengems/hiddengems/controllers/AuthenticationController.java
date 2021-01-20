@@ -2,6 +2,7 @@ package com.hiddengems.hiddengems.controllers;
 
 import com.hiddengems.hiddengems.models.UserAccount;
 import com.hiddengems.hiddengems.models.UserProfile;
+import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.UserProfileRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
 import com.hiddengems.hiddengems.models.dto.LoginFormDTO;
@@ -28,6 +29,9 @@ public class AuthenticationController {
 
     @Autowired
     private UserProfileRepository userProfileRepository;
+
+    @Autowired
+    private GemRepository gemRepository;
 
     private static final String userSessionKey = "user";
 
@@ -143,7 +147,8 @@ public class AuthenticationController {
         userRepository.save(theUserAccount);//update last login timestamp
         model.addAttribute("user", theUserAccount);
         model.addAttribute("profile", getProfileByUser(theUserAccount));
-
+        UserAccount userAccount = getUserFromSession(request.getSession());
+        model.addAttribute("myGems", gemRepository.findByUserAccount(userAccount));
         return "index";
     }
 

@@ -11,7 +11,6 @@
 <div class="gem-details">
     <p th:text="${'Gem Name: ' + gem.gemName}"></p>
     <p th:text="${'Description: ' + gem.description}"></p>
-<!--    <p> Categories: <span th:each="category : ${gem.categories}" th:value="${category}" th:text="${category.categoryName} + ', '"> </span></p>-->
     <p>Categories:
         <ul>
             <li th:each="category : ${gem.categories}" th:text="${category.categoryName}">
