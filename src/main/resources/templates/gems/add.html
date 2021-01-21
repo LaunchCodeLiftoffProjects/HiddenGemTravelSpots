@@ -2,9 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <head th:replace="fragments :: head">
+    <meta http-equiv='X-Frame-Options' content='ALLOWAll'>
 </head>
 <body>
 <header th:replace="fragments ::header"> </header>
+<div class = "row">
+    <div class = "column">
 
 <div><title> Submit a New Hidden Gem </title> </div>
 <form method="post" style="max-width:600px;">
@@ -15,6 +18,8 @@
             padding-left: 7px;
              }
              </style>
+
+
     <div class="form-group">
         <label th:for="gemName">Gem Name</label>
         <input class="form-control" th:field="${gem.gemName}" />
@@ -69,11 +74,12 @@
     <!--                ></option>-->
     <!--            </select>-->
     <p class="error" th:errors="${gem.categories}"></p>
-    </label>
-    </div>
         <input type="submit" value="Add Gem" />
-        </form>
-        </div>
+            </div>
+            </form>
+    </div>
+
+
     <!--    <div class="form-group">-->
     <!--        <input type="radio" id="oneDollar" name="price" value="oneDollar">-->
     <!--        <label for="oneDollar">$</label>-->
@@ -112,10 +118,11 @@
     <!--        <input type="checkbox" id="freeParking" name="tag" value="freeParking">-->
     <!--        <label for="freeParking">Free Parking</label>-->
     <!--        <br>-->
-    <link rel="stylesheet" href="//localhost:8181/geoserver/openlayers3/ol.css" type="text/css">
+    <div class = "column">
+    <!-- <link rel="stylesheet" href="//localhost:8181/geoserver/openlayers3/ol.css" type="text/css"> -->
     <style>
         .ol-zoom {
-          top: 52px;
+          top: 20px;
         }
         .ol-toggle-options {
           z-index: 1000;
@@ -133,8 +140,6 @@
           text-decoration: none !important;
           line-height: 22px;
           margin: 1px;
-          font-family: 'Lucida Grande',Verdana,Geneva,Lucida,Arial,Helvetica,sans-serif;
-          font-weight: bold !important;
           background: rgba(0,60,136,0.5);
           color: white !important;
           padding: 2px;
@@ -185,10 +190,8 @@
             padding-bottom: 0.5em;
         }
         #toolbar ul li a {
-            font-weight: bold;
             font-size: smaller;
             vertical-align: middle;
-            color: black;
             text-decoration: none;
         }
         #toolbar ul li a:hover {
@@ -200,9 +203,9 @@
         #map {
             clear: both;
             position: relative;
-            width: 768px;
-            height: 384px;
-            border: 1px solid black;
+            width: 950px;
+            height: 400px;
+
         }
         #wrapper {
             width: 768px;
@@ -288,7 +291,8 @@
                 These values come from a statistics of the viewable area given a certain screen area
                 (but have been adapted a litte, simplified numbers, added some resolutions for wide screen)
                 You can find them here: http://www.evolt.org/article/Real_World_Browser_Size_Stats_Part_II/20/2297/
-                --><option value="auto">Auto</option>
+                -->
+                <option value="auto">Auto</option>
                 <option value="600">600</option>
                 <option value="750">750</option>
                 <option value="950">950</option>
@@ -310,7 +314,8 @@
                 <option value="1000">1000</option>
             </select>
         </li>
-        <li>
+    </ul>
+    <!--
             <a>Filter:</a>
             <select id="filterType">
                 <option value="cql">CQL</option>
@@ -320,8 +325,7 @@
             <input type="text" size="20" id="filter">
             <a id="updateFilterButton" href="#" onclick="updateFilter()" title="Apply filter">Apply</a>
             <a id="resetFilterButton" href="#" onclick="resetFilter()" title="Reset filter">Reset</a>
-        </li>
-    </ul>
+            -->
 </div>
 <div id="map">
     <div class="ol-toggle-options ol-unselectable"><a title="Toggle options toolbar" onclick="toggleControlPanel()" href="#toggle">...</a></div>
@@ -332,7 +336,7 @@
     <div id="location">
         <div class="custom-mouse-position">&nbsp;</div>
     </div>
-    <div id="scale">Scale = 1 : 279M</div>
+    <div id="scale">Scale = 1 : 140M</div>
     <div id="nodelist">
         <em>Click on the map to get feature info</em>
     </div>
@@ -371,7 +375,7 @@
                    'VERSION': '1.1.1',
                    tiled: true,
                 "STYLES": '',
-                "LAYERS": 'cite:hidden_gems',
+                "LAYERS": 'cite:hidden_gems2',
                 "exceptions": 'application/vnd.ogc.se_inimage',
              tilesOrigin: -180 + "," + -90
           }
@@ -384,7 +388,7 @@
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',
                 "STYLES": '',
-                "LAYERS": 'cite:hidden_gems',
+                "LAYERS": 'cite:hidden_gems2',
                 "exceptions": 'application/vnd.ogc.se_inimage',
           }
         })
@@ -424,7 +428,7 @@
         document.getElementById('scale').innerHTML = "Scale = 1 : " + scale;
       });
       map.getView().fit(bounds, map.getSize());
-      map.on('singleclick', function(evt) {
+       map.on('singleclick', function(evt) {
         document.getElementById('nodelist').innerHTML = "Loading... please wait...";
         var view = map.getView();
         var viewResolution = view.getResolution();
@@ -564,6 +568,9 @@
 
 </div></body>
 
+
+</div>
+</div>
 </body>
 
 <footer th:replace="fragments :: footer"></footer>
