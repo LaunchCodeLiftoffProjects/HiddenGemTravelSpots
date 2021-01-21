@@ -1,8 +1,8 @@
 package com.hiddengems.hiddengems.controllers;
 
+import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.GemCategory;
 import com.hiddengems.hiddengems.models.UserAccount;
-import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.data.GemRepository;
 import com.hiddengems.hiddengems.models.data.ReviewRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
@@ -12,9 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,13 +68,16 @@ public class GemController {
 
     @PostMapping("add")
     public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
-                                    Errors errors, Model model, @RequestParam List<GemCategory> categories) {
+                                    Errors errors, Model model, HttpServletRequest request,  @RequestParam List<GemCategory> categories) {
+        UserAccount userAccount = getUserFromSession(request.getSession());
 
         if (errors.hasErrors()) {
             return "gems/add";
         }
-         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
+        List <GemCategory> categoryObjs = (List<GemCategory>) categories;
         newGem.setCategories(categoryObjs);
+        newGem.setUser(userAccount);
+        userAccount.addGem(newGem);
         gemRepository.save(newGem);
 
         return "gems/detail";

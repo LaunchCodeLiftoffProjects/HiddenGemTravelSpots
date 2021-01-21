@@ -16,6 +16,7 @@ public class UserProfile extends AbstractEntity {
     @JoinColumn(name = "user_account_id")
     private UserAccount userAccount;
 
+
     @NotBlank
     @Email(message = "Please enter a valid email address format (username@example.com)")
     private String emailAddress;
