@@ -75,7 +75,6 @@ public class GemController {
     }
 
     @PostMapping("add")
-
     public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
                                     Errors errors, Model model, HttpServletRequest request,  @RequestParam List<GemCategory> categories) {
 
@@ -89,8 +88,8 @@ public class GemController {
         newGem.setUserAccount(userAccount);
 
 
-        newGem.setUser(userAccount);
-        userAccount.addGem(newGem);
+        newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
+        userAccount.addGem(newGem); // TODO: refactor and test to see if this line is necessary
 
         gemRepository.save(newGem);
 

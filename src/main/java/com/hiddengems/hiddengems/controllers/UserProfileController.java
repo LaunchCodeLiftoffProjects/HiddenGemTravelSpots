@@ -80,7 +80,7 @@ public class UserProfileController {
             userProfileRepository.save(userProfileNew);
             return "redirect:/";
         }
-
+    }
 
     @PostMapping("/delete-user")
     public String processDeleteUserAccount(HttpServletRequest request, Model model) {
