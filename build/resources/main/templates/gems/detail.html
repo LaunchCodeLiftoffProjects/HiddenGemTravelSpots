@@ -11,6 +11,7 @@
 <div class="gem-details">
     <p th:text="${'Gem Name: ' + gem.gemName}"></p>
     <p th:text="${'Description: ' + gem.description}"></p>
+
     <p th:text="${'Latitude: ' + gem.latitude}"></p>
     <p th:text="${'Longitude: ' + gem.longitude}"></p>
 <!--    <p> Categories: <span th:each="category : ${gem.categories}" th:value="${category}" th:text="${category.categoryName} + ', '"> </span></p>-->
@@ -19,6 +20,7 @@
             <li th:each="category : ${gem.categories}" th:text="${category.categoryName}">
             </li>
 </ul></p>
+
 </div>
 <div class = "map">
     <style>
@@ -142,7 +144,6 @@
         }
     </style>
     <script src="//localhost:8181/geoserver/openlayers3/ol.js" type="text/javascript"></script>
-    </head>
     <body>
     <div id="toolbar" style="display: block;">
         <ul>
