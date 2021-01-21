@@ -83,6 +83,10 @@ public class UserAccount extends AbstractEntity {
         this.friends.add(friend);
     }
 
+    public void removeFriend(UserAccount friend) {
+        this.friends.remove(friend);
+    }
+
     public List<Review> getReviews() {
         return reviews;
     }

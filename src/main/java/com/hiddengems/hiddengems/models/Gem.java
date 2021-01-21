@@ -96,7 +96,7 @@ public class Gem extends AbstractEntity {
     public String getRating() {
         double thumbsups = 0;
 
-        for(int i = 0; i < reviews.size(); i++) {
+        for(int i = 0; i < this.reviews.size(); i++) {
             if(reviews.get(i).isThumbsup()) {
                 thumbsups++;
             }

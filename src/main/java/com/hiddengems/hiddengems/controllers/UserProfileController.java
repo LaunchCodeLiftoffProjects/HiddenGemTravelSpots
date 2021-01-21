@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -101,4 +102,59 @@ public class UserProfileController {
         return "redirect:/";
     }
 
+    @PostMapping("/users/view")//localhost:8080/users/view?id= POST MAPPING
+    public String displayPublicProfile(@RequestParam Integer id, HttpServletRequest request, Model model) {
+        UserAccount userAccount = getUserFromSession(request.getSession()); //get logged in user
+        if (userAccount == null) {
+            model.addAttribute("message", "Unable to determine logged in user.");
+            return "redirect:/error";
+        }
+
+        Optional<UserAccount> pubUserAcctOpt = userRepository.findById(id);//get user to display profile
+        if (pubUserAcctOpt.isEmpty()) {
+            model.addAttribute("message", "Requested user not found or does not exist");
+            return "redirect:/error";
+        }
+        UserAccount pubUserAcct = pubUserAcctOpt.get();
+
+        boolean following = false;
+        if (userAccount.getFriends().contains(pubUserAcct)) { //determine if logged in user is already 'followed'
+            following = true;
+        }
+
+        UserProfile pubUserProfile = userProfileRepository.findByUserAccount(pubUserAcct);//get public user profile
+
+        model.addAttribute("profile", pubUserProfile);
+        model.addAttribute("user", pubUserAcct);
+        model.addAttribute("following", following);
+
+        return "/profile/index";
+    }
+
+    @PostMapping("/profile/follow")//localhost:8080//profile/follow?id={userId}&action={String = 'add'|'remove'}
+    public String processFollowOrUnfollowUser(@RequestParam Integer id, @RequestParam String action,
+                                              HttpServletRequest request, Model model) {
+        UserAccount userAccount = getUserFromSession(request.getSession());
+        Optional<UserAccount> followUser = userRepository.findById(id);
+
+        if(followUser.isEmpty()) {
+            model.addAttribute("message", "Unable to follow user.  User not found :-(");
+            return "redirect:/error";
+        } else {
+            Optional<UserProfile> followUserProfile= Optional.ofNullable(userProfileRepository.findByUserAccount(followUser.get()));
+            if(followUserProfile.isEmpty()) {
+                model.addAttribute("message", "Unable to follow user.  User not found :-(");
+                return "redirect:/error";
+            } else {
+                model.addAttribute("user", followUser.get());
+                model.addAttribute("profile", followUserProfile);
+                if(action.equals("add")) {
+                    userAccount.addFriend(followUser.get());
+                } else if(action.equals("remove")) {
+                    userAccount.removeFriend(followUser.get());
+                }
+                return "/users/view?id=" + id.toString();
+            }
+        }
+    }
 }
