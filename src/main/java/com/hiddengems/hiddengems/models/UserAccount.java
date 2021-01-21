@@ -28,14 +28,24 @@ public class UserAccount extends AbstractEntity {
     @UpdateTimestamp
     private Date lastLogin;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount",cascade = CascadeType.ALL, orphanRemoval = true)
     private UserProfile userProfile;
+
 
     @OneToMany
     private List<Gem> myGems = new ArrayList<Gem>();
 
-    @ManyToMany
+    //@ManyToMany
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
     private List<UserAccount> friends;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userAccount",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userAccount",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Gem> gems;
 
     public UserAccount() {}
 
@@ -81,6 +91,7 @@ public class UserAccount extends AbstractEntity {
         this.friends.add(friend);
     }
 
+
     public List<Gem> getMyGems() {
         return myGems;
     }
@@ -89,6 +100,30 @@ public class UserAccount extends AbstractEntity {
 
     public void setMyGems(List<Gem> myGems) {
         this.myGems = myGems;
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
+    public List<Gem> getGems() {
+        return gems;
+    }
+
+    public void setGems(List<Gem> gems) {
+        this.gems = gems;
+    }
+
+    public void addGem(Gem gem) {
+        this.gems.add(gem);
+
     }
 }
 
