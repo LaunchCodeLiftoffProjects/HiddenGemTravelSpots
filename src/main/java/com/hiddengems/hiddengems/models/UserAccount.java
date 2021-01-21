@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +30,13 @@ public class UserAccount extends AbstractEntity {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount",cascade = CascadeType.ALL, orphanRemoval = true)
     private UserProfile userProfile;
+
+
+    @OneToMany
+    private List<Gem> myGems = new ArrayList<Gem>();
+
+    @OneToMany
+    private List<Review> myReviews = new ArrayList<Review>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<UserAccount> friends;
@@ -87,6 +95,16 @@ public class UserAccount extends AbstractEntity {
         this.friends.remove(friend);
     }
 
+    public List<Gem> getMyGems() {
+        return myGems;
+    }
+
+    public void addGem(Gem gem){this.myGems.add(gem);}
+
+    public void setMyGems(List<Gem> myGems) {
+        this.myGems = myGems;
+    }
+  
     public List<Review> getReviews() {
         return reviews;
     }
@@ -109,6 +127,17 @@ public class UserAccount extends AbstractEntity {
 
     public void addGem(Gem gem) {
         this.gems.add(gem);
+
+    }
+
+    public List<Review> getMyReviews() {
+        return myReviews;
+    }
+
+    public void addReview(Review review) {this.myReviews.add(review);}
+
+    public void setMyReviews(List<Review> myReviews) {
+        this.myReviews = myReviews;
     }
 }
 

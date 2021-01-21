@@ -75,8 +75,9 @@ public class GemController {
     }
 
     @PostMapping("add")
-    public String processAddGemForm(@ModelAttribute @Valid Gem newGem, Errors errors, HttpServletRequest request,
-                                    Model model, @RequestParam List<GemCategory> categories) {
+
+    public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
+                                    Errors errors, Model model, HttpServletRequest request,  @RequestParam List<GemCategory> categories) {
 
         if (errors.hasErrors()) {
             return "gems/add";
@@ -86,6 +87,10 @@ public class GemController {
 
         UserAccount userAccount = getUserFromSession(request.getSession());
         newGem.setUserAccount(userAccount);
+
+
+        newGem.setUser(userAccount);
+        userAccount.addGem(newGem);
 
         gemRepository.save(newGem);
 

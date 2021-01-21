@@ -32,6 +32,9 @@ public class Gem extends AbstractEntity {
     @NotNull
     private String description;
 
+    @ManyToOne
+    private UserAccount userAccount;
+  
     @NotNull
     private Point gemPoint;
 
@@ -108,14 +111,14 @@ public class Gem extends AbstractEntity {
 
         return score;
     }
+  
+    public UserAccount getUser() {
+        return userAccount;
+    }
 
-//    public GemCategory getCategory(){
-//        return category;
-//    }
-
-//    public void setCategory(){
-//        this.category = category;
-//    }
+    public void setUser(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
 
 
     public Point getGemPoint() {
