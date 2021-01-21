@@ -91,6 +91,9 @@ public class UserAccount extends AbstractEntity {
         this.friends.add(friend);
     }
 
+    public void removeFriend(UserAccount friend) {
+        this.friends.remove(friend);
+    }
 
     public List<Gem> getMyGems() {
         return myGems;
@@ -100,7 +103,8 @@ public class UserAccount extends AbstractEntity {
 
     public void setMyGems(List<Gem> myGems) {
         this.myGems = myGems;
-
+    }
+  
     public List<Review> getReviews() {
         return reviews;
     }

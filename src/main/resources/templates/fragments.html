@@ -60,7 +60,7 @@
                 <input type="hidden" th:field="${reviewDTO.gem}">
                 <input type="hidden" th:field="${reviewDTO.userAccount}">
                 <label class="btn btn-primary active">
-                    <input type="radio" name="rating" th:field="${reviewDTO.review.thumbsup}" id="thumbsUp" value="true" autocomplete="off" checked=""><i class="fa fa-thumbs-up fa-3x"></i>
+                    <input type="radio" name="rating" th:field="${reviewDTO.review.thumbsup}" id="thumbsUp" value="true" autocomplete="off" th:checked="true"><i class="fa fa-thumbs-up fa-3x"></i>
                 </label>
                 <label class="btn btn-primary">
                     <input type="radio" th:field="${reviewDTO.review.thumbsup}" id="thumbsDown" value="false" autocomplete="off"> <i class="fa fa-thumbs-down fa-3x"></i>
@@ -84,11 +84,12 @@
         <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
     </form>
 </div>
-
+<!-- End Review fragment -->
 
 
 
 <footer th:fragment="footer">
+    <br><br><br>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
         <div class="container">
             <ul class="nav navbar-nav navbar-center">
@@ -103,6 +104,142 @@
     <br>
 
 </footer>
+
+
+
+<th:block th:fragment="edit-gem">
+    <div><h1 th:text="${title}"></h1></div>
+    <br><br><br>
+    <form method="post" style="max-width:600px;">
+        <div class="form-group">
+            <label th:for="gemName">Gem Name</label>
+            <input class="form-control" th:field="${gem.gemName}" />
+            <span th:errors="${gem.gemName}" class="error"> </span>
+        </div>
+        <div class="form-group">
+            <label th:for="gemLatitude">Latitude</label>
+            <input class="form-control" th:field="${gem.latitude}" />
+            <span th:errors="${gem.latitude}" class="error"> </span>
+        </div>
+        <div class="form-group">
+            <label th:for="gemLongitude">Longitude</label>
+            <input class="form-control" th:field="${gem.longitude}" />
+            <span th:errors="${gem.longitude}" class="error"> </span>
+        </div>
+
+        <!--    <div class="form-group">-->
+        <!--        <label th:for="location">Location</label>-->
+        <!--        <input class="form-control" th:field="${gem.location}" />-->
+        <!--        <span th:errors="${gem.location}: class="error></span>-->
+        <!--    </div>-->
+        <!--    <div class="form-group">-->
+        <!--        <input type="radio" id="address" name="location" value="address">-->
+        <!--        <label for="address">Address</label><br>-->
+        <!--        <input type="radio" id="coordinates" name="location" value="coordinates">-->
+        <!--        <label for="coordinates">Coordinates</label><br>-->
+        <!--        <input type="radio" id="currentLocation" name="location" value="currentLocation">-->
+        <!--        <label for="currentLocation">Current Location</label>-->
+        <!--    </div>-->
+
+
+        <!-- NEED TO FIGURE OUT HOW TO CHANGE INPUTS BASED ON USER CHOICE -->
+
+        <div class="form-group">
+            <label th:for="description">Description</label>
+            <input class="form-control" th:field="${gem.description}" placeholder="Enter description here..." >
+            <span th:errors="${gem.description}" class="error"> </span>
+        </div>
+
+        <!-- START CATEGORIES -->
+            <div class="form-group">
+                <label th:for="categories">Categories (check all that apply): </label>
+                <th:block th:each="category : ${categories}">
+                    <th:block th:if="${editing}">
+                        <input type="checkbox" name="categories" th:object="${categories}"  th:value="${category}" th:checked="${#lists.contains(categoryList, category)}">
+                    </th:block>
+                    <th:block th:unless="${editing}">
+                        <input type="checkbox" name="categories" th:object="${categories}"  th:value="${category}">
+                    </th:block>
+                    <label th:text="${category.categoryName}"></label>
+                </th:block>
+            </div>
+        <!-- END CATEGORIES -->
+
+        <!--            <select th:object="${gem.categories}">-->
+        <!--                <option th:each="category : ${categories}"-->
+        <!--                        th:value="${category}"-->
+        <!--                        th:text="${category.categoryName}"-->
+        <!--                ></option>-->
+        <!--            </select>-->
+        <p class="error" th:errors="${gem.categories}"></p>
+        <!--        </label>-->
+        <!--    </div>-->
+        <!--    <div class="form-group">-->
+        <!--        <input type="radio" id="oneDollar" name="price" value="oneDollar">-->
+        <!--        <label for="oneDollar">$</label>-->
+        <!--        <input type="radio" id="twoDollar" name="price" value="twoDollar">-->
+        <!--        <label for="twoDollar">$$</label>-->
+        <!--        <input type="radio" id="threeDollar" name="price" value="threeDollar">-->
+        <!--        <label for="threeDollar">$$$</label>-->
+        <!--        <input type="radio" id="fourDollar" name="price" value="fourDollar">-->
+        <!--        <label for="fourDollar">$$$$</label>-->
+        <!--        <input type="radio" id="fiveDollar" name="price" value="fiveDollar">-->
+        <!--        <label for="fiveDollar">$$$$$</label>-->
+        <!--    </div>-->
+
+        <!--    <div class="form-group">-->
+        <!--        <input type="checkbox" id="wheelchairAccess" name="tag" value="wheelchairAccess"/>-->
+        <!--        <label for="wheelchairAccess">Wheelchair Access</label>-->
+        <!--        <br>-->
+        <!--        <input type="checkbox" id="COVID" name="tag" value="COVID">-->
+        <!--        <label for="COVID">Meets CDC Guidelines</label>-->
+        <!--        <br>-->
+        <!--        <input type="checkbox" id="familyFriendly" name="tag" value="familyFriendly">-->
+        <!--        <label for="familyFriendly">Family-Friendly</label>-->
+        <!--        <br>-->
+        <!--        <input type="checkbox" id="petFriendly" name="tag" value="petFriendly">-->
+        <!--        <label for="petFriendly">Pet Friendly</label>-->
+        <!--        <br>-->
+        <!--        <input type="checkbox" id="indoor" name="tag" value="indoor">-->
+        <!--        <label for="indoor">Indoor Activity</label>-->
+        <!--        <br>-->
+        <!--        <input type="checkbox" id="seasonal" name="tag" value="seasonal">-->
+        <!--        <label for="seasonal">Seasonal Activity</label>-->
+        <!--        <br>-->
+        <!--        <input type="checkbox" id="foodBev" name="tag" value="foodBev">-->
+        <!--        <label for="foodBev">Food or Beverage Available</label>-->
+        <!--        <br>-->
+        <!--        <input type="checkbox" id="freeParking" name="tag" value="freeParking">-->
+        <!--        <label for="freeParking">Free Parking</label>-->
+        <!--        <br>-->
+
+        <!--    </div>-->
+        <button type="submit" class="btn btn-primary" th:text="(${submitBtn})">Submit</button>
+        <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
+        <!--    &lt;!&ndash; ENTER MAP HERE &ndash;&gt;-->
+        <!--    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>-->
+        <!--    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AuA1FmiSh8ekk28pjKmVzqdq4tdTD3_7IV-5EMF1DSNMFWjPw8d7j3eDuRMDANld'></script>-->
+        <!--    <script type='text/javascript'>-->
+        <!--                var map;-->
+        <!--                function loadMapScenario() {-->
+        <!--                    map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});-->
+        <!--                }-->
+
+        <!--        </script>-->
+        <!--    <body onload='loadMapScenario();'>-->
+        <!--    <div id='printoutPanel'></div>-->
+
+        <!--    <div id='myMap' style='width: 50vw; height: 50vh;'></div>-->
+        <!--    </body>-->
+
+        <!--    <br>-->
+        <!--    <label for="gemImage">Upload Photo of Gem</label>-->
+        <!--    <input type="file" id="gemImage" name="fileToUpload" value="gemImage">-->
+        <!--    <br>-->
+
+
+    </form>
+</th:block>
 
 </body>
 

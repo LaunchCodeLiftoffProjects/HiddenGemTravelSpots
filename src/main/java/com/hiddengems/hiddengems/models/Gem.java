@@ -11,6 +11,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,10 +46,6 @@ public class Gem extends AbstractEntity {
 
     @ElementCollection
     private List<GemCategory> categories;
-
-//    @OneToMany
-//    @JoinColumn
-//    private final List<Photo> photos = new ArrayList<>();
 
     public Gem(String gemName, Double latitude, Double longitude, String description, List <GemCategory> categories) {
         this.gemName = gemName;
@@ -98,6 +96,22 @@ public class Gem extends AbstractEntity {
         return reviews;
     }
 
+    public String getRating() {
+        double thumbsups = 0;
+
+        for(int i = 0; i < this.reviews.size(); i++) {
+            if(reviews.get(i).isThumbsup()) {
+                thumbsups++;
+            }
+        }
+
+        NumberFormat fmt = new DecimalFormat();
+        fmt.setMaximumFractionDigits(2);
+        String score = String.valueOf(fmt.format(thumbsups/reviews.size()));
+
+        return score;
+    }
+  
     public UserAccount getUser() {
         return userAccount;
     }
@@ -117,9 +131,9 @@ public class Gem extends AbstractEntity {
         this.longitude = gemPoint.getX();//Otherwise, the point we attempt to create in the method below will not know if latitude or longitude is x or y.
     }
 
-    //This method recalculates the long/lat above into a geography data type.
+    // This method recalculates the long/lat above into a geography data type.
     // Technically, it is geometry, but the SRID 4326 designates we are placing the point somewhere on the globe instead of a plane.
-    //The PrecisionModel() allows us to be accurate up to about 500 meters.
+    // The PrecisionModel() allows us to be accurate up to about 500 meters.
     private void recalculate() {
         GeometryFactory geomFactory = new GeometryFactory(new PrecisionModel(), 4326);
         gemPoint = geomFactory.createPoint(new Coordinate(longitude, latitude)); // Because we are mapping this essentially in a graph, we plot (x,y) or (long, lat).
@@ -132,6 +146,14 @@ public class Gem extends AbstractEntity {
 
     public void setCategories(List<GemCategory> categories) {
         this.categories = categories;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     @Override

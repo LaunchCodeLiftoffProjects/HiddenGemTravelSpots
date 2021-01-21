@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <head th:replace="fragments :: head">
 </head>
     <body>
@@ -12,15 +13,12 @@
 
         <div class="row">
             <div class="side">
-                     <h2>Profile </h2>
-                 <a> <i class="mdi mdi-cog-outline" th:href="@{/profile/settings/}">
-                            </i> </a>
-
+                <h2 th:text="${profile.displayName}"></h2>
                 <div class="profileimg" style="height:200px;">Profile Image</div>
-                <p th:text="${profile.displayName}"> Username  </p>
-                <p> Username:  </p>
-<!--                <a th:href="@{/profile/settings/}">Edit Profile</a>-->
+                <p>@<span th:text="${user.username}"></span></p>                    
+                <a><i class="mdi mdi-cog-outline" th:href="@{/profile/settings/}"></i></a>
             </div>
+          
             <div class="main">
                 <div class="mt-4 py-2 border-top border-bottom">
                     <ul class="nav profile-navbar">

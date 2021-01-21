@@ -50,6 +50,11 @@ public class GemController {
         return user.get();
     }
 
+    public Gem getGemById(Integer gemId) { // helper method for finding a Gem by its ID
+        Optional<Gem> gem = gemRepository.findById(gemId);
+        return (Gem) gem.orElse(null);
+    }
+
 
     @GetMapping ("index")
     public String index(Model model) {
@@ -63,21 +68,30 @@ public class GemController {
     public String displayAddGemForm(Model model) {
         model.addAttribute(new Gem());
         model.addAttribute("categories", GemCategory.values());
+        model.addAttribute("title", "Submit new Hidden Gem!");
+        model.addAttribute("submitBtn", "Submit Gem");
+        model.addAttribute("editing", false);
         return "gems/add";
     }
 
     @PostMapping("add")
+
     public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
                                     Errors errors, Model model, HttpServletRequest request,  @RequestParam List<GemCategory> categories) {
-        UserAccount userAccount = getUserFromSession(request.getSession());
 
         if (errors.hasErrors()) {
             return "gems/add";
         }
         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
         newGem.setCategories(categoryObjs);
+
+        UserAccount userAccount = getUserFromSession(request.getSession());
+        newGem.setUserAccount(userAccount);
+
+
         newGem.setUser(userAccount);
         userAccount.addGem(newGem);
+
         gemRepository.save(newGem);
 
         return "gems/detail";
@@ -95,6 +109,59 @@ public class GemController {
         } else {
             return "redirect:";
         }
+    }
+
+    @GetMapping("edit")//localhost:8080/gems/edit?gemId=
+    public String displayEditGemForm(@RequestParam Integer gemId, HttpServletRequest request, Model model) {
+        Gem gem = getGemById(gemId);
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if(gem == null || userAccount == null) { // null check
+            model.addAttribute("message", "Problem loading Gem or User Account from database.");
+            return "error";
+        } else if (!gem.getUserAccount().equals(userAccount) || gem.getUserAccount() == null) { // checks if editing user is 'owning' user of Gem
+            model.addAttribute("message", "You are not authorized to edit this Gem.  If a correction" +
+                    "needs to be made please contact the original submitting user of this Gem or a Hidden Gems administrator.");
+            return "/error";
+        }
+
+        model.addAttribute("categories", GemCategory.values()); // all the categories
+        model.addAttribute("categoryList", gem.getCategories()); // the selected categories
+        model.addAttribute("title", "Edit Gem details for: " + gem.getGemName());
+        model.addAttribute("submitBtn", "Save Changes");
+        model.addAttribute("editing", true);
+        model.addAttribute("gem", gem);
+        return "gems/edit";
+    }
+
+    @PostMapping("edit")
+    public String processEditGemForm(@ModelAttribute @Valid Gem newGem, @RequestParam Integer gemId,
+                                     @RequestParam List<GemCategory> categories,
+                                     HttpServletRequest request, Model model) {
+
+        Gem gem = getGemById(gemId);
+        UserAccount userAccount = getUserFromSession(request.getSession());
+
+        if (gem == null || userAccount == null) { // null check
+            model.addAttribute("message", "Problem loading Gem or User Account from database.");
+            return "/error";
+        } else if (!gem.getUserAccount().equals(userAccount) || gem.getUserAccount() == null) { // checks if editing user is 'owning' user of Gem
+            model.addAttribute("message", "You are not authorized to edit this Gem.  If a correction" +
+                    "needs to be made please contact the original submitting user of this Gem or a Hidden Gems administrator.");
+            return "/error";
+        }
+
+        gem.setUserAccount(userAccount);
+        gem.setCategories(categories);
+        gem.setDescription(newGem.getDescription());
+        gem.setGemName(newGem.getGemName());
+        gem.setGemPoint(newGem.getGemPoint());
+        gem.setLatitude(newGem.getLatitude());
+        gem.setLongitude(newGem.getLongitude());
+
+        gemRepository.save(gem);
+
+        return "redirect:/";
     }
 
 }
