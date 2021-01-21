@@ -65,6 +65,8 @@ public class HelloController {
         if (userProfile != null) {
             model.addAttribute("profile", userProfile);
             model.addAttribute("myGems", userAccount.getMyGems());
+            model.addAttribute("myReviews", userAccount.getMyReviews());
+            model.addAttribute("myFriends", userAccount.getFriends());
 
         }
 

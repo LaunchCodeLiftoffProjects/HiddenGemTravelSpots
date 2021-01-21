@@ -34,6 +34,9 @@ public class UserAccount extends AbstractEntity {
     @OneToMany
     private List<Gem> myGems = new ArrayList<Gem>();
 
+    @OneToMany
+    private List<Review> myReviews = new ArrayList<Review>();
+
     @ManyToMany
     private List<UserAccount> friends;
 
@@ -89,6 +92,16 @@ public class UserAccount extends AbstractEntity {
 
     public void setMyGems(List<Gem> myGems) {
         this.myGems = myGems;
+    }
+
+    public List<Review> getMyReviews() {
+        return myReviews;
+    }
+
+    public void addReview(Review review) {this.myReviews.add(review);}
+
+    public void setMyReviews(List<Review> myReviews) {
+        this.myReviews = myReviews;
     }
 }
 
