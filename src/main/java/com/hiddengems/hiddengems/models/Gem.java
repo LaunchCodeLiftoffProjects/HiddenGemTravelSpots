@@ -38,9 +38,6 @@ public class Gem extends AbstractEntity {
     @NotNull
     private Point gemPoint;
 
-    @ManyToOne
-    private UserAccount userAccount;
-
     @OneToMany(mappedBy = "gem")
     private final List<Review> reviews = new ArrayList<>();
 

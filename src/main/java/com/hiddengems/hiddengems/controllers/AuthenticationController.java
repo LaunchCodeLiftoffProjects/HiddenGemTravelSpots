@@ -148,8 +148,8 @@ public class AuthenticationController {
         model.addAttribute("user", theUserAccount);
         model.addAttribute("profile", getProfileByUser(theUserAccount));
         UserAccount userAccount = getUserFromSession(request.getSession());
-        model.addAttribute("myGems", userAccount.getMyGems());
-        model.addAttribute("myReviews", userAccount.getMyReviews());
+        model.addAttribute("myGems", userAccount.getGems());
+        model.addAttribute("myReviews", userAccount.getReviews());
         model.addAttribute("myFriends", userAccount.getFriends());
         return "index";
     }
