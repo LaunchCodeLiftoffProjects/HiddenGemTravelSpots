@@ -19,7 +19,16 @@
         <ul>
             <li th:each="category : ${gem.categories}" th:text="${category.categoryName}">
             </li>
-</ul></p>
+        </ul>
+    </p>
+    <p>  Reviews:
+        <ul>
+    <li th:each="review : ${gem.reviews}">
+        <a th:href="@{'/users/view/' + ${review.getUser}}" th:text="${review.getUser.getUsername}"> </a>
+        <p th:text="${review.getReviewText}"> </p>
+            </li>
+        </ul>
+    </p>
 
 </div>
 <div class = "map">
@@ -467,8 +476,9 @@
     </script>
 
 
-    </div></body>
+    </div>
 </div>
+  
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

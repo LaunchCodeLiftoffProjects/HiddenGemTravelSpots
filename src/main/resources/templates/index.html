@@ -12,11 +12,14 @@
 
         <div class="row">
             <div class="side">
-                <h2>Profile</h2>
+                     <h2>Profile </h2>
+                 <a> <i class="mdi mdi-cog-outline" th:href="@{/profile/settings/}">
+                            </i> </a>
+
                 <div class="profileimg" style="height:200px;">Profile Image</div>
                 <p th:text="${profile.displayName}"> Username  </p>
                 <p> Username:  </p>
-                <a th:href="@{/profile/settings/}">Edit Profile</a>
+<!--                <a th:href="@{/profile/settings/}">Edit Profile</a>-->
             </div>
             <div class="main">
                 <div class="mt-4 py-2 border-top border-bottom">
@@ -47,21 +50,35 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-feed" role="tabpanel" aria-labelledby="list-feed-list">You don't have anything in your feed yet</div>
-                        <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list"> You have not added any gems yet
+<!--                        <div class="tab-pane fade show active" id="list-feed" role="tabpanel" aria-labelledby="list-feed-list" >
+                    </div>-->
+                        <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list">
                             <ul>
                                 <li th:each="gem : ${myGems}">
                                  <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">You don't have any gem reviews yet</div>
-                        <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">You are not following anyone yet</div>
+                        <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">
+                            <ul>
+                                <li th:each="review : ${myReviews}">
+<!--                                 <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getReviewText}"></a>-->
+                                    <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
+                                    <p th:text="'Review: '  + ${review.getReviewText}"> </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">
+                            <ul>
+                                <li th:each="friend : ${myFriends}">
+                                    <a th:href="@{'/users/view/' + ${friend.id}}" th:text="${friend.getUsername}"></a>
+                                </li>
+                            </ul>
                     </div>
                 </div>
                 </div>
             </div>
-
+</div>
 
         <footer th:replace="fragments :: footer"></footer>
     </body>

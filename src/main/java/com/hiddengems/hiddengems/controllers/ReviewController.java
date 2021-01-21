@@ -89,6 +89,7 @@ public class ReviewController {
             Review newReview = review.getReview();
             newReview.setUser(userAccount);
             newReview.setGem(gem);
+            userAccount.addReview(newReview);
             reviewRepository.save(newReview);
 
             return "redirect:../";

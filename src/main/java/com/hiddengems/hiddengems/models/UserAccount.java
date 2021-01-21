@@ -35,10 +35,10 @@ public class UserAccount extends AbstractEntity {
     @OneToMany
     private List<Gem> myGems = new ArrayList<Gem>();
 
-    //@ManyToMany
+    @OneToMany
+    private List<Review> myReviews = new ArrayList<Review>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-
     private List<UserAccount> friends;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userAccount",cascade = CascadeType.ALL, orphanRemoval = true)
@@ -124,6 +124,16 @@ public class UserAccount extends AbstractEntity {
     public void addGem(Gem gem) {
         this.gems.add(gem);
 
+    }
+
+    public List<Review> getMyReviews() {
+        return myReviews;
+    }
+
+    public void addReview(Review review) {this.myReviews.add(review);}
+
+    public void setMyReviews(List<Review> myReviews) {
+        this.myReviews = myReviews;
     }
 }
 
