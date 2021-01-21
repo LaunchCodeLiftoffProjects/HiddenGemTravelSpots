@@ -1,10 +1,9 @@
 package com.hiddengems.hiddengems.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
+
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -13,7 +12,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class UserProfile extends AbstractEntity {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_account_id")
     private UserAccount userAccount;
 
@@ -31,9 +30,6 @@ public class UserProfile extends AbstractEntity {
 
     @Size(min = 0, max = 500, message = "We get it - you contain multitudes - but there is a 500 character limit")
     private String bio;
-
-//    @OneToMany(mappedBy = "userProfile")
-//    private List<Review> reviews;
 
     private String avatar;
 
