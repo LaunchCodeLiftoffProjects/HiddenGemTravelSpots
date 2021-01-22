@@ -14,6 +14,16 @@
         <input class="form-control" th:field="${gem.gemName}" />
         <span th:errors="${gem.gemName}" class="error"> </span>
     </div>
+    <div class="form-group">
+        <label th:for="gemLatitude">Latitude</label>
+        <input class="form-control" th:field="${gem.latitude}" />
+        <span th:errors="${gem.latitude}" class="error"> </span>
+    </div>
+    <div class="form-group">
+        <label th:for="gemLongitude">Longitude</label>
+        <input class="form-control" th:field="${gem.longitude}" />
+        <span th:errors="${gem.longitude}" class="error"> </span>
+    </div>
 
 <!--    <div class="form-group">-->
 <!--        <label th:for="location">Location</label>-->
@@ -39,17 +49,19 @@
     </div>
 
     <div class="form-group">
-        <label>Categories (check all that apply):
-            <div th:each="category : ${categories}">
-                <input type="checkbox" th:field="*{gem.category}"  th:value="${category}" th:text="${category.categoryName}">
-            </div>
-<!--            <select th:field="${gem.category}">-->
+        <label th:for="categories">Categories (check all that apply): </label>
+            <th:block th:each="category : ${categories}">
+                <input type="checkbox" name="categories" th:object="${categories}"  th:value="${category}">
+                <label th:text="${category.categoryName}"></label>
+            </th:block>
+    </div>
+<!--            <select th:object="${gem.categories}">-->
 <!--                <option th:each="category : ${categories}"-->
 <!--                        th:value="${category}"-->
 <!--                        th:text="${category.categoryName}"-->
 <!--                ></option>-->
 <!--            </select>-->
-            <p class="error" th:errors="${gem.category}"></p>
+            <p class="error" th:errors="${gem.categories}"></p>
         </label>
     </div>
 <!--    <div class="form-group">-->

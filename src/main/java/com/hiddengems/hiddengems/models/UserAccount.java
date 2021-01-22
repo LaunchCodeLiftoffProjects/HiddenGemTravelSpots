@@ -5,10 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +26,10 @@ public class UserAccount extends AbstractEntity {
 
     @UpdateTimestamp
     private Date lastLogin;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "auth_provider")
+    private AuthenticationProvider  authProvider;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount")
     private UserProfile userProfile;
@@ -78,6 +79,14 @@ public class UserAccount extends AbstractEntity {
 
     public void addFriend(UserAccount friend) {
         this.friends.add(friend);
+    }
+
+    public AuthenticationProvider getAuthProvider() {
+        return authProvider;
+    }
+
+    public void setAuthProvider(AuthenticationProvider authProvider) {
+        this.authProvider = authProvider;
     }
 }
 
