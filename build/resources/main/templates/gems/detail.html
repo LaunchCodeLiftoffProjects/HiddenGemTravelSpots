@@ -2,16 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <head th:replace="fragments :: head">
+    <meta http-equiv='X-Frame-Options' content='ALLOWAll'>
 </head>
+<style>
+            div {
+            padding-top: 7px;
+            padding-left: 7px;
+             }
+             </style>
 <body>
 <header th:replace="fragments :: header"> </header>
 
 <div> <title>Gem Details</title> </div>
+<div class = "row">
+    <div class = "column">
 
 <div class="gem-details">
     <p th:text="${'Gem Name: ' + gem.gemName}"></p>
     <p th:text="${'Description: ' + gem.description}"></p>
-
     <p th:text="${'Latitude: ' + gem.latitude}"></p>
     <p th:text="${'Longitude: ' + gem.longitude}"></p>
 <!--    <p> Categories: <span th:each="category : ${gem.categories}" th:value="${category}" th:text="${category.categoryName} + ', '"> </span></p>-->
@@ -29,12 +37,13 @@
             </li>
         </ul>
     </p>
-
 </div>
+    </div>
+    <div class = "column">
 <div class = "map">
     <style>
         .ol-zoom {
-          top: 52px;
+          top: 20px;
         }
         .ol-toggle-options {
           z-index: 1000;
@@ -81,7 +90,7 @@
             font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
             font-size: small;
         }
-        iframe {
+       iframe {
             width: 100%;
             height: 250px;
             border: none;
@@ -115,8 +124,8 @@
         #map {
             clear: both;
             position: relative;
-            width: 768px;
-            height: 384px;
+            width: 950px;
+            height: 400px;
 
         }
         #wrapper {
@@ -153,6 +162,7 @@
         }
     </style>
     <script src="//localhost:8181/geoserver/openlayers3/ol.js" type="text/javascript"></script>
+    
     <body>
     <div id="toolbar" style="display: block;">
         <ul>
@@ -202,7 +212,8 @@
                     These values come from a statistics of the viewable area given a certain screen area
                     (but have been adapted a litte, simplified numbers, added some resolutions for wide screen)
                     You can find them here: http://www.evolt.org/article/Real_World_Browser_Size_Stats_Part_II/20/2297/
-                    --><option value="auto">Auto</option>
+                    -->
+                    <option value="auto">Auto</option>
                     <option value="600">600</option>
                     <option value="750">750</option>
                     <option value="950">950</option>
@@ -246,7 +257,7 @@
         <div id="location">
             <div class="custom-mouse-position">&nbsp;</div>
         </div>
-        <div id="scale">Scale = 1 : 279M</div>
+        <div id="scale">Scale = 1 : 140M</div>
         <div id="nodelist">
             <em>Click on the map to get feature info</em>
         </div>
@@ -475,10 +486,9 @@
 
     </script>
 
-
-    </div>
 </div>
-  
+</div>
+</div>
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>
