@@ -44,3 +44,5 @@ com/hiddengems/hiddengems/controllers/HelloController.java
  com.hiddengems.hiddengems.controllers.HelloController
 com/hiddengems/hiddengems/models/data/ReviewRepository.java
  com.hiddengems.hiddengems.models.data.ReviewRepository
+com/hiddengems/hiddengems/models/AuthenticationProvider.java
+ com.hiddengems.hiddengems.models.AuthenticationProvider
