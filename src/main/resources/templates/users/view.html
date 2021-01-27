@@ -19,9 +19,11 @@
 
 <div class="row">
     <div class="side">
-        <h2 th:text="${profile.displayName}"></h2>
+        <h2 th:text="${profile.displayName} + ' (@' + ${user.username}+')'"> </h2>
         <div class="profileimg" style="height:200px;">Profile Image</div>
-        <p>@<span th:text="${user.username}"></span></p>
+        <br>
+        <p> Zipcode: <span th:text="' '+ ${profile.getZipCode}"></span> </p>
+        <p> Bio: <span th:text="' '+ ${profile.getBio}"></span> </p>
     </div>
 
     <div class="main">
@@ -59,7 +61,7 @@
                         <li th:each="review : ${myReviews}">
                             <!--                                 <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getReviewText}"></a>-->
                             <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
-                            <p th:text="'Review: '  + ${review.getReviewText}"> </p>
+                            <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
                         </li>
                     </ul>
                 </div>

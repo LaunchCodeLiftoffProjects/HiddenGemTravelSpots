@@ -62,7 +62,7 @@
                                 <li th:each="review : ${myReviews}">
 <!--                                 <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getReviewText}"></a>-->
                                     <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
-                                    <p th:text="'Review: '  + ${review.getReviewText}"> </p>
+                                    <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
                                 </li>
                             </ul>
                         </div>
