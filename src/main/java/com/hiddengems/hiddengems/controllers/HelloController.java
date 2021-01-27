@@ -1,5 +1,6 @@
 package com.hiddengems.hiddengems.controllers;
 
+import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.UserAccount;
 import com.hiddengems.hiddengems.models.UserProfile;
 import com.hiddengems.hiddengems.models.data.UserProfileRepository;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
@@ -63,7 +65,21 @@ public class HelloController {
         UserProfile userProfile = getProfileByUser(userAccount);
 
         if (userProfile != null) {
+
+            ArrayList<Gem> recentGems = new ArrayList();
+            ArrayList<Gem> recentReviews = new ArrayList();
+            for (UserAccount friend : userAccount.getFriends()){
+               for (Gem gem : friend.getGems()){
+                   //if a friend submitted or edited gem since user's last login, add to feed
+                   if (gem.getLastUpdated().after(userAccount.getLastLogin())){
+
+                   }
+               }
+
+            }
+
             model.addAttribute("profile", userProfile);
+//            model.addAttribute("myFeed", );
             model.addAttribute("myGems", userAccount.getGems());
             model.addAttribute("myReviews", userAccount.getReviews());
             model.addAttribute("myFriends", userAccount.getFriends());

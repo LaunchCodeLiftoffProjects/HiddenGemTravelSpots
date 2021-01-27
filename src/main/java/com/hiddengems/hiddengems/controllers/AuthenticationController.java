@@ -157,6 +157,10 @@ public class AuthenticationController {
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
+        UserAccount userAccount = getUserFromSession(request.getSession());
+        Date date = new Date();
+        userAccount.setLastLogin(date);
+        userRepository.save(userAccount);
         request.getSession().invalidate();
         return "redirect:/login";
     }

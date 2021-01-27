@@ -63,6 +63,10 @@ public class UserAccount extends AbstractEntity {
         return lastLogin;
     }
 
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
     public UserProfile getUserProfile() {
         return userProfile;
     }

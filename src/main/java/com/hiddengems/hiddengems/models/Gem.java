@@ -166,8 +166,8 @@ public class Gem extends AbstractEntity {
         this.userAccount = userAccount;
     }
 
-    public String getLastUpdated() {
-        return lastUpdated.toLocaleString();
+    public Date getLastUpdated() {
+        return lastUpdated;
     }
 
     @Override
