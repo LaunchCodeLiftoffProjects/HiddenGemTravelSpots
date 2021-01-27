@@ -101,7 +101,7 @@ public class UserProfileController {
         return "redirect:/";
     }
 
-    @PostMapping("/users/view")//localhost:8080/users/view?id= POST MAPPING
+    @GetMapping("/users/view")//localhost:8080/users/view?id= POST MAPPING // should be get mapping, we are retrieving info
     public String displayPublicProfile(@RequestParam Integer id, HttpServletRequest request, Model model) {
         UserAccount userAccount = getUserFromSession(request.getSession()); //get logged in user
         if (userAccount == null) {
@@ -126,9 +126,13 @@ public class UserProfileController {
         model.addAttribute("profile", pubUserProfile);
         model.addAttribute("user", pubUserAcct);
         model.addAttribute("following", following);
+        model.addAttribute("myGems", pubUserAcct.getGems());
+        model.addAttribute("myReviews", pubUserAcct.getReviews());
+        model.addAttribute("myFriends", pubUserAcct.getFriends());
 
-        return "/profile/index";
+        return "/users/view";
     }
+
 
     @PostMapping("/profile/follow")//localhost:8080//profile/follow?id={userId}&action={String = 'add'|'remove'}
     public String processFollowOrUnfollowUser(@RequestParam Integer id, @RequestParam String action,

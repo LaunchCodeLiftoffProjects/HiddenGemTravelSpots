@@ -44,7 +44,7 @@
                         <th:block th:if="${review.thumbsup}">&#128077;</th:block>
                         <th:block th:unless="${review.thumbsup}">&#128078;</th:block>
                         <strong>"</strong><em><span th:text="${review.getReviewText}"> </span></em><strong>"</strong><br />
-                        &nbsp;- <a th:href="@{'/users/view/' + ${review.getUser.id}}" th:text="${review.user.userProfile.displayName}"> </a>
+                        &nbsp;- <a th:href="@{'/users/view?id=' + ${review.getUser.id}}" th:text="${review.user.userProfile.displayName}"> </a>
                          on <span th:text="${review.lastUpdated}"> </span>
                     </li>
                 </ul>
