@@ -144,7 +144,9 @@ public class AuthenticationController {
         }
 
         setUserInSession(request.getSession(), theUserAccount);
-        userRepository.save(theUserAccount);//update last login timestamp
+        Date date = new Date();
+        theUserAccount.setLastLogin(date);
+        userRepository.save(theUserAccount);//updates last login timestamp
         model.addAttribute("user", theUserAccount);
         model.addAttribute("profile", getProfileByUser(theUserAccount));
         UserAccount userAccount = getUserFromSession(request.getSession());
@@ -159,7 +161,7 @@ public class AuthenticationController {
     public String logout(HttpServletRequest request){
         UserAccount userAccount = getUserFromSession(request.getSession());
         Date date = new Date();
-        userAccount.setLastLogin(date);
+        userAccount.setLastLogout(date);
         userRepository.save(userAccount);
         request.getSession().invalidate();
         return "redirect:/login";
