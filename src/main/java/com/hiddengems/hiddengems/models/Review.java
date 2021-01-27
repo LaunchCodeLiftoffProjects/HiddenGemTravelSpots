@@ -61,7 +61,7 @@ public class Review extends AbstractEntity{
         this.reviewText = reviewText;
     }
 
-    public String getLastUpdated() {
-        return lastUpdated.toLocaleString();
+    public Date getLastUpdated() {
+        return lastUpdated;
     }
 }

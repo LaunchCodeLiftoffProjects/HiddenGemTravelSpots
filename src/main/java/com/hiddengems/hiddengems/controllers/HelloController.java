@@ -1,6 +1,7 @@
 package com.hiddengems.hiddengems.controllers;
 
 import com.hiddengems.hiddengems.models.Gem;
+import com.hiddengems.hiddengems.models.Review;
 import com.hiddengems.hiddengems.models.UserAccount;
 import com.hiddengems.hiddengems.models.UserProfile;
 import com.hiddengems.hiddengems.models.data.UserProfileRepository;
@@ -67,19 +68,26 @@ public class HelloController {
         if (userProfile != null) {
 
             ArrayList<Gem> recentGems = new ArrayList();
-            ArrayList<Gem> recentReviews = new ArrayList();
-            for (UserAccount friend : userAccount.getFriends()){
-               for (Gem gem : friend.getGems()){
-                   //if a friend submitted or edited gem since user's last login, add to feed
-                   if (gem.getLastUpdated().after(userAccount.getLastLogin())){
+            ArrayList<Review> recentReviews = new ArrayList();
+            for (UserAccount friend : userAccount.getFriends()) {
+                for (Gem gem : friend.getGems()) {
+                    //if a friend submitted or edited gem since user's last logout, add to feed
+                    if (gem.getLastUpdated().after(userAccount.getLastLogout())) {
+                        recentGems.add(gem);
+                    }
+                }
 
-                   }
-               }
-
+                for (Review review : friend.getReviews()) {
+                    //if a friend submitted or edited review since user's last logout, add to feed
+                    if (review.getLastUpdated().after(userAccount.getLastLogout())) {
+                        recentReviews.add(review);
+                    }
+                }
             }
 
             model.addAttribute("profile", userProfile);
-//            model.addAttribute("myFeed", );
+            model.addAttribute("recentGems", recentGems);
+            model.addAttribute("recentReviews", recentReviews);
             model.addAttribute("myGems", userAccount.getGems());
             model.addAttribute("myReviews", userAccount.getReviews());
             model.addAttribute("myFriends", userAccount.getFriends());

@@ -1,5 +1,7 @@
 package com.hiddengems.hiddengems.controllers;
 
+import com.hiddengems.hiddengems.models.Gem;
+import com.hiddengems.hiddengems.models.Review;
 import com.hiddengems.hiddengems.models.UserAccount;
 import com.hiddengems.hiddengems.models.UserProfile;
 import com.hiddengems.hiddengems.models.data.GemRepository;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
@@ -147,9 +150,29 @@ public class AuthenticationController {
         Date date = new Date();
         theUserAccount.setLastLogin(date);
         userRepository.save(theUserAccount);//updates last login timestamp
+
+        ArrayList<Gem> recentGems = new ArrayList();
+        ArrayList<Review> recentReviews = new ArrayList();
+        for (UserAccount friend : theUserAccount.getFriends()) {
+            for (Gem gem : friend.getGems()) {
+                //if a friend submitted or edited gem since user's last logout, add to feed
+                if (gem.getLastUpdated().after(theUserAccount.getLastLogout())) {
+                    recentGems.add(gem);
+                }
+            }
+
+            for (Review review : friend.getReviews()) {
+                //if a friend submitted or edited review since user's last logout, add to feed
+                if (review.getLastUpdated().after(theUserAccount.getLastLogout())) {
+                    recentReviews.add(review);
+                }
+            }
+        }
         model.addAttribute("user", theUserAccount);
         model.addAttribute("profile", getProfileByUser(theUserAccount));
         UserAccount userAccount = getUserFromSession(request.getSession());
+        model.addAttribute("recentGems", recentGems);
+        model.addAttribute("recentReviews", recentReviews);
         model.addAttribute("myGems", userAccount.getGems());
         model.addAttribute("myReviews", userAccount.getReviews());
         model.addAttribute("myFriends", userAccount.getFriends());
