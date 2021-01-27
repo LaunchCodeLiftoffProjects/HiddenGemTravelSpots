@@ -30,7 +30,6 @@ public class GemController {
     @Autowired
     private UserRepository userRepository;
 
-
     private static final String userSessionKey = "user";
 
 
@@ -65,7 +64,7 @@ public class GemController {
         if (errors.hasErrors()) {
             return "gems/add";
         }
-         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
+        List <GemCategory> categoryObjs = (List<GemCategory>) categories;
         newGem.setCategories(categoryObjs);
         gemRepository.save(newGem);
 
@@ -79,14 +78,14 @@ public class GemController {
         if (optGem.isPresent()) {
             Gem gem = (Gem) optGem.get();
             model.addAttribute("gem", gem);
-            model.addAttribute("categories", gem.getCategories());
             return "gems/detail";
         } else {
             return "redirect:";
         }
     }
 
-    @GetMapping("gems/index")
+
+    @GetMapping("index")
     public String index(Model model){
         Iterable<Gem> gems;
         gems = gemRepository.findAll();

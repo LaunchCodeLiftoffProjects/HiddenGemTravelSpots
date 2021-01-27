@@ -26,34 +26,38 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search by category function partially works. WORKING: searching whiskey ring while choosing &quot;family-friendly&quot; will not return whiskey ring. NOT WORKING: choosing a category to filter and not entering a search term returns all gems under all categories.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/ListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/dto/GemDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/list.html" afterDir="false" />
+    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search filter added to header.">
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/HelloController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/SearchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Gem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Gem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/GemData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/search-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/search-results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/GemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/GemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/ListController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/Gem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/Gem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/GemCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/GemCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/GemData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/GemData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/models/dto/GemDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/search-results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search.html" beforeDir="false" />
     </list>
     <list id="14920f12-b464-4647-8d17-fbd312e9b898" name="Revert &quot;starter code&quot;" comment="Revert &quot;starter code&quot;&#10;&#10;This reverts commit 30faac57" />
     <option name="SHOW_DIALOG" value="false" />
@@ -250,64 +254,78 @@
     <MESSAGE value="added browse template" />
     <MESSAGE value="all gems listed at gems/index" />
     <MESSAGE value="search by category function partially works. WORKING: searching whiskey ring while choosing &quot;family-friendly&quot; will not return whiskey ring. NOT WORKING: choosing a category to filter and not entering a search term returns all gems under all categories." />
-    <option name="LAST_COMMIT_MESSAGE" value="search by category function partially works. WORKING: searching whiskey ring while choosing &quot;family-friendly&quot; will not return whiskey ring. NOT WORKING: choosing a category to filter and not entering a search term returns all gems under all categories." />
+    <MESSAGE value="search by category fully functioning." />
+    <MESSAGE value="search filter added to header." />
+    <option name="LAST_COMMIT_MESSAGE" value="search filter added to header." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1610914931890">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="-878" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1611722727627">
+      <screen x="-1366" y="0" width="1366" height="728" />
     </state>
-    <state x="-878" y="48" key="#com.intellij.ide.util.MemberChooser/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1610662038119" />
+    <state x="-878" y="48" key="#com.intellij.ide.util.MemberChooser/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611722727627" />
     <state x="488" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1610914931890" />
     <state x="-918" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1610933467394">
       <screen x="-1366" y="0" width="1366" height="728" />
     </state>
     <state x="-918" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1610933467394" />
     <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1610914856735" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611787101941">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1611787101941" />
     <state x="-903" y="119" key="FileChooserDialogImpl" timestamp="1610737569535">
       <screen x="-1366" y="0" width="1366" height="728" />
     </state>
     <state x="-903" y="119" key="FileChooserDialogImpl/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1610737569535" />
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608781150317" />
-    <state width="1323" height="18" key="GridCell.Tab.0.bottom" timestamp="1610933845352">
-      <screen x="-1366" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="18" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1610933845352" />
-    <state width="1317" height="193" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1610910436773" />
-    <state width="1323" height="117" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610915662407" />
-    <state width="1323" height="18" key="GridCell.Tab.0.center" timestamp="1610933845352">
-      <screen x="-1366" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="18" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1610933845352" />
-    <state width="1317" height="193" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1610910436773" />
-    <state width="1323" height="117" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610915662407" />
-    <state width="1323" height="18" key="GridCell.Tab.0.left" timestamp="1610933845352">
-      <screen x="-1366" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="18" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1610933845352" />
-    <state width="1317" height="193" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1610910436757" />
-    <state width="1323" height="117" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610915662407" />
-    <state width="1323" height="18" key="GridCell.Tab.0.right" timestamp="1610933845352">
-      <screen x="-1366" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="18" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1610933845352" />
-    <state width="1317" height="193" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1610910436773" />
-    <state width="1323" height="117" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610915662407" />
-    <state width="1323" height="296" key="GridCell.Tab.1.bottom" timestamp="1610321851298">
+    <state width="1323" height="96" key="GridCell.Tab.0.bottom" timestamp="1611787869278">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="151" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611723090078" />
+    <state width="1317" height="108" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1611630093013" />
+    <state width="1323" height="96" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1611787869278" />
+    <state width="1323" height="96" key="GridCell.Tab.0.center" timestamp="1611787869278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="151" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611723090078" />
+    <state width="1317" height="108" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1611630093012" />
+    <state width="1323" height="96" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1611787869278" />
+    <state width="1323" height="96" key="GridCell.Tab.0.left" timestamp="1611787869278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="151" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611723090078" />
+    <state width="1317" height="108" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1611630093012" />
+    <state width="1323" height="96" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1611787869278" />
+    <state width="1323" height="96" key="GridCell.Tab.0.right" timestamp="1611787869278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="151" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611723090078" />
+    <state width="1317" height="108" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1360.728@0.0.1360.728" timestamp="1611630093012" />
+    <state width="1323" height="96" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1611787869278" />
+    <state width="1323" height="111" key="GridCell.Tab.1.bottom" timestamp="1611201365352">
+      <screen x="-1366" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="111" key="GridCell.Tab.1.bottom/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611201365352" />
     <state width="1323" height="296" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610321851298" />
-    <state width="1323" height="296" key="GridCell.Tab.1.center" timestamp="1610321851298">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1323" height="111" key="GridCell.Tab.1.center" timestamp="1611201365352">
+      <screen x="-1366" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="111" key="GridCell.Tab.1.center/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611201365352" />
     <state width="1323" height="296" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1610321851298" />
-    <state width="1323" height="296" key="GridCell.Tab.1.left" timestamp="1610321851298">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1323" height="111" key="GridCell.Tab.1.left" timestamp="1611201365352">
+      <screen x="-1366" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="111" key="GridCell.Tab.1.left/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611201365352" />
     <state width="1323" height="296" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1610321851298" />
-    <state width="1323" height="296" key="GridCell.Tab.1.right" timestamp="1610321851298">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1323" height="111" key="GridCell.Tab.1.right" timestamp="1611201365352">
+      <screen x="-1366" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="111" key="GridCell.Tab.1.right/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611201365352" />
     <state width="1323" height="296" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1610321851298" />
+    <state x="-1103" y="107" key="IDE.errors.dialog" timestamp="1611721013916">
+      <screen x="-1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="-1103" y="107" key="IDE.errors.dialog/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611721013916" />
     <state x="335" y="66" key="RollbackChangesDialog" timestamp="1609303729919">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -320,10 +338,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="24" y="128" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1609304195803" />
+    <state x="387" y="77" key="git4idea.branch.GitSmartOperationDialog" timestamp="1611787513695">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="387" y="77" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.728@0.0.1366.728" timestamp="1611787513695" />
     <state x="327" y="152" key="git4idea.merge.GitPullDialog" timestamp="1610560385132">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="327" y="152" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1610560385132" />
+    <state x="-1031" y="121" key="refactoring.ChangeSignatureDialog" timestamp="1611331522508">
+      <screen x="-1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="-1031" y="121" key="refactoring.ChangeSignatureDialog/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1611331522508" />
     <state x="-1020" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1610740459932">
       <screen x="-1366" y="0" width="1366" height="728" />
     </state>

@@ -4,16 +4,14 @@ import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.GemCategory;
 import com.hiddengems.hiddengems.models.GemData;
 import com.hiddengems.hiddengems.models.data.GemRepository;
-import com.hiddengems.hiddengems.models.dto.GemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
+import java.util.List;
 
 
 @Controller
@@ -23,69 +21,29 @@ public class SearchController {
     @Autowired
     private GemRepository gemRepository;
 
-
-//    @PostMapping("/search-results")
-//    public String displaySearchResults(Model model, @RequestParam String searchTerm){
-//        Iterable<Gem> gems;
-//        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
-//            gems = gemRepository.findAll();
-//
-//        } else {
-//            gems = GemData.findByValue(searchTerm, gemRepository.findAll());
-//        }
-//
-//        model.addAttribute("gems", gems);
-//        model.addAttribute("title", "Gems with " + searchTerm);
-//        return "search-results";
-//    }
-
-    static HashMap<String, String> columnChoices = new HashMap<>();
-
-    public SearchController () {
-
-        columnChoices.put("all", "All");
-        columnChoices.put("category", "Category");
-
-    }
-
-    @RequestMapping("search")
-    public String search(Model model) {
-//        model.addAttribute("columns", columnChoices);
-        model.addAttribute("categories", GemCategory.values());
-        return "search";
-    }
-
-//    @PostMapping("/search-results")
-//    public String displaySearchResults(Model model, @RequestParam String searchTerm){
-//        Iterable<Gem> gems;
-//        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
-//            gems = gemRepository.findAll();
-//        } else {
-//            gems = GemData.findByValue(searchTerm, gemRepository.findAll());
-//        }
-//
-//        model.addAttribute("column", columnChoices);
-//       // model.addAttribute("categories", gem.getCategories());
-//        model.addAttribute("title", "Gems with " + searchTerm);
-//        model.addAttribute("gems", gems);
-//        return "search-results";
-//    }
-
-    //add an 'else if' to allow for the searchTerm.equals("") AND gemCategory(s) chosen
-    @PostMapping("/search-results")
-    public String displaySearchResults(@ModelAttribute GemDTO gemCategory , @RequestParam String searchTerm, Model model){
+    @RequestMapping(value = "/search-results" , method=RequestMethod.POST)
+    public String displaySearchResults(@RequestParam(value = "category", required=false) List<GemCategory> category,
+                                       @RequestParam String searchTerm,
+                                       Model model) {
         Iterable<Gem> gems;
-        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
+        if (category != null) {
+            System.out.println(category);
+          if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
+                gems = GemData.findByCategory(category, gemRepository.findAll());
+            } else {
+              gems = GemData.findByCategoryAndValue(category, searchTerm, gemRepository.findAll());
+          }
+        } else if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
             gems = gemRepository.findAll();
-        } else {
-            gems = GemData.findByColumnAndValue(gemCategory, searchTerm, gemRepository.findAll());
+            } else {
+            gems = GemData.findByValue(searchTerm, gemRepository.findAll());
+            }
+        if(gems == null) {
+            model.addAttribute("no gems", "no gems found");
         }
-
-        //model.addAttribute("columns", columnChoices);
-        // model.addAttribute("categories", gem.getCategories());
-        model.addAttribute("title", columnChoices.get(gemCategory) + ": " + "Gems with " + searchTerm);
+        model.addAttribute("categories", GemCategory.values());
         model.addAttribute("gems", gems);
         return "search-results";
-    }
+        }
 
-}
+    }

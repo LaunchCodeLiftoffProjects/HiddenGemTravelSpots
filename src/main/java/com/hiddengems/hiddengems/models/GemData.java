@@ -1,46 +1,39 @@
 package com.hiddengems.hiddengems.models;
 
-import com.hiddengems.hiddengems.models.dto.GemDTO;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class GemData {
 
-    public static ArrayList<Gem> findByColumnAndValue(GemDTO category, String value, Iterable<Gem> allGems) {
+    public static ArrayList<Gem> findByCategoryAndValue(List<GemCategory> category, String value, Iterable<Gem> allGems) {
         ArrayList<Gem> results = new ArrayList<>();
-
         if (value.toLowerCase().equals("all")) {
             return (ArrayList<Gem>) allGems;
         }
 
-        if (category.toString().equals("all")) {
-            results = findByValue(value, allGems);
-            return results;
-        }
-        for (Gem gem: allGems) {
-            String aValue = getCategoryValue(gem, category);
-            if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
-                results.add(gem);
+        if (category.size() > 0) {
+            ArrayList<Gem> categoryResults = findByCategory(category, allGems);
+            if (!value.equals("all") && !value.equals("")) {
+                results = findByValue(value, categoryResults);
             }
+            return results;
         }
         return results;
     }
 
-    //TODO: for loop iterates over gemCategories
-    public static String getCategoryValue(Gem gem, GemDTO categoryName){
-        String theValue = "";
-        if (categoryName.toString().equals("categoryName")){
-            theValue= gem.getCategoryName();
-        }
-        return theValue;
-    }
-
-    public static String getFieldValue(Gem gem, String fieldName){
-        String theValue = "";
-        if (fieldName.equals("name")){
-            theValue = gem.getGemName();
-        }
-        return theValue;
+    public static ArrayList<Gem> findByCategory(List<GemCategory> checkedCategory, Iterable<Gem> allGems) {
+        ArrayList<Gem> results = new ArrayList<>();
+        for (Gem gem : allGems) {
+            List<GemCategory> gemCategories = gem.getCategories();
+            for (GemCategory gemCategory : gemCategories) {
+                for (GemCategory category : checkedCategory) {
+                    if (gemCategory == category) {
+                        results.add(gem);
+                    }
+                }
+            }
+            }
+        return results;
     }
 
     public static ArrayList<Gem> findByValue(String value, Iterable<Gem> allGems) {

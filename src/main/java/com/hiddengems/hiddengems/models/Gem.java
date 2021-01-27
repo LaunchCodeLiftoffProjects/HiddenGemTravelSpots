@@ -113,4 +113,8 @@ public class Gem extends AbstractEntity {
     public String toString() {
         return gemName;
     }
+
+    //ArrayList called GemAndCategory
+        //Gem : Category
+
 }
