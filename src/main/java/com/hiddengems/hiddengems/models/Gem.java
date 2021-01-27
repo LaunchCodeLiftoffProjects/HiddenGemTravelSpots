@@ -104,13 +104,17 @@ public class Gem extends AbstractEntity {
 
         NumberFormat fmt = new DecimalFormat();
         fmt.setMaximumFractionDigits(2);
-        String score = String.valueOf(fmt.format(thumbsups/reviews.size()));
+        String score = String.valueOf(fmt.format((thumbsups/reviews.size())*100));
 
         return score;
     }
   
     public UserAccount getUser() {
         return userAccount;
+    }
+
+    public String getUserName() {
+        return userAccount.getUsername();
     }
 
     public void setUser(UserAccount userAccount) {

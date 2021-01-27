@@ -18,22 +18,27 @@
     <div class = "column">
 
 <div class="gem-details">
-    <p th:text="${'Gem Name: ' + gem.gemName}"></p>
+    <h2 th:text="${gem.gemName}"></h2>
+    <p th:text="${'Submitted By: ' + gem.user.userProfile.displayName}"></p>
+    <p th:text="${'Favored by ' + gem.rating + '% of HG Reviewers'}"></p>
     <p th:text="${'Description: ' + gem.description}"></p>
     <p th:text="${'Latitude: ' + gem.latitude}"></p>
     <p th:text="${'Longitude: ' + gem.longitude}"></p>
 <!--    <p> Categories: <span th:each="category : ${gem.categories}" th:value="${category}" th:text="${category.categoryName} + ', '"> </span></p>-->
     <p>Categories:
         <ul>
-            <li th:each="category : ${gem.categories}" th:text="${category.categoryName}">
-            </li>
+            <li th:each="category : ${gem.categories}" th:text="${category.categoryName}"></li>
         </ul>
     </p>
     <p>  Reviews:
         <ul>
-    <li th:each="review : ${gem.reviews}">
-        <a th:href="@{'/users/view/' + ${review.getUser}}" th:text="${review.getUser.getUsername}"> </a>
-        <p th:text="${review.getReviewText}"> </p>
+            <li th:each="review : ${gem.reviews}">
+                <th:block th:if="${review.thumbsup}">&#128077;</th:block>
+                <th:block th:unless="${review.thumbsup}">&#128078;</th:block>
+                <strong>"</strong><em><span th:text="${review.getReviewText}"> </span></em><strong>"</strong><br />
+                &nbsp;- <a th:href="@{'/users/view/' + ${review.getUser}}" th:text="${review.user.userProfile.displayName}"> </a>
+                 on <span th:text="${review.lastUpdated}"> </span>
+
             </li>
         </ul>
     </p>

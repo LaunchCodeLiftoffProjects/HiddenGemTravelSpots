@@ -97,13 +97,21 @@ public class GemController {
     }
 
     @GetMapping("detail/{gemId}")
-    public String displayViewGem(Model model, @PathVariable int gemId) {
+    public String displayViewGem(HttpServletRequest request, Model model, @PathVariable int gemId) {
 
         Optional<Gem> optGem = gemRepository.findById(gemId);
         if (optGem.isPresent()) {
             Gem gem = (Gem) optGem.get();
+
+            boolean canEdit = false;
+            if (gem.getUser() == getUserFromSession(request.getSession())) {
+                canEdit = true;
+            }
+
+            model.addAttribute("canEdit", canEdit);
             model.addAttribute("gem", gem);
             model.addAttribute("categories", gem.getCategories());
+
             return "gems/detail";
         } else {
             return "redirect:";
