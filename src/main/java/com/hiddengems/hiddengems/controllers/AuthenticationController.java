@@ -1,6 +1,9 @@
 package com.hiddengems.hiddengems.controllers;
 
 import com.hiddengems.hiddengems.models.UserAccount;
+import com.hiddengems.hiddengems.models.UserProfile;
+import com.hiddengems.hiddengems.models.data.GemRepository;
+import com.hiddengems.hiddengems.models.data.UserProfileRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
 import com.hiddengems.hiddengems.models.dto.LoginFormDTO;
 import com.hiddengems.hiddengems.models.dto.RegisterFormDTO;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -22,6 +26,12 @@ public class AuthenticationController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserProfileRepository userProfileRepository;
+
+    @Autowired
+    private GemRepository gemRepository;
 
     private static final String userSessionKey = "user";
 
@@ -44,17 +54,29 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, userAccount.getId());
     }
 
+    public UserProfile getProfileByUser(UserAccount userAccount) {
+        Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.findByUserAccount(userAccount));
+
+        if (userProfile.isEmpty()) {
+            return null;
+        }
+
+        return userProfile.get();
+    }
+
+
     @GetMapping("/register")
     public String displayRegistrationForm(Model model) {
         model.addAttribute(new RegisterFormDTO());
         model.addAttribute("title", "Register");
+        model.addAttribute("userProfile", new UserProfile());
         return "register";
     }
 
+
     @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
-                                          Errors errors, HttpServletRequest request,
-                                          Model model) {
+                                          Errors errors, HttpServletRequest request, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
@@ -77,12 +99,15 @@ public class AuthenticationController {
             return "register";
         }
 
-        UserAccount newUserAccount = new UserAccount(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        Date date = new Date();
+        UserAccount newUserAccount = new UserAccount(registerFormDTO.getUsername(), registerFormDTO.getPassword(), date);
         userRepository.save(newUserAccount);
         setUserInSession(request.getSession(), newUserAccount);
+        model.addAttribute("user", newUserAccount);
 
-        return "redirect:";
+        return "redirect:profile/settings";
     }
+
 
     @GetMapping("/login")
     public String displayLoginForm(Model model) {
@@ -90,6 +115,7 @@ public class AuthenticationController {
         model.addAttribute("title", "Log In");
         return "login";
     }
+
 
     @PostMapping("/login")
     public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO,
@@ -118,9 +144,16 @@ public class AuthenticationController {
         }
 
         setUserInSession(request.getSession(), theUserAccount);
-
+        userRepository.save(theUserAccount);//update last login timestamp
+        model.addAttribute("user", theUserAccount);
+        model.addAttribute("profile", getProfileByUser(theUserAccount));
+        UserAccount userAccount = getUserFromSession(request.getSession());
+        model.addAttribute("myGems", userAccount.getGems());
+        model.addAttribute("myReviews", userAccount.getReviews());
+        model.addAttribute("myFriends", userAccount.getFriends());
         return "index";
     }
+
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
