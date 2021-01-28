@@ -15,6 +15,19 @@ public class LoginFormDTO {
     @NotBlank
     @Size(min = 5, max = 20, message = "Invalid password. Must be between 5 and 20 characters.")
     private String password;
+//
+//    @NotNull
+//    @NotBlank
+//    @Size(min = 3, max = 20, message = "Invalid admin name.")
+//    private  String admin;
+//
+//    @NotNull
+//    @NotBlank
+//    @Size(min = 5, max = 20, message = "Invalid admin password.")
+//    private String admin;
+
+    public LoginFormDTO() {
+    }
 
     public String getUsername() {
         return username;
@@ -32,4 +45,11 @@ public class LoginFormDTO {
         this.password = password;
     }
 
+//    public String getAdmin() {
+//        return admin;
+//    }
+//
+//    public void setAdmin(String admin) {
+//        this.admin = admin;
+//    }
 }
