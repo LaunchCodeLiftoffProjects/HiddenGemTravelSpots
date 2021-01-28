@@ -176,7 +176,7 @@ public class AuthenticationController {
         model.addAttribute("myGems", userAccount.getGems());
         model.addAttribute("myReviews", userAccount.getReviews());
         model.addAttribute("myFriends", userAccount.getFriends());
-        return "index";
+        return "redirect:/";
     }
 
 
