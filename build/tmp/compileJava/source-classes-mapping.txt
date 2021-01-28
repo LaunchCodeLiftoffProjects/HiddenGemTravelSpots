@@ -2,8 +2,8 @@ com/hiddengems/hiddengems/models/Review.java
  com.hiddengems.hiddengems.models.Review
 com/hiddengems/hiddengems/models/data/UserRepository.java
  com.hiddengems.hiddengems.models.data.UserRepository
-com/hiddengems/hiddengems/models/data/ReviewRepository.java
- com.hiddengems.hiddengems.models.data.ReviewRepository
+com/hiddengems/hiddengems/controllers/SearchController.java
+ com.hiddengems.hiddengems.controllers.SearchController
 com/hiddengems/hiddengems/models/dto/LoginFormDTO.java
  com.hiddengems.hiddengems.models.dto.LoginFormDTO
 com/hiddengems/hiddengems/models/Gem.java
@@ -14,14 +14,12 @@ com/hiddengems/hiddengems/models/AuthenticationFilter.java
  com.hiddengems.hiddengems.models.AuthenticationFilter
 com/hiddengems/hiddengems/models/AbstractEntity.java
  com.hiddengems.hiddengems.models.AbstractEntity
-com/hiddengems/hiddengems/models/GemData.java
- com.hiddengems.hiddengems.models.GemData
+com/hiddengems/hiddengems/models/GemCategory.java
+ com.hiddengems.hiddengems.models.GemCategory
 com/hiddengems/hiddengems/models/UserAccount.java
  com.hiddengems.hiddengems.models.UserAccount
-com/hiddengems/hiddengems/models/data/GemRepository.java
- com.hiddengems.hiddengems.models.data.GemRepository
-com/hiddengems/hiddengems/models/dto/ReviewFormDTO.java
- com.hiddengems.hiddengems.models.dto.ReviewFormDTO
+com/hiddengems/hiddengems/models/data/ReviewRepository.java
+ com.hiddengems.hiddengems.models.data.ReviewRepository
 com/hiddengems/hiddengems/models/dto/RegisterFormDTO.java
  com.hiddengems.hiddengems.models.dto.RegisterFormDTO
 com/hiddengems/hiddengems/controllers/ReviewController.java
@@ -30,11 +28,15 @@ com/hiddengems/hiddengems/HiddenGemsApplication.java
  com.hiddengems.hiddengems.HiddenGemsApplication
 com/hiddengems/hiddengems/controllers/AuthenticationController.java
  com.hiddengems.hiddengems.controllers.AuthenticationController
-com/hiddengems/hiddengems/models/GemCategory.java
- com.hiddengems.hiddengems.models.GemCategory
+com/hiddengems/hiddengems/models/GemData.java
+ com.hiddengems.hiddengems.models.GemData
+com/hiddengems/hiddengems/models/dto/ReviewFormDTO.java
+ com.hiddengems.hiddengems.models.dto.ReviewFormDTO
+com/hiddengems/hiddengems/models/data/GemRepository.java
+ com.hiddengems.hiddengems.models.data.GemRepository
 com/hiddengems/hiddengems/controllers/HelloController.java
  com.hiddengems.hiddengems.controllers.HelloController
 com/hiddengems/hiddengems/controllers/GemController.java
  com.hiddengems.hiddengems.controllers.GemController
-com/hiddengems/hiddengems/controllers/SearchController.java
- com.hiddengems.hiddengems.controllers.SearchController
+com/hiddengems/hiddengems/controllers/BrowseController.java
+ com.hiddengems.hiddengems.controllers.BrowseController

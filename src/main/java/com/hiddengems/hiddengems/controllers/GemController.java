@@ -84,13 +84,4 @@ public class GemController {
         }
     }
 
-
-    @GetMapping("index")
-    public String index(Model model){
-        Iterable<Gem> gems;
-        gems = gemRepository.findAll();
-        model.addAttribute("title", "All Gems");
-        model.addAttribute("gems", gems);
-        return "gems/index";
-    }
 }
