@@ -1,0 +1,34 @@
+<!DOCTYPE html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+
+<body>
+<header th:replace="fragments :: header"></header>
+
+    <table>
+        <tr th:each="gem : ${gems}">
+            <td>
+                <p>
+                    <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+<table>
+<tr>
+    <th>All</th>
+    <th>Category</th>
+</tr>
+
+<tr>
+    <td>
+        <li>
+            <a th:href="@{/list/gems(gemCategory='All',searchTerm='All')}">View All</a>
+        </li>
+    </td>
+</tr>
+</table>
+</body>
+</html>

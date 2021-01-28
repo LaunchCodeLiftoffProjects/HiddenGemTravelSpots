@@ -33,6 +33,16 @@
                 <div class="input-group-btn">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </div>
+                    <div class="form-group">
+                        <select name = "category">
+                            <option value="" selected disabled hidden>Narrow Your Search</option>
+                            <option th:each="category : ${T(com.hiddengems.hiddengems.models.GemCategory).values()}"
+                                    th:id="${category}"
+                                    th:value="${{category}}"
+                                    th:text="${category.categoryName}">
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </form>
                 <ul class="navbar-nav ml-auto">

@@ -1,37 +1,39 @@
 package com.hiddengems.hiddengems.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GemData {
 
-    public static ArrayList<Gem> findByColumnAndValue(String value, Iterable<Gem> allGems) {
+    public static ArrayList<Gem> findByCategoryAndValue(List<GemCategory> category, String value, Iterable<Gem> allGems) {
         ArrayList<Gem> results = new ArrayList<>();
-
         if (value.toLowerCase().equals("all")) {
-            //return (ArrayList<Gem>) allGems;
-            results = findByValue(value, allGems);
-            return results;
+            return (ArrayList<Gem>) allGems;
         }
 
-//        if (column.equals("all")) {
-//            results = findByValue(value, allGems);
-//            return results;
-//        }
-        for (Gem gem: allGems) {
-            String aValue = getFieldValue(gem, value);
-            if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
-                results.add(gem);
+        if (category.size() > 0) {
+            ArrayList<Gem> categoryResults = findByCategory(category, allGems);
+            if (!value.equals("all") && !value.equals("")) {
+                results = findByValue(value, categoryResults);
             }
+            return results;
         }
         return results;
     }
 
-    public static String getFieldValue(Gem gem, String fieldName){
-        String theValue = "";
-        if (fieldName.equals("name")){
-            theValue = gem.getGemName();
-        }
-        return theValue;
+    public static ArrayList<Gem> findByCategory(List<GemCategory> checkedCategory, Iterable<Gem> allGems) {
+        ArrayList<Gem> results = new ArrayList<>();
+        for (Gem gem : allGems) {
+            List<GemCategory> gemCategories = gem.getCategories();
+            for (GemCategory gemCategory : gemCategories) {
+                for (GemCategory category : checkedCategory) {
+                    if (gemCategory == category) {
+                        results.add(gem);
+                    }
+                }
+            }
+            }
+        return results;
     }
 
     public static ArrayList<Gem> findByValue(String value, Iterable<Gem> allGems) {
