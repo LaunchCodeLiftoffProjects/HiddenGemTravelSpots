@@ -6,6 +6,7 @@ import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
 import com.vividsolutions.jts.geom.PrecisionModel;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -14,6 +15,7 @@ import javax.validation.constraints.Size;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -37,6 +39,9 @@ public class Gem extends AbstractEntity {
   
     @NotNull
     private Point gemPoint;
+
+    @UpdateTimestamp
+    private Date lastUpdated;
 
     @OneToMany(mappedBy = "gem")
     private final List<Review> reviews = new ArrayList<>();
@@ -94,6 +99,10 @@ public class Gem extends AbstractEntity {
     }
 
     public String getRating() {
+        if (this.reviews.size() == 0) {
+            return "0"; // return 0% for gems without any reviews
+        }
+
         double thumbsups = 0;
 
         for(int i = 0; i < this.reviews.size(); i++) {
@@ -104,13 +113,17 @@ public class Gem extends AbstractEntity {
 
         NumberFormat fmt = new DecimalFormat();
         fmt.setMaximumFractionDigits(2);
-        String score = String.valueOf(fmt.format(thumbsups/reviews.size()));
+        String score = String.valueOf(fmt.format((thumbsups/reviews.size())*100));
 
         return score;
     }
   
     public UserAccount getUser() {
         return userAccount;
+    }
+
+    public String getUserName() {
+        return userAccount.getUsername();
     }
 
     public void setUser(UserAccount userAccount) {
@@ -151,6 +164,10 @@ public class Gem extends AbstractEntity {
 
     public void setUserAccount(UserAccount userAccount) {
         this.userAccount = userAccount;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
     }
 
     @Override

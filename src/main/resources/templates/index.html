@@ -16,7 +16,7 @@
                 <h2 th:text="${profile.displayName}"></h2>
                 <div class="profileimg" style="height:200px;">Profile Image</div>
                 <p>@<span th:text="${user.username}"></span></p>                    
-                <a><i class="mdi mdi-cog-outline" th:href="@{/profile/settings/}"></i></a>
+                <a th:href="@{/profile/settings/}"><i class="mdi mdi-cog-outline" th:href="@{/profile/settings/}"></i>Edit Profile</a>
             </div>
           
             <div class="main">
@@ -48,8 +48,18 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="nav-tabContent">
-<!--                        <div class="tab-pane fade show active" id="list-feed" role="tabpanel" aria-labelledby="list-feed-list" >
-                    </div>-->
+                        <div class="tab-pane fade show active" id="list-feed" role="tabpanel" aria-labelledby="list-feed-list" >
+                            <ul>
+                                <li th:each="gem : ${recentGems}">
+                                    <p> Your friend <span th:text="${gem.userName}"></span> has recently submitted a gem <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a> </p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li th:each="review : ${recentReviews}">
+                                    <p> Your friend <span th:text="${review.userName}"></span> has recently submitted a gem review to a gem <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"> </a> </p>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list">
                             <ul>
                                 <li th:each="gem : ${myGems}">
@@ -62,7 +72,7 @@
                                 <li th:each="review : ${myReviews}">
 <!--                                 <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getReviewText}"></a>-->
                                     <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
-                                    <p th:text="'Review: '  + ${review.getReviewText}"> </p>
+                                    <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
                                 </li>
                             </ul>
                         </div>

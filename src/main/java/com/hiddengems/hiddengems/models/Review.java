@@ -1,9 +1,12 @@
 package com.hiddengems.hiddengems.models;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 public class Review extends AbstractEntity{
@@ -19,6 +22,9 @@ public class Review extends AbstractEntity{
 
     @Size(max = 500, message = "Review must be no more than 500 characters in length")
     private String reviewText;
+
+    @UpdateTimestamp
+    private Date lastUpdated;
 
     public Review(String reviewText, Gem gem) {
         this.reviewText = reviewText;
@@ -53,5 +59,9 @@ public class Review extends AbstractEntity{
 
     public void setReviewText(String reviewText) {
         this.reviewText = reviewText;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
     }
 }

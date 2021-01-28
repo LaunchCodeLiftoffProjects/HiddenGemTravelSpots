@@ -24,8 +24,9 @@ public class UserAccount extends AbstractEntity {
     @CreatedDate
     private Date acctCreationDate;
 
-    @UpdateTimestamp
     private Date lastLogin;
+
+    private Date lastLogout;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "userAccount",cascade = CascadeType.ALL, orphanRemoval = true)
     private UserProfile userProfile;
@@ -61,6 +62,18 @@ public class UserAccount extends AbstractEntity {
 
     public Date getLastLogin() {
         return lastLogin;
+    }
+
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    public Date getLastLogout() {
+        return lastLogout;
+    }
+
+    public void setLastLogout(Date lastLogout) {
+        this.lastLogout = lastLogout;
     }
 
     public UserProfile getUserProfile() {

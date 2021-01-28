@@ -92,7 +92,7 @@ public class ReviewController {
             userAccount.addReview(newReview);
             reviewRepository.save(newReview);
 
-            return "redirect:../";
+            return "redirect:/gems/detail/" + gem.getId();
         } else {
             model.addAttribute("errors", errors);
             return "reviews/add";
