@@ -62,6 +62,9 @@ public class Review extends AbstractEntity{
     }
 
     public Date getLastUpdated() {
+        if (lastUpdated == null) {
+            return new Date();
+        }
         return lastUpdated;
     }
 }

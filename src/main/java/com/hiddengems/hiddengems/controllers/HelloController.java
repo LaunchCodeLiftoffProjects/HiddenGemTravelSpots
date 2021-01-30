@@ -65,29 +65,41 @@ public class HelloController {
 
         UserProfile userProfile = getProfileByUser(userAccount);
 
-        if (userProfile != null) {
+        if (userProfile != null && userAccount != null) {
 
             ArrayList<Gem> recentGems = new ArrayList();
             ArrayList<Review> recentReviews = new ArrayList();
-            for (UserAccount friend : userAccount.getFriends()) {
-                for (Gem gem : friend.getGems()) {
-                    //if a friend submitted or edited gem since user's last logout, add to feed
-                    if (gem.getLastUpdated().after(userAccount.getLastLogout())) {
-                        recentGems.add(gem);
-                    }
-                }
+            if (!userAccount.getFriends().isEmpty()) {
+                for (UserAccount friend : userAccount.getFriends()) {
 
-                for (Review review : friend.getReviews()) {
-                    //if a friend submitted or edited review since user's last logout, add to feed
-                    if (review.getLastUpdated().after(userAccount.getLastLogout())) {
-                        recentReviews.add(review);
+                    if (!friend.getGems().isEmpty()) {
+                        recentGems.addAll(friend.getGems());
+                        model.addAttribute("recentGems", recentGems);
+//                        for (Gem gem : friend.getGems()) {
+//                            //if a friend submitted or edited gem since user's last logout, add to feed
+//
+//                            if (gem.getLastUpdated().after(userAccount.getLastLogout())) {
+//                                recentGems.add(gem);
+//                           }
+//                        }
                     }
+
+                    if(!friend.getReviews().isEmpty()) {
+                        recentReviews.addAll(friend.getReviews());
+                        model.addAttribute("recentReviews", recentReviews);
+//                        for (Review review : friend.getReviews()) {
+//                            //if a friend submitted or edited review since user's last logout, add to feed
+//                            if (review.getLastUpdated().after(userAccount.getLastLogout())) {
+//                                recentReviews.add(review);
+//                            }
+//                        }
+                    }
+
                 }
             }
 
+
             model.addAttribute("profile", userProfile);
-            model.addAttribute("recentGems", recentGems);
-            model.addAttribute("recentReviews", recentReviews);
             model.addAttribute("myGems", userAccount.getGems());
             model.addAttribute("myReviews", userAccount.getReviews());
             model.addAttribute("myFriends", userAccount.getFriends());

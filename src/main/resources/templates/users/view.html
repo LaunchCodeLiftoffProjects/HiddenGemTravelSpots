@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
-<head th:replace="fragments :: head">
-    <meta http-equiv='X-Frame-Options' content='ALLOWAll'>
-</head>
+<meta http-equiv='X-Frame-Options' content='ALLOWAll'>
+<head th:replace="fragments :: head"></head>
 <style>
-            div {
-            padding-top: 7px;
-            padding-left: 7px;
-             }
-             </style>
+    div {
+    padding-top: 7px;
+    padding-left: 7px;
+    }
+</style>
 <body>
 <header th:replace="fragments :: header"> </header>
-
-<div> <title>User Details</title> </div>
-
-
 
 <div class="row">
     <div class="side">
         <h2 th:text="${profile.displayName} + ' (@' + ${user.username}+')'"> </h2>
         <div class="profileimg" style="height:200px;">Profile Image</div>
         <br>
-        <p> Zipcode: <span th:text="' '+ ${profile.getZipCode}"></span> </p>
-        <p> Bio: <span th:text="' '+ ${profile.getBio}"></span> </p>
+        <th:block th:if="${following}">
+<!--            <form th:action="@{'/profile/follow?id=' + ${profile.id} + '&action=remove'}" method="post">-->
+            <form th:action="@{/profile/follow(id = ${user.id}, action = 'remove')}" method="post">
+                <button type="submit" class="btn btn-danger">- Unfollow</button>
+            </form>
+        </th:block>
+        <th:block th:unless="${following}">
+<!--            <form th:action="@{'/profile/follow?id=' + ${profile.id} + '\&action=add'}" method="post">-->
+            <form th:action="@{/profile/follow(id = ${user.id}, action = 'add')}" method="post">
+                <button type="submit" class="btn btn-primary">+ Follow</button>
+            </form>
+        </th:block>
+
+        <p> Location: <span th:text="' '+ ${profile.getZipCode}"></span> </p>
+        <p> About Me: <span th:text="' '+ ${profile.getBio}"></span> </p>
     </div>
 
     <div class="main">

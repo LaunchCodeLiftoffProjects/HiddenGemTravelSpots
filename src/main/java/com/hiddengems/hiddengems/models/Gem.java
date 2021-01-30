@@ -167,6 +167,9 @@ public class Gem extends AbstractEntity {
     }
 
     public Date getLastUpdated() {
+        if (this.lastUpdated == null) {
+            return new Date();
+        }
         return lastUpdated;
     }
 
