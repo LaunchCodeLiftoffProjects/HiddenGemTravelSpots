@@ -1,7 +1,6 @@
 package com.hiddengems.hiddengems.models;
 
 
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -69,6 +68,10 @@ public class UserAccount extends AbstractEntity {
     }
 
     public Date getLastLogout() {
+        if (this.lastLogout == null) {
+            return new Date();
+        }
+
         return lastLogout;
     }
 

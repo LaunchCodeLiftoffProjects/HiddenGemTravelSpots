@@ -156,7 +156,8 @@ public class UserProfileController {
                 } else if(action.equals("remove")) {
                     userAccount.removeFriend(followUser.get());
                 }
-                return "/users/view?id=" + id.toString();
+                userRepository.save(userAccount);
+                return "redirect:/users/view?id=" + id.toString();
             }
         }
     }

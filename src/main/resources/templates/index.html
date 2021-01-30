@@ -50,28 +50,33 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="list-feed" role="tabpanel" aria-labelledby="list-feed-list" >
                             <ul>
-                                <li th:each="gem : ${recentGems}">
-                                    <p> Your friend <span th:text="${gem.userName}"></span> has recently submitted a gem <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a> </p>
-                                </li>
+                                <th:block th:if="${recentGems}">
+                                    <li th:each="gem : ${recentGems}">
+                                        <p> Your friend <span th:text="${gem.user.userProfile.displayName}"></span> has recently submitted a gem <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a> </p>
+                                    </li>
+                                </th:block>
                             </ul>
                             <ul>
-                                <li th:each="review : ${recentReviews}">
-                                    <p> Your friend <span th:text="${review.userName}"></span> has recently submitted a gem review to a gem <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"> </a> </p>
-                                </li>
+                                <th:block th:if="${recentReviews}">
+                                    <li th:each="review : ${recentReviews}">
+                                        <p> Your friend <span th:text="${review.user.userProfile.displayName}"></span> has recently submitted a gem review to a gem <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"> </a> </p>
+                                    </li>
+                                </th:block>
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list">
                             <ul>
                                 <li th:each="gem : ${myGems}">
-                                 <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                                    <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                                    <a th:href="@{'/gems/edit?gemId=' + ${gem.id}}" style="text-decoration: none;"> <small>&#9998;</small></a>
                                 </li>
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">
                             <ul>
                                 <li th:each="review : ${myReviews}">
-<!--                                 <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getReviewText}"></a>-->
                                     <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
+                                    <a th:href="@{'/reviews/edit/' + ${review.id}}" style="text-decoration: none;"> <small>&#9998;</small></a>
                                     <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
                                 </li>
                             </ul>
@@ -79,7 +84,7 @@
                         <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">
                             <ul>
                                 <li th:each="friend : ${myFriends}">
-                                    <a th:href="@{'/users/view/' + ${friend.id}}" th:text="${friend.getUsername}"></a>
+                                    <a th:href="@{'/users/view?id=' + ${friend.id}}" th:text="${friend.userProfile.displayName}"></a>
                                 </li>
                             </ul>
                     </div>
