@@ -16,7 +16,12 @@
     <div class="main">
         <h1>
             <span th:text="${gem.gemName}"></span>
-            <small class="text-muted"><span th:text="${'  (' + gem.rating + '% &#128077;)'}"></span></small>
+            <small class="text-muted">
+                <span th:text="${'  (' + gem.rating + '% &#128077;)'}"></span>&nbsp;
+                <th:block th:if="${canEdit}">
+                    <a th:href="@{'/gems/edit?gemId=' + ${gem.id}}"> &#9998; Edit</a>
+                </th:block>
+            </small>
         </h1>
 
         <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
@@ -42,19 +47,22 @@
             Reviews:
             <small class="text-muted">[+<a th:href="@{'/reviews/add?gemId=' + ${gem.id}}">Add Review</a>]</small>
         </h4>
-        <div class="card" th:each="review : ${gem.reviews}">
-            <div class="card-body">
-                <h4 class="card-title">
-                    <th:block th:if="${review.thumbsup}">&#128077;</th:block>
-                    <th:block th:unless="${review.thumbsup}">&#128078;</th:block>
-                    <a th:href="@{'/users/view?id=' + ${review.getUser.id}}" th:text="${review.user.userProfile.displayName}"></a>
-                     said:
-                </h4>
-                <p class="card-text">&#10077;<em><span th:text="${review.getReviewText}"> </span></em>&#10078;</p>
+        <th:block th:each="review : ${gem.reviews}">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <th:block th:if="${review.thumbsup}">&#128077;</th:block>
+                        <th:block th:unless="${review.thumbsup}">&#128078;</th:block>
+                        <a th:href="@{'/users/view?id=' + ${review.getUser.id}}" th:text="${review.user.userProfile.displayName}"></a>
+                         said:
+                    </h4>
+                    <p class="card-text">&#10077;<em><span th:text="${review.getReviewText}"> </span></em>&#10078;</p>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;Reviewed on <span th:text="${review.lastUpdated}"> </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Reviewed on <span th:text="${review.lastUpdated}"> </span>
+                </div>
             </div>
-        </div>
+            <br />
+        </th:block>
     </div>
 
 

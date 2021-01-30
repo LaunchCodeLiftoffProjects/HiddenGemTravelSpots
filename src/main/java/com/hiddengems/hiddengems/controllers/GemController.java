@@ -125,11 +125,11 @@ public class GemController {
 
         if(gem == null || userAccount == null) { // null check
             model.addAttribute("message", "Problem loading Gem or User Account from database.");
-            return "error";
+            return "redirect:/error";
         } else if (!gem.getUserAccount().equals(userAccount) || gem.getUserAccount() == null) { // checks if editing user is 'owning' user of Gem
             model.addAttribute("message", "You are not authorized to edit this Gem.  If a correction" +
                     "needs to be made please contact the original submitting user of this Gem or a Hidden Gems administrator.");
-            return "/error";
+            return "redirect:/error";
         }
 
         model.addAttribute("categories", GemCategory.values()); // all the categories
@@ -168,7 +168,7 @@ public class GemController {
 
         gemRepository.save(gem);
 
-        return "redirect:/";
+        return "redirect:/gems/detail/" + gem.getId();
     }
 
 }
