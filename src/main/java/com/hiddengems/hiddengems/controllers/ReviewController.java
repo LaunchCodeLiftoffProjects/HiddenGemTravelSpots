@@ -89,9 +89,10 @@ public class ReviewController {
             Review newReview = review.getReview();
             newReview.setUser(userAccount);
             newReview.setGem(gem);
+            userAccount.addReview(newReview);
             reviewRepository.save(newReview);
 
-            return "redirect:../";
+            return "redirect:/gems/detail/" + gem.getId();
         } else {
             model.addAttribute("errors", errors);
             return "reviews/add";

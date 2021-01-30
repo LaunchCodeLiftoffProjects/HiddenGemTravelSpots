@@ -49,12 +49,15 @@ Hidden Gems searches near your location for userAccount-submitted sights and exp
 ### Technologies
 Hidden Gems Travel App uses:
 * Java 15
-* MySQL
+* PostgreSQL
+* PostGIS
 * Spring Boot
 * Thymeleaf
 * Hibernate
 * Bootstrap
-* Bing Maps API
+* OpenStreetMaps (OSM)
+* Geoserver
+* OpenLayers
 
 ### What I'll Have to Learn
 To complete this project we will need to combine both soft and hard skills in order to build a CRUD app from the ground up. We will learn how to collaborate and communicate effectively in order to hit our milestones, which will involve SCRUM practices, solid communication, and lots of discipline. On the technical end, we will learn how to integrate the Bing Maps API to use in a search function. Lastly, we will practice reading and working with each other's code in order to combine several features into one smooth operation.

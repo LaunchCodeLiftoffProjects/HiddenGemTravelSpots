@@ -1,23 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
-<head th:replace="fragments :: head">
-</head>
+<head th:replace="fragments :: head"></head>
+<meta http-equiv='X-Frame-Options' content='ALLOWAll'>
+<style>
+            div {
+            padding-top: 7px;
+            padding-left: 7px;
+             }
+</style>
 <body>
-<header th:replace="fragments :: header"> </header>
+    <header th:replace="fragments :: header"></header>
 
-<div> <title>Gem Details</title> </div>
 
-<div class="gem-details">
-    <p th:text="${'Gem Name: ' + gem.gemName}"></p>
-    <p th:text="${'Description: ' + gem.description}"></p>
-<!--    <p> Categories: <span th:each="category : ${gem.categories}" th:value="${category}" th:text="${category.categoryName} + ', '"> </span></p>-->
-    <p>Categories:
-        <ul>
-            <li th:each="category : ${gem.categories}" th:text="${category.categoryName}">
-            </li>
-</ul></p>
-</div>
-<footer th:replace="fragments :: footer"></footer>
+    <div class="main">
+        <h1>
+            <span th:text="${gem.gemName}"></span>
+            <small class="text-muted"><span th:text="${'  (' + gem.rating + '% &#128077;)'}"></span></small>
+        </h1>
+
+        <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
+
+        <br /><br />
+
+        <h4>Description:</h4>
+        <p>"<em><span th:text="${gem.description}"></span></em>"</p>
+        &nbsp;&nbsp;Discovered by:
+        <a th:href="@{'/users/view?id=' + ${gem.getUser.id}}" th:text="${gem.user.userProfile.displayName}"></a> on
+        <span th:text="${gem.lastUpdated}"></span><br /><br />
+
+        <h4>Location:</h4>
+        &nbsp;&nbsp;<span th:text="${'Latitude: ' + gem.latitude + ', Longitude: ' + gem.longitude}"></span><br /><br />
+
+        <h4>Features:</h4>
+            <ul>
+                <li th:each="category : ${gem.categories}" th:text="${category.categoryName}"></li>
+            </ul>
+
+
+        <h4>
+            Reviews:
+            <small class="text-muted">[+<a th:href="@{'/reviews/add?gemId=' + ${gem.id}}">Add Review</a>]</small>
+        </h4>
+        <div class="card" th:each="review : ${gem.reviews}">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <th:block th:if="${review.thumbsup}">&#128077;</th:block>
+                    <th:block th:unless="${review.thumbsup}">&#128078;</th:block>
+                    <a th:href="@{'/users/view?id=' + ${review.getUser.id}}" th:text="${review.user.userProfile.displayName}"></a>
+                     said:
+                </h4>
+                <p class="card-text">&#10077;<em><span th:text="${review.getReviewText}"> </span></em>&#10078;</p>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;Reviewed on <span th:text="${review.lastUpdated}"> </span>
+            </div>
+        </div>
+    </div>
+
+
+    <footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>

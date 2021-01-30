@@ -10593,8 +10593,12 @@ legend {
 }
 .main {
   flex: 70%;
+  -ms-flex-align: center;
   background-color: white;
   padding: 20px;
+  width: 60%;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .profile-navbar .nav-item .nav-link {

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org/ ">
+<link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<header th:replace="fragments :: header"></header>
+
+<div>
+    <center><h1 th:text="${title}"></h1></center>
+</div>
+
+
+<!--User profile creation form-->
+<div>
+    <!-- Placeholder for profile picture -->
+    <svg style="width:50px;height:50px" viewBox="0 0 24 24">
+        <path fill="currentColor"
+              d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"/>
+    </svg>
+    <form method="post" style="max-width:600px;">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02">Choose profile picture...</label>
+                </div>
+                <div class="input-group-append">
+                    <span class="input-group-text">Upload</span>
+                </div>
+            </div>
+        </div>
+        <!-- The actual form -->
+        <div class="form-group">
+            <label class="col-form-label" for="displayName">Display name:*</label>
+            <input type="text" class="form-control" placeholder="Identify yourself!" id="displayName"
+                   th:field="${userProfile.displayName}" maxlength="25" aria-required="true">
+            <div class="invalid-feedback" th:errors="${userProfile.displayName}"></div>
+
+            <label class="col-form-label" for="emailAddress">Email Address:*</label>
+            <input type="text" class="form-control" placeholder="marcopolo@example.com" id="emailAddress"
+                   th:field="${userProfile.emailAddress}" maxlength="100" aria-required="true">
+            <div class="invalid-feedback" th:errors="${userProfile.emailAddress}"></div>
+
+            <label for="aboutMe">About me:</label>
+            <textarea class="form-control" th:field="${userProfile.bio}" id="aboutMe" rows="5" maxlength="500"></textarea>
+            <div class="invalid-feedback" th:errors="${userProfile.bio}"></div>
+
+            <label class="col-form-label" for="zip">Zip Code:</label>
+            <input type="text" class="form-control" placeholder="5-digit Zip Code (USA)" id="zip"
+                   th:field="${userProfile.zipCode}" maxlength="5">
+            <div class="invalid-feedback" th:errors="${userProfile.zipCode}"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <th:block th:if="${existing}">
+        <button type="button" class="btn btn-danger" id="btn-delete">Delete Account</button>
+        <div class="modal" id="confirm-delete-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Account Deletion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete your user account?  This action is irreversible.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form th:action="@{/delete-user}" method="post" id="delete-forever">
+<!--                            <button type="button" class="btn btn-primary">Delete Forever</button>-->
+                            <input type="submit" value="DELETE" class="btn btn-primary" />
+                        </form>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancel-del">NO! CANCEL!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById("confirm-delete-modal");
+            var btn = document.getElementById("btn-delete");
+            var span = document.getElementsByClassName("close")[0];
+            var btnCancel = document.getElementById("btn-cancel-del");
+            btn.onclick = function() {
+              modal.style.display = "block";
+            }
+            btnCancel.onclick = function() {
+                modal.style.display = "none";
+            }
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+        </script>
+    </th:block>
+</div>
+<!--End user profile creation form-->
+
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

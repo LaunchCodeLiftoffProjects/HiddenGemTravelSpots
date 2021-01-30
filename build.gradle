@@ -21,6 +21,13 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'net.postgis:postgis-jdbc:2.5.0'
+	compile 'org.hibernate:hibernate-spatial:5.0.11.Final'
+	compile group: 'org.datasyslab', name: 'geospark', version: '0.3.1'
+	compile(group: 'com.bedatadriven', name: 'jackson-datatype-jts', version: '2.4')
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.geotools/gt-jts-wrapper
+	//testCompile group: 'org.geotools', name: 'gt-jts-wrapper', version: '17.0'
 }
 
 test {

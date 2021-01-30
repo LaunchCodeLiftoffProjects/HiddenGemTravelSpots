@@ -2,11 +2,80 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <head th:replace="fragments :: head">
+    <meta http-equiv='X-Frame-Options' content='ALLOWAll'>
 </head>
+<style>
+            div {
+            padding-top: 7px;
+            padding-left: 7px;
+             }
+             </style>
 <body>
-<header th:fragment="header"> </header>
+<header th:replace="fragments :: header"> </header>
 
 <div> <title>User Details</title> </div>
+
+
+
+<div class="row">
+    <div class="side">
+        <h2 th:text="${profile.displayName} + ' (@' + ${user.username}+')'"> </h2>
+        <div class="profileimg" style="height:200px;">Profile Image</div>
+        <br>
+        <p> Zipcode: <span th:text="' '+ ${profile.getZipCode}"></span> </p>
+        <p> Bio: <span th:text="' '+ ${profile.getBio}"></span> </p>
+    </div>
+
+    <div class="main">
+        <div class="mt-4 py-2 border-top border-bottom">
+            <ul class="nav profile-navbar">
+                <li class="nav-item">
+                    <div class="list-group-item list-group-item-action p-2" id="list-myGems-list" data-toggle="list" href="#list-myGems" role="tab" aria-controls="myGems">
+                        <i class="mdi mdi-diamond-stone"></i>
+                        Gems
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="list-group-item list-group-item-action p-2" id="list-myReviews-list" data-toggle="list" href="#list-myReviews" role="tab" aria-controls="myReviews">
+                        <i class="mdi mdi-fountain-pen-tip"></i>
+                        Reviews
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="list-group-item list-group-item-action p-2" id="list-myFriends-list" data-toggle="list" href="#list-myFriends" role="tab" aria-controls="myFriends">
+                        <i class="mdi mdi-account-multiple"></i>
+                        Friends
+                    </div>
+                </li>
+            </ul>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list">
+                    <ul>
+                        <li th:each="gem : ${myGems}">
+                            <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">
+                    <ul>
+                        <li th:each="review : ${myReviews}">
+                            <!--                                 <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getReviewText}"></a>-->
+                            <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
+                            <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">
+                    <ul>
+                        <li th:each="friend : ${myFriends}">
+                            <a th:href="@{'/users/view/' + ${friend.id}}" th:text="${friend.getUsername}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer th:replace="fragments :: footer"></footer>
 </body>
