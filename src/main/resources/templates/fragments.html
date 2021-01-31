@@ -346,7 +346,40 @@
         </details>
     </div>
     <!--                END OF MAP           -->
+
 </th:block>
+<!--                CURRENT LOCATION              -->
+<th:block th:fragment="geolocation">
+    <div class="currentLocation">
+        <!-- <script type="text/javascript" th:src="@{/js/geolocation.js}"></script> -->
+        <!--<input type="submit" class="btn btn-primary" value="Add Gem" /> -->
+        <input type="button" class="btn btn-primary" onclick="getLocation()" value = "Get Current Coordinates"/>
+       <!-- tHIS WORKS <button onclick="getLocation()"> class="btn btn-primary" value = Get Current Coordinates</button> -->
+        <p id="currentLocation"></p>
+        <script>
+               let x = document.getElementById("currentLocation");
+
+               function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.watchPosition(showPosition);
+                    } else {
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+               }
+
+               function showPosition(position) {
+               x.innerHTML="Latitude: " + position.coords.latitude +
+               "<br>Longitude: " + position.coords.longitude;
+               }
+               function moveNumbers(num) {
+               let txt=document.getElementById("result").value;
+               txt=txt + num;
+               document.getElementById("result").value=txt;
+               }
+           </script>
+    </div>
+</th:block>
+<!--                END OF CURRENT LOCATION              -->
 
 
 
