@@ -10246,6 +10246,8 @@ a.text-dark:hover, a.text-dark:focus {
   }
   body {
     min-width: 992px !important;
+    /*height: fit-content;
+    min-height: 100%;*/
   }
   .container {
     min-width: 992px !important;
@@ -10626,3 +10628,19 @@ legend {
     align-content: center;
 }
 
+#side-profile {
+    background-color: #F8F9FA;
+    max-width: 300px;
+    text-align: center;
+}
+
+#main-profile {
+    background-color: white;
+}
+html, body {
+  height: 100%;
+}
+.profile {
+    min-height: 100%;
+    height: 100%;
+}
