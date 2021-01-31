@@ -14,7 +14,7 @@
         <div class="row">
             <div class="side">
                 <h2 th:text="${profile.displayName}"></h2>
-                <div class="profileimg" style="height:200px;">Profile Image</div>
+                <div class="profileimg" id="gemoji" th:text="${profile.avatar}">Profile Image</div>
                 <p>@<span th:text="${user.username}"></span></p>                    
                 <a th:href="@{/profile/settings/}"><i class="mdi mdi-cog-outline" th:href="@{/profile/settings/}"></i>Edit Profile</a>
             </div>

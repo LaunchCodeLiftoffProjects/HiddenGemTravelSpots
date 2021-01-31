@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.thymeleaf.org/ ">
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
-<head th:replace="fragments :: head">
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
 <header th:replace="fragments :: header"></header>
 
@@ -13,34 +12,57 @@
 
 
 <!--User profile creation form-->
-<div>
-    <!-- Placeholder for profile picture -->
-    <svg style="width:50px;height:50px" viewBox="0 0 24 24">
-        <path fill="currentColor"
-              d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"/>
-    </svg>
+<div class="main">
+
     <form method="post" style="max-width:600px;">
-        <div class="form-group">
-            <div class="input-group mb-3">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile02">
-                    <label class="custom-file-label" for="inputGroupFile02">Choose profile picture...</label>
-                </div>
-                <div class="input-group-append">
-                    <span class="input-group-text">Upload</span>
-                </div>
-            </div>
-        </div>
         <!-- The actual form -->
         <div class="form-group">
+
+            <!-- avatar picker -->
+            Gemoji:*<br />
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-primary active">
+                    <input type="radio" th:field="${userProfile.avatar}" name="options" id="option1" value="&#128142" autocomplete="off" checked="checked" required> &#128142;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option2" value="&#128125" autocomplete="off"> &#128125;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option3" value="&#129313" autocomplete="off"> &#129313;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option4" value="&#128126" autocomplete="off"> &#128126;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option5" value="&#128123" autocomplete="off"> &#128123;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option6" value="&#128640" autocomplete="off"> &#128640;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option7" value="&#128512" autocomplete="off"> &#128512;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option8" value="&#128526" autocomplete="off"> &#128526;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option9" value="&#128528" autocomplete="off"> &#128528;
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" th:field="${userProfile.avatar}" id="option10" value="&#128128" autocomplete="off"> &#128128;
+                </label>
+            </div>
+            <br />
+            <!-- end avatar picker -->
+
             <label class="col-form-label" for="displayName">Display name:*</label>
             <input type="text" class="form-control" placeholder="Identify yourself!" id="displayName"
-                   th:field="${userProfile.displayName}" maxlength="25" aria-required="true">
+                   th:field="${userProfile.displayName}" maxlength="25" aria-required="true" required>
             <div class="invalid-feedback" th:errors="${userProfile.displayName}"></div>
 
             <label class="col-form-label" for="emailAddress">Email Address:*</label>
             <input type="text" class="form-control" placeholder="marcopolo@example.com" id="emailAddress"
-                   th:field="${userProfile.emailAddress}" maxlength="100" aria-required="true">
+                   th:field="${userProfile.emailAddress}" maxlength="100" aria-required="true" required>
             <div class="invalid-feedback" th:errors="${userProfile.emailAddress}"></div>
 
             <label for="aboutMe">About me:</label>
@@ -55,6 +77,7 @@
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
+
     <th:block th:if="${existing}">
         <button type="button" class="btn btn-danger" id="btn-delete">Delete Account</button>
         <div class="modal" id="confirm-delete-modal">
