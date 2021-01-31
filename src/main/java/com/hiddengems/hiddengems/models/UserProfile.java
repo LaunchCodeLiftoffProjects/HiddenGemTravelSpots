@@ -81,7 +81,7 @@ public class UserProfile extends AbstractEntity {
 
     public String getAvatar() {
         if(this.avatar == null) {
-            this.avatar = "&#128142;";
+            this.avatar = ":)";
         }
         return avatar;
     }

@@ -10586,11 +10586,6 @@ legend {
   padding: 20px;
 }
 
-.profileimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
 .main {
   flex: 70%;
   -ms-flex-align: center;
@@ -10599,6 +10594,10 @@ legend {
   width: 60%;
   justify-content: center;
   margin: 0 auto;
+}
+
+.profileimg {
+  width: 100%;
 }
 
 .profile-navbar .nav-item .nav-link {
@@ -10620,5 +10619,10 @@ legend {
 .img-sm {
     width: 43px;
     height: 43px;
+}
+
+#gemoji {
+    font-size: 200px;
+    align-content: center;
 }
 
