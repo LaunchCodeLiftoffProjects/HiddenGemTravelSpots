@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -26,7 +29,36 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="search function working" />
+    <list default="true" id="44874e73-dd89-490b-aa76-cd10ed717691" name="Default Changelist" comment="In the beginning...">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hiddengems/hiddengems/security/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/AuthenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/GemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/UserProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/controllers/UserProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Gem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/Gem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/UserAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/UserAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/UserProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/UserProfile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/dto/LoginFormDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/hiddengems/hiddengems/models/dto/LoginFormDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/gems/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/gems/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/gems/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/profile/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/profile/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+    </list>
     <list id="14920f12-b464-4647-8d17-fbd312e9b898" name="Revert &quot;starter code&quot;" comment="Revert &quot;starter code&quot;&#10;&#10;This reverts commit 30faac57" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +67,14 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -60,6 +100,47 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="hidden-gems" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -70,8 +151,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Thymeleaf" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Thymeleaf" />
       </list>
     </option>
   </component>
@@ -83,6 +165,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1mD8Sam5gViic6uwEuRcWpdIZu5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -91,9 +176,10 @@
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.HiddenGemTravelSpots [bootRun]">
     <configuration name="HiddenGemTravelSpots [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -110,18 +196,43 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="HiddenGemTravelSpots [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="init" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
+        <item itemvalue="Gradle.HiddenGemTravelSpots [init]" />
         <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
         <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
         <item itemvalue="Gradle.HiddenGemTravelSpots [bootRun]" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -154,7 +265,28 @@
       <option name="project" value="LOCAL" />
       <updated>1609377006720</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="OAuth2 dependencies added">
+      <created>1611363675364</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611363675364</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Spring Security updated">
+      <created>1611366443198</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611366443198</updated>
+    </task>
+    <task id="LOCAL-00006" summary="In the beginning...">
+      <created>1611867004970</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611867004970</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -199,65 +331,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="search function working" />
     <MESSAGE value="added SearchController again after rollback" />
-    <option name="LAST_COMMIT_MESSAGE" value="added SearchController again after rollback" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609035929567">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="-918" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608772409271" />
-    <state x="448" y="233" width="472" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1609035929567" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1608781150317">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608781150317" />
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1609350326407">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="172" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958570" />
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
-    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1609350326407">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="172" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958555" />
-    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
-    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1609350326407">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="172" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958555" />
-    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
-    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1609350326407">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="172" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1360.728@-1366.0.1366.728" timestamp="1608778958570" />
-    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1609350326407" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1609304195240">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1609304195240">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1609304195240">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1609304195240">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1609304195240" />
-    <state x="335" y="66" key="RollbackChangesDialog" timestamp="1609303729919">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="335" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1609303729919" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1609303581282">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1609303581282" />
-    <state x="24" y="128" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609304195803">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="24" y="128" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1609304195803" />
+    <MESSAGE value="OAuth2 dependencies added" />
+    <MESSAGE value="Spring Security updated" />
+    <MESSAGE value="In the beginning..." />
+    <option name="LAST_COMMIT_MESSAGE" value="In the beginning..." />
   </component>
 </project>
