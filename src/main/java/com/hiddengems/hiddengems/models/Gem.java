@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table (name="gem")
 public class Gem extends AbstractEntity {
 
     @NotBlank
@@ -39,6 +40,9 @@ public class Gem extends AbstractEntity {
   
     @NotNull
     private Point gemPoint;
+
+    @Column (nullable = true, length = 64)
+    private String photos;
 
     @UpdateTimestamp
     private Date lastUpdated;
@@ -171,6 +175,25 @@ public class Gem extends AbstractEntity {
             return new Date();
         }
         return lastUpdated;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
+    }
+
+    public String getPhotos() {
+        return photos;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photos == null) return null;
+
+        return "/gem-photos/" + this.getId() + "/" + photos;
     }
 
     @Override
