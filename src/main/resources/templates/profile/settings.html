@@ -6,19 +6,16 @@
 <body>
 <header th:replace="fragments :: header"></header>
 
-<div>
-    <center><h1 th:text="${title}"></h1></center>
-</div>
-
 
 <!--User profile creation form-->
-<div class="main">
+<div class="main h-100">
 
     <form method="post" style="max-width:600px;">
         <!-- The actual form -->
         <div class="form-group">
 
             <!-- avatar picker -->
+            <h1 th:text="${title}"></h1>
             Gemoji:*<br />
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary active">
