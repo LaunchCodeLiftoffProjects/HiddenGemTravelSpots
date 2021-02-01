@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 
 <head th:fragment="head">
+    <link rel="icon" href="/css/gem.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -15,6 +16,8 @@
 
 <body>
 
+
+<!--HEADER FRAGMENT START-->
 <header th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -47,20 +50,56 @@
                 </div>
             </form>
                 <ul class="navbar-nav ml-auto">
-
-                        <li class="nav-item"><a class="nav-link"th:href="@{/login}">Sign In</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
-<!--LOGIN/LOGOUT VISIBILITY BASED ON USER BEING LOGGED IN IS NOT WORKING-->
-                    <!--                    <td>-->
-                    <!--                        <li class="nav-item" th:if="${userAccount == null}"><a class="nav-link"  th:href="@{/login}">Sign In</a></li>-->
-<!--                        <li class="nav-item" th:if="${userAccount == null}"><a class="nav-link"  th:href="@{/login}">Logout</a></li>-->
-<!--                    </td>-->
             </ul>
         </div>
     </div>
     </nav>
 </header>
+<!--HEADER FRAGMENT END-->
+<!-- HEADER 2 FRAGMENT-->
+<header2 th:fragment="headerLogin">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-header">
+                <a th:href="@{/}" class="navbar-brand">Hidden Gems</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gems/index}">Discover</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gems/add}">Add Gem</a></li>
+                </ul>
+                <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
+                        <div class="dropwdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
+                                <span class="caret"></span></button>
+                            <ul name="category" class="dropdown-menu dropdown-menu-right">
+                                <li value="" selected disabled hidden>Narrow Your Search</li>
+                                <li th:each="category : ${T(com.hiddengems.hiddengems.models.GemCategory).values()}">
+                                    <input type="checkbox" name="category" th:id="${category}" th:value="${category}">
+                                    <label th:text="${category.categoryName}"></label>
+                                </li>
+                            </ul>
+                        </div>
 
+                        <div class="input-group-btn">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link"th:href="@{/login}">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+</header2>
+
+<!--HEADER 2 FRAGMENT END-->
 
 <!-- Review Fragment depends on model-binding with the Review object -->
 <div th:fragment="review-form">
@@ -97,15 +136,31 @@
 </div>
 <!-- End Review fragment -->
 
+<li class="nav-item"><a class="nav-link" th:href="@{/gems/add}">Add Gem</a></li>
 
+<!--FOOTER FRAGMENT START-->
+=======
+<!-- Add Photo Fragment -->
+<!-- Review Fragment depends on model-binding with the Review object -->
+<div th:fragment="add-photos-form">
+    <form th:action="@{gems/add-photos}"
+          th:object="${gem}" method="post"
+          enctype="multipart/form-data">
+        <div>
+            <label>Add Photos: </label>
+            <input type="file" name="image" accept="image/png, image/jpeg" />
+        </div>
+    </form>
+</div>
+<!-- End of Add Photo Fragment -->
 
 <footer th:fragment="footer">
     <br><br><br>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
         <div class="container">
             <ul class="nav navbar-nav navbar-center">
-                <li class="nav-item"><a class="nav-link" th:href="@{/login}">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/add}">About</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
             </ul>
             <span class="navbar-text">
                 &copy; Liftoff 2020 Quarateam
@@ -116,6 +171,7 @@
 
 </footer>
 
+<!--FOOTER FRAGMENT END-->
 
 
 <th:block th:fragment="edit-gem">
@@ -138,22 +194,6 @@
             <span th:errors="${gem.longitude}" class="error"> </span>
         </div>
 
-        <!--    <div class="form-group">-->
-        <!--        <label th:for="location">Location</label>-->
-        <!--        <input class="form-control" th:field="${gem.location}" />-->
-        <!--        <span th:errors="${gem.location}: class="error></span>-->
-        <!--    </div>-->
-        <!--    <div class="form-group">-->
-        <!--        <input type="radio" id="address" name="location" value="address">-->
-        <!--        <label for="address">Address</label><br>-->
-        <!--        <input type="radio" id="coordinates" name="location" value="coordinates">-->
-        <!--        <label for="coordinates">Coordinates</label><br>-->
-        <!--        <input type="radio" id="currentLocation" name="location" value="currentLocation">-->
-        <!--        <label for="currentLocation">Current Location</label>-->
-        <!--    </div>-->
-
-
-        <!-- NEED TO FIGURE OUT HOW TO CHANGE INPUTS BASED ON USER CHOICE -->
 
         <div class="form-group">
             <label th:for="description">Description</label>
@@ -176,79 +216,9 @@
             </div>
         <!-- END CATEGORIES -->
 
-        <!--            <select th:object="${gem.categories}">-->
-        <!--                <option th:each="category : ${categories}"-->
-        <!--                        th:value="${category}"-->
-        <!--                        th:text="${category.categoryName}"-->
-        <!--                ></option>-->
-        <!--            </select>-->
         <p class="error" th:errors="${gem.categories}"></p>
-        <!--        </label>-->
-        <!--    </div>-->
-        <!--    <div class="form-group">-->
-        <!--        <input type="radio" id="oneDollar" name="price" value="oneDollar">-->
-        <!--        <label for="oneDollar">$</label>-->
-        <!--        <input type="radio" id="twoDollar" name="price" value="twoDollar">-->
-        <!--        <label for="twoDollar">$$</label>-->
-        <!--        <input type="radio" id="threeDollar" name="price" value="threeDollar">-->
-        <!--        <label for="threeDollar">$$$</label>-->
-        <!--        <input type="radio" id="fourDollar" name="price" value="fourDollar">-->
-        <!--        <label for="fourDollar">$$$$</label>-->
-        <!--        <input type="radio" id="fiveDollar" name="price" value="fiveDollar">-->
-        <!--        <label for="fiveDollar">$$$$$</label>-->
-        <!--    </div>-->
-
-        <!--    <div class="form-group">-->
-        <!--        <input type="checkbox" id="wheelchairAccess" name="tag" value="wheelchairAccess"/>-->
-        <!--        <label for="wheelchairAccess">Wheelchair Access</label>-->
-        <!--        <br>-->
-        <!--        <input type="checkbox" id="COVID" name="tag" value="COVID">-->
-        <!--        <label for="COVID">Meets CDC Guidelines</label>-->
-        <!--        <br>-->
-        <!--        <input type="checkbox" id="familyFriendly" name="tag" value="familyFriendly">-->
-        <!--        <label for="familyFriendly">Family-Friendly</label>-->
-        <!--        <br>-->
-        <!--        <input type="checkbox" id="petFriendly" name="tag" value="petFriendly">-->
-        <!--        <label for="petFriendly">Pet Friendly</label>-->
-        <!--        <br>-->
-        <!--        <input type="checkbox" id="indoor" name="tag" value="indoor">-->
-        <!--        <label for="indoor">Indoor Activity</label>-->
-        <!--        <br>-->
-        <!--        <input type="checkbox" id="seasonal" name="tag" value="seasonal">-->
-        <!--        <label for="seasonal">Seasonal Activity</label>-->
-        <!--        <br>-->
-        <!--        <input type="checkbox" id="foodBev" name="tag" value="foodBev">-->
-        <!--        <label for="foodBev">Food or Beverage Available</label>-->
-        <!--        <br>-->
-        <!--        <input type="checkbox" id="freeParking" name="tag" value="freeParking">-->
-        <!--        <label for="freeParking">Free Parking</label>-->
-        <!--        <br>-->
-
-        <!--    </div>-->
         <button type="submit" class="btn btn-primary" th:text="(${submitBtn})">Submit</button>
         <button type="button" class="btn btn-secondary" onclick="history.back(-1)">Cancel</button>
-        <!--    &lt;!&ndash; ENTER MAP HERE &ndash;&gt;-->
-        <!--    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>-->
-        <!--    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AuA1FmiSh8ekk28pjKmVzqdq4tdTD3_7IV-5EMF1DSNMFWjPw8d7j3eDuRMDANld'></script>-->
-        <!--    <script type='text/javascript'>-->
-        <!--                var map;-->
-        <!--                function loadMapScenario() {-->
-        <!--                    map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});-->
-        <!--                }-->
-
-        <!--        </script>-->
-        <!--    <body onload='loadMapScenario();'>-->
-        <!--    <div id='printoutPanel'></div>-->
-
-        <!--    <div id='myMap' style='width: 50vw; height: 50vh;'></div>-->
-        <!--    </body>-->
-
-        <!--    <br>-->
-        <!--    <label for="gemImage">Upload Photo of Gem</label>-->
-        <!--    <input type="file" id="gemImage" name="fileToUpload" value="gemImage">-->
-        <!--    <br>-->
-
-
     </form>
 </th:block>
 
@@ -349,6 +319,41 @@
     </div>
     <!--                END OF MAP           -->
 </th:block>
+<!--                CURRENT LOCATION              -->
+<th:block th:fragment="geolocation">
+    <div class="currentLocation">
+        <!-- <script type="text/javascript" th:src="@{/js/geolocation.js}"></script> -->
+        <!--<input type="submit" class="btn btn-primary" value="Add Gem" /> -->
+        <em>Don't know your latitude and longitude? Click here to find your current location</em><br>
+        <em>(Your location must be turned on):</em>
+        <br>
+        <input type="button" class="btn btn-sm" onclick="getLocation()" value = "Get Current Coordinates"/>
+       <!-- tHIS WORKS <button onclick="getLocation()"> class="btn btn-primary" value = Get Current Coordinates</button> -->
+        <p id="currentLocation"></p>
+        <script>
+               let currentLocation = document.getElementById("currentLocation");
+
+               function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.watchPosition(showPosition);
+                    } else {
+                        currentLocation.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+               }
+
+               function showPosition(position) {
+               currentLocation.innerHTML="<br> Latitude: " + position.coords.latitude +
+               "<br>Longitude: " + position.coords.longitude;
+               }
+               function moveNumbers(num) {
+               let txt=document.getElementById("result").value;
+               txt=txt + num;
+               document.getElementById("result").value=txt;
+               }
+           </script>
+    </div>
+</th:block>
+<!--                END OF CURRENT LOCATION              -->
 
 
 
