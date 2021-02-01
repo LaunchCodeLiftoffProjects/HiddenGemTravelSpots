@@ -6,25 +6,6 @@
 <header2 th:replace="fragments :: headerLogin"></header2>
 
 <br/><br/><br/><br/>
-<form method="post">
-    <div class="form-group">
-        <label>Username
-            <input class="form-control" th:field="${registerFormDTO.username}" />
-        </label>
-        <p class="error" th:errors="${registerFormDTO.username}"></p>
-    </div>
-    <div class="form-group">
-        <label>Password
-            <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
-        </label>
-        <p class="error" th:errors="${registerFormDTO.password}"></p>
-    </div>
-    <div class="form-group">
-        <label>Verify Password
-            <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
-        </label>
-    </div>
-    </form>
 
 
 <!--<body class="flex-grow-1 flex-shrink-1 d-flex">
@@ -36,7 +17,7 @@
         <header th:replace="fragments :: header"> </header> -->
 
     </div>
-
+    <div class="main-clear">
     <div class="row h-100">
         <div class="col-lg pt-5 pl-5" id="main-profile">
             <h2 class="mt-n4">Register a New Account:</h2>
