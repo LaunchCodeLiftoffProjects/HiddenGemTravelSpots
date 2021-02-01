@@ -41,7 +41,6 @@ public class Gem extends AbstractEntity {
     @NotNull
     private Point gemPoint;
 
-    @Column (nullable = true, length = 64)
     private String photos;
 
     @UpdateTimestamp

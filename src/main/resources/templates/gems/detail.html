@@ -28,8 +28,7 @@
 
         <br /><br />
 
-        <h4> Photos: </h4>
-<!-- <img th:src="@{'/gem-photos/' + ${gem.id} +'/' +${gem.photos}}">-->
+        <h4> Photo: </h4>
          <img th:src="@{${gem.getPhotosImagePath}}">
 
         <h4>Description:</h4>
