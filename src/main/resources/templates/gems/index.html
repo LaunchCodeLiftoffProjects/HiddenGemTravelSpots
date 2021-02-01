@@ -4,10 +4,20 @@
 <head th:replace="fragments :: head">
 </head>
 <body>
-<header th:replace="fragments :: header"> </header>
+<header th:replace="fragments :: header">
 
-<div> All Gems:  </div>
-<div class="gem-index">
+    <meta http-equiv='X-Frame-Options' content='ALLOWAll'>
+    <style>
+            div {
+            padding-top: 7px;
+            padding-left: 7px;
+             }
+</style>
+</header>
+
+<h1><center> All Gems: </center></h1>
+<div class="main">
+    <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
     <table>
         <tr th:each="gem : ${gems}">
             <td>

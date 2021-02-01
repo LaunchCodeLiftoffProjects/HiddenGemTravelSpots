@@ -151,8 +151,6 @@
         <!--    </div>-->
 
 
-        <!-- NEED TO FIGURE OUT HOW TO CHANGE INPUTS BASED ON USER CHOICE -->
-
         <div class="form-group">
             <label th:for="description">Description</label>
             <input class="form-control" th:field="${gem.description}" placeholder="Enter description here..." >
@@ -353,22 +351,22 @@
     <div class="currentLocation">
         <!-- <script type="text/javascript" th:src="@{/js/geolocation.js}"></script> -->
         <!--<input type="submit" class="btn btn-primary" value="Add Gem" /> -->
-        <input type="button" class="btn btn-primary" onclick="getLocation()" value = "Get Current Coordinates"/>
+        <input type="button" class="btn btn-sm" onclick="getLocation()" value = "Get Current Coordinates"/>
        <!-- tHIS WORKS <button onclick="getLocation()"> class="btn btn-primary" value = Get Current Coordinates</button> -->
         <p id="currentLocation"></p>
         <script>
-               let x = document.getElementById("currentLocation");
+               let currentLocation = document.getElementById("currentLocation");
 
                function getLocation() {
                     if (navigator.geolocation) {
                         navigator.geolocation.watchPosition(showPosition);
                     } else {
-                        x.innerHTML = "Geolocation is not supported by this browser.";
+                        currentLocation.innerHTML = "Geolocation is not supported by this browser.";
                     }
                }
 
                function showPosition(position) {
-               x.innerHTML="Latitude: " + position.coords.latitude +
+               currentLocation.innerHTML="<br> Latitude: " + position.coords.latitude +
                "<br>Longitude: " + position.coords.longitude;
                }
                function moveNumbers(num) {
