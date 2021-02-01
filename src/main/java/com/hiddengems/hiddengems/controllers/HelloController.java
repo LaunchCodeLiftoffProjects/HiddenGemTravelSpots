@@ -1,15 +1,15 @@
 package com.hiddengems.hiddengems.controllers;
 
-import com.hiddengems.hiddengems.models.Gem;
-import com.hiddengems.hiddengems.models.Review;
-import com.hiddengems.hiddengems.models.UserAccount;
-import com.hiddengems.hiddengems.models.UserProfile;
+import com.hiddengems.hiddengems.models.*;
+import com.hiddengems.hiddengems.models.data.GuestRepository;
 import com.hiddengems.hiddengems.models.data.UserProfileRepository;
 import com.hiddengems.hiddengems.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +26,8 @@ public class HelloController {
     @Autowired
     private UserProfileRepository userProfileRepository;
 
+    @Autowired
+    private GuestRepository guestRepository;
 
     private static final String userSessionKey = "user";
 
@@ -116,7 +118,19 @@ public class HelloController {
     }
 
     @GetMapping("contact")
-    public String contact (Model model){
+    public String displayContactForm (Model model){
+        model.addAttribute(new Guest());
+        model.addAttribute("title", "Send us a message!");
+        return "contact";
+    }
+
+    @PostMapping("contact")
+    public String processContactForm (Model model, Guest newGuest, Errors errors){
+        if (errors.hasErrors()) {
+            return "contact";
+        }
+
+        guestRepository.save(newGuest);
         return "contact";
     }
 
