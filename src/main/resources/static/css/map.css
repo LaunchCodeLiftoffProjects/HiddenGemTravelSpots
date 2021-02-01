@@ -90,7 +90,7 @@
         #location {
             float: right;
         }
-        /* Styles used by the default GetFeatureInfo output, added to make IE happy */
+
         table.featureInfo, table.featureInfo td, table.featureInfo th {
             border: 1px solid #ddd;
             border-collapse: collapse;

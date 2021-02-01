@@ -1,5 +1,6 @@
 package com.hiddengems.hiddengems.controllers;
 
+import com.hiddengems.hiddengems.models.FileUploadUtil;
 import com.hiddengems.hiddengems.models.Gem;
 import com.hiddengems.hiddengems.models.GemCategory;
 import com.hiddengems.hiddengems.models.UserAccount;
@@ -9,12 +10,15 @@ import com.hiddengems.hiddengems.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,27 +78,36 @@ public class GemController {
         return "gems/add";
     }
 
+
     @PostMapping("add")
     public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
-                                    Errors errors, Model model, HttpServletRequest request,  @RequestParam List<GemCategory> categories) {
+                                          Errors errors, Model model, HttpServletRequest request, @RequestParam List<GemCategory> categories, @RequestParam("image") MultipartFile multipartFile) throws IOException {
 
         if (errors.hasErrors()) {
             return "gems/add";
         }
+
         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
         newGem.setCategories(categoryObjs);
 
         UserAccount userAccount = getUserFromSession(request.getSession());
         newGem.setUserAccount(userAccount);
 
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        newGem.setPhotos(fileName);
+
 
         newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
         userAccount.addGem(newGem); // TODO: refactor and test to see if this line is necessary
-
         gemRepository.save(newGem);
+
+        String uploadDir = "src/main/webapp/gem-photos/" + newGem.getId();
+
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
         return "gems/detail";
     }
+
 
     @GetMapping("detail/{gemId}")
     public String displayViewGem(HttpServletRequest request, Model model, @PathVariable int gemId) {

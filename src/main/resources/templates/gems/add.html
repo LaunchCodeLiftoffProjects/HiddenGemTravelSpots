@@ -17,8 +17,9 @@
 
         <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
 
+
         <h4>Submit New Gem:</h4>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="col">
                     <div class="form-group">
@@ -50,12 +51,18 @@
                             <label th:text="${category.categoryName}"></label><br />
                         </th:block>
                     </div>
+                    <div>
+                        <label>Add Photo: </label>
+                        <input type="file" name="image" />
+                    </div>
                     <p class="error" th:errors="${gem.categories}"></p>
                     <input type="submit" class="btn btn-primary" value="Add Gem" />
                 </div>
             </div>
         </form>
 
+
+        <th:block th:replace="fragments :: geolocation"> </th:block><!-- GEOLOCATION FRAGMENT -->
     </div>
 
     <footer th:replace="fragments :: footer"></footer>
