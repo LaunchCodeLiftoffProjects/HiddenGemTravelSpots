@@ -14,16 +14,14 @@
 <div class="row">
     <div class="side">
         <h2 th:text="${profile.displayName} + ' (@' + ${user.username}+')'"> </h2>
-        <div class="profileimg" style="height:200px;">Profile Image</div>
+        <div class="profileimg" id="gemoji" th:text="${profile.avatar}">Profile Image</div>
         <br>
         <th:block th:if="${following}">
-<!--            <form th:action="@{'/profile/follow?id=' + ${profile.id} + '&action=remove'}" method="post">-->
             <form th:action="@{/profile/follow(id = ${user.id}, action = 'remove')}" method="post">
                 <button type="submit" class="btn btn-danger">- Unfollow</button>
             </form>
         </th:block>
         <th:block th:unless="${following}">
-<!--            <form th:action="@{'/profile/follow?id=' + ${profile.id} + '\&action=add'}" method="post">-->
             <form th:action="@{/profile/follow(id = ${user.id}, action = 'add')}" method="post">
                 <button type="submit" class="btn btn-primary">+ Follow</button>
             </form>

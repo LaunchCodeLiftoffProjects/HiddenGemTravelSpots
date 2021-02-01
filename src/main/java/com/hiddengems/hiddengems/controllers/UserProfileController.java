@@ -69,6 +69,7 @@ public class UserProfileController {
 
         if (userProfile.isPresent()) {
             profile = userProfile.get();
+            profile.setAvatar(userProfileNew.getAvatar());
             profile.setDisplayName(userProfileNew.getDisplayName());
             profile.setBio(userProfileNew.getBio());
             profile.setEmailAddress(userProfileNew.getEmailAddress());

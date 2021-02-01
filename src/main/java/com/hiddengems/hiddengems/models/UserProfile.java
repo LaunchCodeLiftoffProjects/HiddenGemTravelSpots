@@ -78,4 +78,15 @@ public class UserProfile extends AbstractEntity {
     public void setUserAccount(UserAccount userAccount) {
         this.userAccount = userAccount;
     }
+
+    public String getAvatar() {
+        if(this.avatar == null) {
+            this.avatar = ":)";
+        }
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 }
