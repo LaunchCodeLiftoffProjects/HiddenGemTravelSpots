@@ -28,6 +28,9 @@
 
         <br /><br />
 
+        <h4> Photo: </h4>
+         <img th:src="@{${gem.getPhotosImagePath}}">
+
         <h4>Description:</h4>
         <p>"<em><span th:text="${gem.description}"></span></em>"</p>
         &nbsp;&nbsp;Discovered by:
@@ -42,12 +45,9 @@
                 <li th:each="category : ${gem.categories}" th:text="${category.categoryName}"></li>
             </ul>
 
-
-        <h4>
-            Reviews:
+        <h4>Reviews: </h4>
             <small class="text-muted">[+<a th:href="@{'/reviews/add?gemId=' + ${gem.id}}">Add Review</a>]</small>
-        </h4>
-        <th:block th:each="review : ${gem.reviews}">
+            <th:block th:each="review : ${gem.reviews}">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
