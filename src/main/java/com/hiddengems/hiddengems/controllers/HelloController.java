@@ -131,7 +131,7 @@ public class HelloController {
         }
 
         guestRepository.save(newGuest);
-        return "contact";
+        return "redirect:";
     }
 
     @GetMapping("errors")
