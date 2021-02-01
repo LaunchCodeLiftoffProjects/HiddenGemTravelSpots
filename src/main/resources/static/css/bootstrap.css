@@ -2176,7 +2176,10 @@ textarea.form-control {
 }
 
 .form-group {
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .form-text {
@@ -3486,7 +3489,8 @@ input[type="button"].btn-block {
 
 .btn-group > .btn:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
-  margin-left: -1px;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
@@ -4313,6 +4317,7 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   text-align: center;
+  font-size: .825px;
 }
 
 .nav-justified > .nav-link,
@@ -4322,6 +4327,7 @@ input[type="button"].btn-block {
   -ms-flex-positive: 1;
   flex-grow: 1;
   text-align: center;
+  font-size: .825px;
 }
 
 .tab-content > .tab-pane {
@@ -10624,6 +10630,24 @@ legend {
 .img-sm {
     width: 43px;
     height: 43px;
+}
+
+.nav-link {
+font-size: 13.25px;
+padding-top: 7px;
+}
+
+
+.input-group {
+font-size: 13.25px;
+padding-top: 2px;
+padding-left: 2px;
+
+}
+
+.input-group-btn {
+padding-top: 7px;
+padding-left: 7px;
 }
 
 #gemoji {

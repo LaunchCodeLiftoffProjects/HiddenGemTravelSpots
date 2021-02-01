@@ -5,9 +5,17 @@
 </head>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style>
+            div{
+            padding-top: 7px;
+            padding-left: 7px;
+             }
 
+</style>
 <body>
+<center>
 <header th:replace="fragments :: header"></header>
+<div class="main">
 
 <div>
     <h1 th:text="${title}">Default Text</h1>
@@ -16,5 +24,8 @@
 
 
 <footer th:replace="fragments :: footer"></footer>
+
+</div>
+</center>
 </body>
 </html>
