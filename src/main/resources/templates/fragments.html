@@ -61,6 +61,46 @@
 </header>
 
 
+<!-- LOGIN/REGISTER FRAGMENT START-->
+<header2 th:fragment="headerLogin">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="navbar-header">
+            <a th:href="@{/}" class="navbar-brand">Hidden Gems</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/gems/index}">Discover</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/gems/add}">Add Gem</a></li>
+            </ul>
+            <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
+                <div class="input-group">
+                    <input type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
+                    <div class="input-group-btn">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </div>
+                    <div class="form-group">
+                        <select name = "category">
+                            <option value="" selected disabled hidden>Narrow Your Search</option>
+                            <option th:each="category : ${T(com.hiddengems.hiddengems.models.GemCategory).values()}"
+                                    th:id="${category}"
+                                    th:value="${{category}}"
+                                    th:text="${category.categoryName}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link"th:href="@{/login}">Sign In</a></li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+</header2>
+
 <!-- Review Fragment depends on model-binding with the Review object -->
 <div th:fragment="review-form">
     <form method="post" style="max-width:600px;">
@@ -97,6 +137,23 @@
 <!-- End Review fragment -->
 
 
+<<<<<<< Updated upstream
+=======
+<!--FOOTER FRAGMENT START-->
+<!-- Add Photo Fragment -->
+<!-- Review Fragment depends on model-binding with the Review object -->
+<div th:fragment="add-photos-form">
+    <form th:action="@{gems/add-photos}"
+          th:object="${gem}" method="post"
+          enctype="multipart/form-data">
+        <div>
+            <label>Add Photos: </label>
+            <input type="file" name="image" accept="image/png, image/jpeg" />
+        </div>
+    </form>
+</div>
+<!-- End of Add Photo Fragment -->
+>>>>>>> Stashed changes
 
 <footer th:fragment="footer">
     <br><br><br>

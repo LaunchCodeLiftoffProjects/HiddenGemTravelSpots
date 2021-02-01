@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org/ ">
+<link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<head th:replace="fragments :: head"></head>
+<body>
+<header2 th:replace="fragments :: headerLogin"></header2>
+
+<div>
+    <center><h1 th:text="${title}"></h1></center>
+</div>
+
+<div class="main">
+
+    <form method="post" style="max-width:600px;">
+        <div class="form-group">
+<label class="col-form-label" for="name">Your Name*</label>
+<input type="text" class="form-control" placeholder="Identify yourself!" id="name"
+       th:field="${guest.name}" maxlength="25" aria-required="true" required>
+<div class="invalid-feedback" th:errors="${guest.name}"></div>
+
+<label class="col-form-label" for="emailAddress">Contact Email Address*</label>
+<input type="text" class="form-control" placeholder="marcopolo@example.com" id="emailAddress"
+       th:field="${guest.emailAddress}" maxlength="100" aria-required="true" required>
+<div class="invalid-feedback" th:errors="${guest.emailAddress}"></div>
+
+<label for="message">Message*</label>
+<textarea class="form-control" th:field="${guest.message}" id="message" rows="5" maxlength="500"></textarea>
+<div class="invalid-feedback" th:errors="${guest.message}"></div>
+        </div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

@@ -30,7 +30,7 @@
 
         <h4>Description:</h4>
         <p>"<em><span th:text="${gem.description}"></span></em>"</p>
-        &nbsp;&nbsp;Discovered by:
+        &nbsp;<h4>Discovered by:</h4>
         <a th:href="@{'/users/view?id=' + ${gem.getUser.id}}" th:text="${gem.user.userProfile.displayName}"></a> on
         <span th:text="${gem.lastUpdated}"></span><br /><br />
 
