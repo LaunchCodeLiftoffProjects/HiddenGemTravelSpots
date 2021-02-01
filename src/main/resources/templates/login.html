@@ -2,11 +2,64 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body class="flex-grow-1 flex-shrink-1 d-flex">
+<body class="container">
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-header">
+                <a th:href="@{/}" class="navbar-brand">Hidden Gems</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gems/index}">Discover</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gems/add}">Add Gem</a></li>
+                </ul>
+                <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
+                    <div class="input-group">
+                        <input type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
+                        <div class="input-group-btn">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                        <div class="form-group">
+                            <select name = "category">
+                                <option value="" selected disabled hidden>Narrow Your Search</option>
+                                <option th:each="category : ${T(com.hiddengems.hiddengems.models.GemCategory).values()}"
+                                        th:id="${category}"
+                                        th:value="${{category}}"
+                                        th:text="${category.categoryName}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link"th:href="@{/login}">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header><br/><br/><br/><br/>
+<div>
+    <form method="post">
+        <div class="form-group">
+            <label th:for="username">Username
+                <input class="form-control" th:field="${loginFormDTO.username}">
+            </label>
+            <p class="error" th:errors="${loginFormDTO.username}"></p>
+        </div>
+        <div class="form-group">
+            <label>Password
+                <input class="form-control" th:field="${loginFormDTO.password}" type="password">
+            </label>
+            <p class="error" th:errors="${loginFormDTO.password}"></p>
+
+<!--<body class="flex-grow-1 flex-shrink-1 d-flex">
     <div class="container">
 
         <div class="row h-10">
             <header th:replace="fragments :: header"></header>
+master-->
         </div>
 
         <div class="row h-100">
