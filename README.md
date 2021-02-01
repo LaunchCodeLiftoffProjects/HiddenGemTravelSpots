@@ -3,12 +3,12 @@ We are developing Hidden Gems Travel App to help you find off-the-beaten-path to
 
 Hidden Gems searches near your location for userAccount-submitted sights and experiences that fit your needs.  With filtering based on activity type, age/family friendliness, accessibility and cost filters you can be sure you will find the best and most relevant travel activities every time you log in to our app.  You can also befriend other users on the platform to stay on top of their latest and greatest adventures.
 ### Features
-* A geolocation functionality so the users can see any activities within the chosen radius from their location.
+* A geolocation functionality so the users can discover and add new gems.
     * Users can do the following:
-        * select the radius (10/20/50 miles)
-        * change the radius parameter 
-        * Users can view listings by hashtags (e.g. select only "outdoor activities")
-        * see activities on the map within the selected radius
+        * find their current location
+        * view and discover gems on world map
+        * view listings by hashtags (e.g. select only "outdoor activities")
+        * submit new gems and watch them populate on the map in real time
 
 * A filter functionality so that users can input hashtags and view listings matching the hashtags.
     * Users can do the following:
