@@ -61,6 +61,7 @@ public class Gem extends AbstractEntity {
         this.categories = categories;
     }
 
+
     public Gem() {}
 
 
@@ -181,12 +182,12 @@ public class Gem extends AbstractEntity {
         this.lastUpdated = lastUpdated;
     }
 
-    public void setPhotos(String photos) {
-        this.photos = photos;
-    }
-
     public String getPhotos() {
         return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
     }
 
     @Transient

@@ -79,12 +79,35 @@ public class GemController {
         return "gems/add";
     }
 
+//    @PostMapping("add")
+//    public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
+//                                    Errors errors, Model model, HttpServletRequest request, @RequestParam List<GemCategory> categories) throws IOException {
+//
+//        if (errors.hasErrors()) {
+//            return "gems/add";
+//        }
+//
+//        List <GemCategory> categoryObjs = (List<GemCategory>) categories;
+//        newGem.setCategories(categoryObjs);
+//
+//        UserAccount userAccount = getUserFromSession(request.getSession());
+//        newGem.setUserAccount(userAccount);
+//
+//
+//        newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
+//        userAccount.addGem(newGem); // TODO: refactor and test to see if this line is necessary
+//
+//        gemRepository.save(newGem);
+//
+//        return "gems/detail";
+//    }
+
     @PostMapping("add")
-    public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
-                                    Errors errors, Model model, HttpServletRequest request, @RequestParam List<GemCategory> categories) throws IOException {
+    public RedirectView processAddGemForm(@ModelAttribute @Valid Gem newGem,
+                                          Errors errors, Model model, HttpServletRequest request, @RequestParam List<GemCategory> categories, @RequestParam("image") MultipartFile multipartFile) throws IOException {
 
         if (errors.hasErrors()) {
-            return "gems/add";
+            return new RedirectView("gems/add", true);
         }
 
         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
@@ -93,13 +116,21 @@ public class GemController {
         UserAccount userAccount = getUserFromSession(request.getSession());
         newGem.setUserAccount(userAccount);
 
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        newGem.setPhotos(fileName);
 
-        newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
+
+
+            newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
         userAccount.addGem(newGem); // TODO: refactor and test to see if this line is necessary
 
         gemRepository.save(newGem);
 
-        return "gems/detail";
+        String uploadDir = "gem-photos/" + newGem.getId();
+
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+
+        return new RedirectView("gems/detail", true);
     }
 
     @GetMapping("add-photos")

@@ -46,7 +46,10 @@
             </ul>
 
         <h4>Photos:
-            <small class="text-muted">[+<a th:href="@{'../add-photos?gemId=' + ${gem.id}}">Add Photos</a>]</small>        </h4>
+<!--            <small class="text-muted">[+<a th:href="@{'../add-photos?gemId=' + ${gem.id}}">Add Photos</a>]</small>        </h4>-->
+            <th:block th:each="photo : ${gem.photos}">
+                <span> <img th:src="/@{${gem.photosImagePath}}" /></span>
+            </th:block>
         </h4>
 
         <h4>
