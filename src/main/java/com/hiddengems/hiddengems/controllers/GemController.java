@@ -14,7 +14,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -103,11 +102,11 @@ public class GemController {
 //    }
 
     @PostMapping("add")
-    public RedirectView processAddGemForm(@ModelAttribute @Valid Gem newGem,
+    public String processAddGemForm(@ModelAttribute @Valid Gem newGem,
                                           Errors errors, Model model, HttpServletRequest request, @RequestParam List<GemCategory> categories, @RequestParam("image") MultipartFile multipartFile) throws IOException {
 
         if (errors.hasErrors()) {
-            return new RedirectView("gems/add", true);
+            return "gems/add";
         }
 
         List <GemCategory> categoryObjs = (List<GemCategory>) categories;
@@ -121,7 +120,7 @@ public class GemController {
 
 
 
-            newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
+        newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
         userAccount.addGem(newGem); // TODO: refactor and test to see if this line is necessary
 
         gemRepository.save(newGem);
@@ -130,37 +129,9 @@ public class GemController {
 
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
-        return new RedirectView("gems/detail", true);
+        return "gems/detail";
     }
 
-    @GetMapping("add-photos")
-    public String displayAddPhotosForm(@RequestParam Integer gemId, HttpServletRequest request, Model model) {
-        Gem gem = getGemById(gemId);
-        UserAccount userAccount = getUserFromSession(request.getSession());
-
-        if(gem != null && userAccount != null) {
-            model.addAttribute("title", "Post your photos for: " + gem.getGemName());
-            model.addAttribute("submitBtnText", "Submit!");
-            return "gems/add-photos";
-        } else {
-            model.addAttribute("message", "No such Gem exists with this Id");
-            return "../error";
-        }
-    }
-
-    @PostMapping("add-photos")
-    public RedirectView saveGemPhotos(Gem gem,
-                                 @RequestParam("image") MultipartFile multipartFile) throws IOException {
-
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        gem.setPhotos(fileName);
-        gemRepository.save(gem);
-        String uploadDir = "gem-photos/" + gem.getId();
-
-        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-
-        return new RedirectView("gems/detail", true);
-    }
 
     @GetMapping("detail/{gemId}")
     public String displayViewGem(HttpServletRequest request, Model model, @PathVariable int gemId) {
