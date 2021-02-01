@@ -109,6 +109,17 @@ public class HelloController {
         return "index";
     }
 
+
+    @GetMapping("about")
+    public String about (Model model){
+        return "about";
+    }
+
+    @GetMapping("contact")
+    public String contact (Model model){
+        return "contact";
+    }
+
     @GetMapping("errors")
 
     public String errors(Model model) {
