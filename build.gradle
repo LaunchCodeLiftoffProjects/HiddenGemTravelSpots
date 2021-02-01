@@ -8,6 +8,10 @@ group = 'com.hidden-gems'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
 
+bootRun {
+	sourceResources sourceSets.main
+}
+
 repositories {
 	mavenCentral()
 }

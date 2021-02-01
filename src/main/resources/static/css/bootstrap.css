@@ -10632,11 +10632,13 @@ legend {
     background-color: #F8F9FA;
     max-width: 300px;
     text-align: center;
+    align-content: center;
 }
 
 #side-login {
-    background-color: white;
-    max-width: 250px;
+    background-color: #F8F9FA;
+    max-width: 300px;
+    align-content: center;
 }
 
 #main-profile {
