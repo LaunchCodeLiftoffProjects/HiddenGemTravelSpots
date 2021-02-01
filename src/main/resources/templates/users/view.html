@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<meta http-equiv='X-Frame-Options' content='ALLOWAll'>
+<link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <head th:replace="fragments :: head"></head>
-<!--<style>-->
-<!--    div {-->
-<!--    padding-top: 7px;-->
-<!--    padding-left: 7px;-->
-<!--    }-->
-<!--</style>-->
-<body>
-<header th:replace="fragments :: header"> </header>
+<body class="flex-grow-1 flex-shrink-1 d-flex">
 
-<div class="row">
-    <div class="side">
-        <h2 th:text="${profile.displayName} + ' (@' + ${user.username}+')'"> </h2>
-        <div class="profileimg" id="gemoji" th:text="${profile.avatar}">Profile Image</div>
-        <br>
-        <th:block th:if="${following}">
-            <form th:action="@{/profile/follow(id = ${user.id}, action = 'remove')}" method="post">
-                <button type="submit" class="btn btn-danger">- Unfollow</button>
-            </form>
-        </th:block>
-        <th:block th:unless="${following}">
-            <form th:action="@{/profile/follow(id = ${user.id}, action = 'add')}" method="post">
-                <button type="submit" class="btn btn-primary">+ Follow</button>
-            </form>
-        </th:block>
+    <div class="container">
 
-        <p> Location: <span th:text="' '+ ${profile.getZipCode}"></span> </p>
-        <p> About Me: <span th:text="' '+ ${profile.getBio}"></span> </p>
-    </div>
+        <div class="row h-10">
+            <header th:replace="fragments :: header"> </header>
+        </div>
 
-    <div class="main">
-        <div class="mt-4 py-2 border-top border-bottom">
-            <ul class="nav profile-navbar">
-                <li class="nav-item">
-                    <div class="list-group-item list-group-item-action p-2" id="list-myGems-list" data-toggle="list" href="#list-myGems" role="tab" aria-controls="myGems">
-                        <i class="mdi mdi-diamond-stone"></i>
-                        Gems
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="list-group-item list-group-item-action p-2" id="list-myReviews-list" data-toggle="list" href="#list-myReviews" role="tab" aria-controls="myReviews">
-                        <i class="mdi mdi-fountain-pen-tip"></i>
-                        Reviews
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="list-group-item list-group-item-action p-2" id="list-myFriends-list" data-toggle="list" href="#list-myFriends" role="tab" aria-controls="myFriends">
-                        <i class="mdi mdi-account-multiple"></i>
-                        Friends
-                    </div>
-                </li>
-            </ul>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list">
-                    <ul>
-                        <li th:each="gem : ${myGems}">
-                            <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+        <div class="row h-100">
+            <div class="col-sm" id="side-profile">
+                <h2 class="mb-n5" th:text="${profile.displayName}"> </h2>
+                <div class="profileimg my-n4" id="gemoji" th:text="${profile.avatar}">Profile Image</div>
+                <br><strong>@<span th:text="${user.username}"></span></strong><br /><br />
+                <th:block th:if="${following}">
+                    <form th:action="@{/profile/follow(id = ${user.id}, action = 'remove')}" method="post">
+                        <button type="submit" class="btn btn-danger">- Unfollow</button>
+                    </form>
+                </th:block>
+                <th:block th:unless="${following}">
+                    <form th:action="@{/profile/follow(id = ${user.id}, action = 'add')}" method="post">
+                        <button type="submit" class="btn btn-primary">+ Follow</button>
+                    </form>
+                </th:block>
+
+                <br /><p><small>Bio: <span th:text="' '+ ${profile.getBio}"></span></small> </p>
+            </div>
+
+            <div class="col-lg" id="main-profile">
+                <div class="mt-4 py-2 border-top border-bottom">
+                    <ul class="nav profile-navbar mb-5">
+                        <li class="nav-item">
+                            <div class="list-group-item list-group-item-action active p-2" id="list-myGems-list" data-toggle="list" href="#list-myGems" role="tab" aria-controls="myGems">
+                                <i class="mdi mdi-diamond-stone"></i>
+                                Gems
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="list-group-item list-group-item-action p-2" id="list-myReviews-list" data-toggle="list" href="#list-myReviews" role="tab" aria-controls="myReviews">
+                                <i class="mdi mdi-fountain-pen-tip"></i>
+                                Reviews
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="list-group-item list-group-item-action p-2" id="list-myFriends-list" data-toggle="list" href="#list-myFriends" role="tab" aria-controls="myFriends">
+                                <i class="mdi mdi-account-multiple"></i>
+                                Friends
+                            </div>
                         </li>
                     </ul>
-                </div>
-                <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">
-                    <ul>
-                        <li th:each="review : ${myReviews}">
-                            <!--                                 <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getReviewText}"></a>-->
-                            <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
-                            <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">
-                    <ul>
-                        <li th:each="friend : ${myFriends}">
-                            <a th:href="@{'/users/view/' + ${friend.id}}" th:text="${friend.getUsername}"></a>
-                        </li>
-                    </ul>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-myGems" role="tabpanel" aria-labelledby="list-myGems-list">
+                            <ul>
+                                <li th:each="gem : ${myGems}">
+                                    <a th:href="@{'/gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">
+                            <ul>
+                                <li th:each="review : ${myReviews}">
+                                    <a th:href="@{'/gems/detail/' + ${review.gem.id}}" th:text="${review.getGem()}"></a>
+                                    <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="list-myFriends" role="tabpanel" aria-labelledby="list-myFriends-list">
+                            <ul>
+                                <li th:each="friend : ${myFriends}">
+                                    <a th:href="@{'/users/view/' + ${friend.id}}" th:text="${friend.getUsername}"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer th:replace="fragments :: footer"></footer>
+    <footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>

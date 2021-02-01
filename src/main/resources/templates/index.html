@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<head th:replace="fragments :: head">
-</head>
+<head th:replace="fragments :: head"></head>
     <body class="flex-grow-1 flex-shrink-1 d-flex">
         <div class="container">
             <div class="row h-10">
@@ -79,7 +78,7 @@
                             <div class="tab-pane fade" id="list-myReviews" role="tabpanel" aria-labelledby="list-myReviews-list">
                                 <ul>
                                     <li th:each="review : ${myReviews}">
-                                        <a th:href="@{'/reviews/detail/' + ${review.id}}" th:text="${review.getGem()}"></a>
+                                        <a th:href="@{'/gems/detail/' + ${review.gem.id}}" th:text="${review.getGem()}"></a>
                                         <a th:href="@{'/reviews/edit/' + ${review.id}}" style="text-decoration: none;"> <small>&#9998;</small></a>
                                         <p> Review: "<span th:text="${review.getReviewText}"> </span>"</p>
                                     </li>
