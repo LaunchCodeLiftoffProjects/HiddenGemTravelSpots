@@ -37,7 +37,6 @@
                         <input class="form-control" th:field="${gem.longitude}" />
                         <span th:errors="${gem.longitude}" class="error"> </span>
                     </div>
-                    <th:block th:replace="fragments :: geolocation"> </th:block><!-- GEOLOCATION FRAGMENT -->
                     <div class="form-group">
                         <label th:for="description">Description</label>
                         <textarea class="form-control" th:field="${gem.description}" placeholder="Enter description here..." rows="3"></textarea>
@@ -57,6 +56,7 @@
                 </div>
             </div>
         </form>
+        <th:block th:replace="fragments :: geolocation"> </th:block><!-- GEOLOCATION FRAGMENT -->
 
     </div>
 
