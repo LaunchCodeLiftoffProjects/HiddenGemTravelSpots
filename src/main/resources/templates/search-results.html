@@ -11,8 +11,13 @@
             <tr th:each="gem : ${gems}">
                 <td>
                     <p>
-                        <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+                        <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}" ></a>
                     </p>
+                    <div class="container">
+                        <div class="col-md-4 px-0">
+                            <img th:src="@{${gem.getPhotosImagePath}}" class="img-fluid">
+                        </div>
+                    </div>
                 </td>
             </tr>
         </table>
