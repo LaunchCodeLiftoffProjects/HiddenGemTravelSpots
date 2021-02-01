@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
 <head th:replace="fragments :: head"></head>
 <body>
-<header th:replace="fragments :: header"></header>
+<header2 th:replace="fragments :: headerLogin"></header2>
 
 <div>
     <center><h1 th:text="${title}"></h1></center>
@@ -31,6 +31,6 @@
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
-
+<footer th:replace="fragments :: footer"></footer>
 </body>
 </html>
