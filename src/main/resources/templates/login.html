@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+
 <body class="container">
 
 <header>
@@ -52,15 +53,60 @@
                 <input class="form-control" th:field="${loginFormDTO.password}" type="password">
             </label>
             <p class="error" th:errors="${loginFormDTO.password}"></p>
+
+<!--<body class="flex-grow-1 flex-shrink-1 d-flex">
+    <div class="container">
+
+        <div class="row h-10">
+            <header th:replace="fragments :: header"></header>
+master-->
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Log In" />
-    </form>
-</div>
+        <div class="row h-100">
+            <div class="col-sm" id="side-login" style="text-align: center;">
+                <div class="profileimg my-n4" id="gemoji">&#128142;</div>
+                <div style="margin: 0 auto;">
+                    <form method="post">
+                        <div class="form-group">
+                            <label th:for="username"><small>Username</small>
+                                <input class="form-control" th:field="${loginFormDTO.username}">
+                            </label>
+                            <p class="error" th:errors="${loginFormDTO.username}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-n4"><small>Password</small>
+                                <input class="form-control" th:field="${loginFormDTO.password}" type="password">
+                            </label>
+                            <p class="error" th:errors="${loginFormDTO.password}"></p>
+                        </div>
 
-<p>Don't have an account? <a href="/register">Register for one.</a></p>
+                        <input type="submit" class="btn btn-primary mt-n4" value="Log In" />
+                    </form>
+                </div>
+                <p><small>Don't have an account? <a href="/register">Sign up!</a></small></p>
+            </div>
 
+            <div class="col-lg" id="main-profile">
+                <div class="jumbotron mt-3">
+                    <h1 class="display-3">Hello Traveler!</h1>
+                    <p class="lead">Hidden Gems is <em>mapping the road less-traveled</em></p>
+                    <hr class="my-4">
+                    <p>We believe the best part of traveling is seeing the lesser-known parts of the world. </p>
+                    If, like us, you'd rather see video gambling machine
+                        that Lemmy Kilmeister played than the Hollywood Walk-of-Fame or you'd rather eat at the 'local spot' in Berlin than what Fromer's might recommends then join us!
+                        Share your lesser-known places of interest with other like-minded travelers.  Discover a Gem!  Leave reviews on places others have discovered and follow
+                        other users to keep on top of their latest and greatest discoveries.</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="/register" role="button">Get started</a>
+                    </p>
+                </div>
+            </div>
 
-<footer th:replace="fragments :: footer"></footer>
+        </div>
+
+    </div>
+
+    <footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>

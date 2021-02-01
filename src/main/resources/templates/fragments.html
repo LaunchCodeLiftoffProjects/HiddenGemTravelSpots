@@ -33,7 +33,7 @@
                 <div class="input-group">
                 <input type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
                 <div class="input-group-btn">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-primary" type="submit">Search</button>
                 </div>
                     <div class="form-group">
                         <select name = "category">
@@ -94,6 +94,21 @@
 <li class="nav-item"><a class="nav-link" th:href="@{/gems/add}">Add Gem</a></li>
 
 <!--FOOTER FRAGMENT START-->
+=======
+<!-- Add Photo Fragment -->
+<!-- Review Fragment depends on model-binding with the Review object -->
+<div th:fragment="add-photos-form">
+    <form th:action="@{gems/add-photos}"
+          th:object="${gem}" method="post"
+          enctype="multipart/form-data">
+        <div>
+            <label>Add Photos: </label>
+            <input type="file" name="image" accept="image/png, image/jpeg" />
+        </div>
+    </form>
+</div>
+<!-- End of Add Photo Fragment -->
+
 <footer th:fragment="footer">
     <br><br><br>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
