@@ -49,8 +49,8 @@
                     </div>
                 </div>
             </form>
-                <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -71,7 +71,8 @@
                 </ul>
                 <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
                     <div class="input-group">
-                        <input class="form-control" type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
+<!--                        <input class="form-control" type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>-->
+                        <input type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
                         <div class="dropwdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
                                 <span class="caret"></span></button>

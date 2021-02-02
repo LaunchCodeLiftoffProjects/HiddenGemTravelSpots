@@ -3148,9 +3148,9 @@ fieldset:disabled a.btn {
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.3rem;
-  color: #fff;
+  /*color: #fff;
     background-color: #343a40;
-    border-color: #343a40;
+    border-color: #343a40;*/
 }
 
 .btn-block {
@@ -4317,7 +4317,7 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   text-align: center;
-  font-size: .825px;
+  /*font-size: .825px;*/
 }
 
 .nav-justified > .nav-link,
@@ -4327,7 +4327,7 @@ input[type="button"].btn-block {
   -ms-flex-positive: 1;
   flex-grow: 1;
   text-align: center;
-  font-size: .825px;
+  /*font-size: .825px;*/
 }
 
 .tab-content > .tab-pane {
@@ -10669,21 +10669,22 @@ padding-left: 7px;
 }
 
 #main-profile {
-flex: 70%;
- -ms-flex-align: center;
- background-color: white;
- padding: 20px;
- width: 60%;
- justify-content: center;
- margin: 0 auto;
+    flex: 70%;
+    background-color: white;
+    /* -ms-flex-align: center;
+    background-color: white;
+    padding: 20px;
+    width: 60%;
+    justify-content: center;
+    margin: 0 auto; */
 
 }
 html, body {
- height: 100%;
+    height: 100%;
 }
 .profile {
-   min-height: 100%;
-   height: 100%;
+    min-height: 100%;
+    height: 100%;
 }
 
 .feed-title {
@@ -10691,24 +10692,25 @@ html, body {
 }
 
 .centered {
- position: absolute;
- top: 50%;
- -ms-flex-align: center;
- -ms-transform: translateY(-50%);
- transform: translateY(-50%);
- justify-content: center;
- flex: 70%;
-  background-color: #F8F9FA;
-  padding: 20px;
-  width: 60%;
-  margin: 0 auto;
+     position: absolute;
+     top: 50%;
+     -ms-flex-align: center;
+     -ms-transform: translateY(-50%);
+     transform: translateY(-50%);
+     justify-content: center;
+     flex: 70%;
+     background-color: #F8F9FA;
+     padding: 20px;
+     width: 60%;
+     margin: 0 auto;
+
 }
 .main-clear {
- flex: 70%;
- -ms-flex-align: center;
- padding: 20px;
- width: 60%;
- justify-content: center;
- margin: 0 auto;
+     flex: 70%;
+     -ms-flex-align: center;
+     padding: 20px;
+     width: 60%;
+     justify-content: center;
+     margin: 0 auto;
 }
 

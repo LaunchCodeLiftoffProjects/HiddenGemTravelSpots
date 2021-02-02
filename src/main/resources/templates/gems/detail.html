@@ -37,20 +37,19 @@
 
         <h4>Description:</h4>
         <p>"<em><span th:text="${gem.description}"></span></em>"</p>
-        &nbsp;&nbsp;Discovered by:
+        Discovered by:
         <a th:href="@{'/users/view?id=' + ${gem.getUser.id}}" th:text="${gem.user.userProfile.displayName}"></a> on
         <span th:text="${gem.lastUpdated}"></span><br /><br />
 
         <h4>Location:</h4>
-        &nbsp;&nbsp;<span th:text="${'Latitude: ' + gem.latitude + ', Longitude: ' + gem.longitude}"></span><br /><br />
+        <span th:text="${'Latitude: ' + gem.latitude + ', Longitude: ' + gem.longitude}"></span><br /><br />
 
         <h4>Features:</h4>
             <ul>
                 <li th:each="category : ${gem.categories}" th:text="${category.categoryName}"></li>
             </ul>
 
-        <h4>Reviews: </h4>
-            <small class="text-muted">[+<a th:href="@{'/reviews/add?gemId=' + ${gem.id}}">Add Review</a>]</small>
+        <h4>Reviews: <small class="text-muted">[+<a th:href="@{'/reviews/add?gemId=' + ${gem.id}}">Add Review</a>]</small></h4>
             <th:block th:each="review : ${gem.reviews}">
             <div class="card">
                 <div class="card-body">
