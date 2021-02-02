@@ -6,18 +6,34 @@
 <body>
 <header th:replace="fragments :: header"> </header>
 
-<div> All Gems:  </div>
-<div class="gem-index">
-    <table>
-        <tr th:each="gem : ${gems}">
-            <td>
-                <p>
-                    <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
-                </p>
-            </td>
-        </tr>
+<!--<div class="row">-->
+    <!--    <table>-->
+    <!--        <tr th:each="gem : ${gems}">-->
+    <!--            <td>-->
+    <!--                <p>-->
+    <!--                    <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>-->
+    <!--                    <img src="@{${gem.getPhotosImagePath}}" class="img-thumbnail" alt="No Photos">-->
+    <!--                </p>-->
+    <!--            </td>-->
+    <!--        </tr>-->
 
-    </table>
+    <!--    </table>-->
+    <!--</div>
+
+    <h2> All Gems:  </h2>
+    <!-->
+
+<div class="main">
+    <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
+        <h2>All Gems: </h2>
+        <div th:each="gem : ${gems}">
+            <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
+            <div class="container">
+                <div class="col-md-4 px-0">
+                    <img th:src="@{${gem.getPhotosImagePath}}" class="img-fluid">
+                </div>
+            </div>
+        </div>
 </div>
 
 

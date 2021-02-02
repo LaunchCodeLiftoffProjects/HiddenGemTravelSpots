@@ -29,7 +29,11 @@
         <br /><br />
 
         <h4> Photo: </h4>
-         <img th:src="@{${gem.getPhotosImagePath}}">
+        <div class="container">
+            <div class="col-md-8 px-0">
+                <img th:src="@{${gem.getPhotosImagePath}}" class="img-fluid">
+            </div>
+        </div>
 
         <h4>Description:</h4>
         <p>"<em><span th:text="${gem.description}"></span></em>"</p>

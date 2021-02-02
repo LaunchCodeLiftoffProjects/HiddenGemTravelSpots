@@ -1,6 +1,7 @@
 package com.hiddengems.hiddengems.models;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class GemData {
@@ -22,17 +23,19 @@ public class GemData {
     }
 
     public static ArrayList<Gem> findByCategory(List<GemCategory> checkedCategory, Iterable<Gem> allGems) {
-        ArrayList<Gem> results = new ArrayList<>();
+        LinkedHashSet<Gem> resultSet = new LinkedHashSet<Gem>();
+        //ArrayList<Gem> results = new ArrayList<>();
         for (Gem gem : allGems) {
             List<GemCategory> gemCategories = gem.getCategories();
             for (GemCategory gemCategory : gemCategories) {
                 for (GemCategory category : checkedCategory) {
                     if (gemCategory == category) {
-                        results.add(gem);
+                        resultSet.add(gem);
                     }
                 }
             }
             }
+        ArrayList<Gem> results = new ArrayList<Gem>(resultSet);
         return results;
     }
 
