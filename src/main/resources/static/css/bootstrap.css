@@ -2176,10 +2176,10 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-top: 1rem;
+  /*margin-top: 1rem;*/
   margin-bottom: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /*margin-left: 1rem;
+  margin-right: 1rem;*/
 }
 
 .form-text {
@@ -3489,8 +3489,9 @@ input[type="button"].btn-block {
 
 .btn-group > .btn:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
-  margin-left: 1rem;
-  margin-top: 1rem;
+    margin-left: -1px;
+  /*margin-left: 1rem;
+  margin-top: 1rem;*/
 }
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
@@ -10632,7 +10633,7 @@ legend {
     height: 43px;
 }
 
-.nav-link {
+/*.nav-link {
 font-size: 13.25px;
 padding-top: 7px;
 }
@@ -10648,7 +10649,7 @@ padding-left: 2px;
 .input-group-btn {
 padding-top: 0px;
 padding-left: 7px;
-}
+} */
 
 #gemoji {
     font-size: 200px;
@@ -10669,7 +10670,7 @@ padding-left: 7px;
 }
 
 #main-profile {
-    flex: 70%;
+    /*flex: 70%;*/
     background-color: white;
     /* -ms-flex-align: center;
     background-color: white;
@@ -10691,7 +10692,7 @@ html, body {
    font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.centered {
+/*.centered {
      position: absolute;
      top: 50%;
      -ms-flex-align: center;
@@ -10712,5 +10713,5 @@ html, body {
      width: 60%;
      justify-content: center;
      margin: 0 auto;
-}
+}*/
 
