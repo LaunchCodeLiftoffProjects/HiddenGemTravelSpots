@@ -18,7 +18,7 @@
 
 
 <!--HEADER FRAGMENT START-->
-<header th:fragment="header">
+<header th:fragment="header" class="w-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <div class="navbar-header">
@@ -31,8 +31,11 @@
             </ul>
             <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
                 <div class="input-group">
+
+
+
                     <input class="form-control" type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
-                    <div class="dropwdown">
+                    <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
                             <span class="caret"></span></button>
                         <ul name="category" class="dropdown-menu dropdown-menu-right">
@@ -47,6 +50,10 @@
                     <div class="input-group-btn">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </div>
+
+
+
+
                 </div>
             </form>
             <ul class="navbar-nav ml-auto">
