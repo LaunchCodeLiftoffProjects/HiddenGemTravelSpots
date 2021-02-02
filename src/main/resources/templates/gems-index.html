@@ -25,6 +25,7 @@
 
 <div class="main">
         <h2>All Gems: </h2>
+    <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
         <div th:each="gem : ${gems}">
             <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}"></a>
             <div class="container">
