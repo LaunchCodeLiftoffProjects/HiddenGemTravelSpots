@@ -31,9 +31,6 @@
             </ul>
             <form class="navbar-form navbar-center" th:action="@{/search-results}" method = "post">
                 <div class="input-group">
-
-
-
                     <input class="form-control" type="text" name="searchTerm" id="searchTerm" placeholder="Search for a Gem"/>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
@@ -46,14 +43,9 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="input-group-btn">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </div>
-
-
-
-
                 </div>
             </form>
             <ul class="navbar-nav ml-auto">
@@ -65,7 +57,7 @@
 </header>
 <!--HEADER FRAGMENT END-->
 <!-- HEADER 2 FRAGMENT-->
-<header2 th:fragment="headerLogin">
+<header2 th:fragment="headerLogin"  class="w-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <div class="navbar-header">
@@ -113,15 +105,16 @@
 <div th:fragment="review-form">
     <form method="post" style="max-width:600px;">
 
+        <input type="hidden" th:field="${reviewDTO.gem}">
+        <input type="hidden" th:field="${reviewDTO.userAccount}">
+
         <div class="form-group">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <input type="hidden" th:field="${reviewDTO.gem}">
-                <input type="hidden" th:field="${reviewDTO.userAccount}">
                 <label class="btn btn-primary active">
-                    <input type="radio" name="rating" th:field="${reviewDTO.review.thumbsup}" id="thumbsUp" value="true" autocomplete="off" th:checked="true"><i class="fa fa-thumbs-up fa-3x"></i>
+                    <input type="radio" name="options" th:field="${reviewDTO.review.thumbsup}" id="option1" value="true" autocomplete="off" th:checked="checked" required><i class="fa fa-thumbs-up fa-3x"></i>
                 </label>
                 <label class="btn btn-primary">
-                    <input type="radio" th:field="${reviewDTO.review.thumbsup}" id="thumbsDown" value="false" autocomplete="off"> <i class="fa fa-thumbs-down fa-3x"></i>
+                    <input type="radio" name="options" th:field="${reviewDTO.review.thumbsup}" id="option2" value="false" autocomplete="off" checked> <i class="fa fa-thumbs-down fa-3x"></i>
                 </label>
             </div>
         </div>
@@ -335,7 +328,7 @@
         <em>Don't know your latitude and longitude? Click here to find your current location</em><br>
         <em>(Your location must be turned on):</em>
         <br>
-        <input type="button" class="btn btn-sm" onclick="getLocation()" value = "Get Current Coordinates"/>
+        <input type="button" class="btn btn-primary btn-sm" onclick="getLocation()" value = "Get Current Coordinates"/>
        <!-- tHIS WORKS <button onclick="getLocation()"> class="btn btn-primary" value = Get Current Coordinates</button> -->
         <p id="currentLocation"></p>
         <script>

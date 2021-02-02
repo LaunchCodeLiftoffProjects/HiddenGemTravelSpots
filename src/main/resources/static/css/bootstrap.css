@@ -71,6 +71,8 @@ body {
   background-image: url(splash.jpg);
   background-color: #fff;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

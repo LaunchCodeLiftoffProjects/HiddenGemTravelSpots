@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-
-<head th:replace="fragments :: head">
-</head>
-
+<head th:replace="fragments :: head"></head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<style>
-            div{
-            padding-top: 7px;
-            padding-left: 7px;
-             }
 
-</style>
-<body>
-<center>
-<header th:replace="fragments :: header"></header>
-<div class="main">
+<body class="flex-grow-1 flex-shrink-1 d-flex">
 
-<div>
-    <h1 th:text="${title}">Default Text</h1>
-</div>
-<div th:replace="fragments :: review-form"></div>
+    <div class="container">
 
+        <div class="row">
+            <header2 th:replace="fragments :: headerLogin"></header2>
+        </div>
 
-<footer th:replace="fragments :: footer"></footer>
+        <div class="row h-100">
+            <div class="col-lg px-5 pb-5" id="main-profile">
 
-</div>
-</center>
+                <div>
+                    <h1 th:text="${title}">Default Text</h1>
+                </div>
+
+                <div th:replace="fragments :: review-form"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>
