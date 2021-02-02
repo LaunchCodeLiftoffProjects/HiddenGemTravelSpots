@@ -110,7 +110,9 @@ public class ReviewController {
             ReviewFormDTO reviewDTO = new ReviewFormDTO(review, gem, userAccount);
             model.addAttribute("reviewDTO", reviewDTO);
             model.addAttribute("review", review);
+            model.addAttribute("gem", gem);
             model.addAttribute("submitBtnText", "Save");
+            model.addAttribute("title", "Edit review for ");
             return "reviews/edit.html";
         } else {
             model.addAttribute("message", "You are not authorized to edit this Gem Review.");
