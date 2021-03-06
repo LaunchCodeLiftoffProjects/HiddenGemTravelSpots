@@ -2,12 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body class="container">
-<header2 th:replace="fragments :: headerLogin"></header2>
+<body class="flex-grow-1 flex-shrink-1 d-flex">
+    <div class="container">
 
-
-<br/><br/><br/><br/>
-
+        <div class="row h-10">
+            <header2 th:replace="fragments :: headerLogin"></header2>
         </div>
 
         <div class="row h-100">
@@ -39,11 +38,11 @@
                     <h1 class="display-3">Hello Traveler!</h1>
                     <p class="lead">Hidden Gems is <em>mapping the road less-traveled</em></p>
                     <hr class="my-4">
-                    <p>We believe the best part of traveling is seeing the lesser-known parts of the world. </p>
+                    <p>We believe the best part of traveling is seeing the lesser-known parts of the world.
                     If, like us, you'd rather see video gambling machine
-                        that Lemmy Kilmeister played than the Hollywood Walk-of-Fame or you'd rather eat at the 'local spot' in Berlin than what Fromer's might recommends then join us!
-                        Share your lesser-known places of interest with other like-minded travelers.  Discover a Gem!  Leave reviews on places others have discovered and follow
-                        other users to keep on top of their latest and greatest discoveries.</p>
+                    that Lemmy Kilmeister played than the Hollywood Walk-of-Fame or you'd rather eat at the 'local spot' in Berlin than what Fromer's might recommends then join us! </p>
+                    <p>Share your lesser-known places of interest with other like-minded travelers.  Discover a Gem!  Leave reviews on places others have discovered and follow
+                    other users to keep on top of their latest and greatest discoveries.</p>
                     <p class="lead">
                         <a class="btn btn-primary btn-lg" href="/register" role="button">Get started</a>
                     </p>

@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
 <head th:replace="fragments :: head"></head>
 <meta http-equiv='X-Frame-Options' content='ALLOWAll'>
-<style>
-            div {
-            padding-top: 7px;
-            padding-left: 7px;
-             }
-</style>
-<body>
-    <header th:replace="fragments :: header"></header>
+
+<body class="flex-grow-1 flex-shrink-1 d-flex">
+
+    <div class="container">
+
+        <div class="row">
+            <header2 th:replace="fragments :: headerLogin"></header2>
+        </div>
+
+        <div class="row h-100">
+            <div class="col-lg px-5 pb-5" id="main-profile">
+
+                <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
 
 
-    <div class="main">
-
-        <th:block th:replace="fragments :: map"> </th:block><!-- MAP FRAGMENT -->
-
-
-        <h4>Submit New Gem:</h4>
-        <form method="post" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="col">
-                    <div class="form-group">
-                        <label th:for="gemName">Gem Name</label>
-                        <input class="form-control" th:field="${gem.gemName}" />
-                        <span th:errors="${gem.gemName}" class="error"> </span>
+                <h4>Submit New Gem:</h4>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label th:for="gemName">Gem Name</label>
+                                <input class="form-control" th:field="${gem.gemName}" />
+                                <span th:errors="${gem.gemName}" class="error"> </span>
+                            </div>
+                            <div class="form-group">
+                                <label th:for="gemLatitude" class="mt-n5">Latitude</label>
+                                <input class="form-control" th:field="${gem.latitude}" />
+                                <span th:errors="${gem.latitude}" class="error"> </span>
+                            </div>
+                            <div class="form-group">
+                                <label th:for="gemLongitude" class="mt-n5">Longitude</label>
+                                <input class="form-control" th:field="${gem.longitude}" />
+                                <span th:errors="${gem.longitude}" class="error"> </span>
+                            </div>
+                            <div class="form-group">
+                                <label th:for="description" class="mt-n5">Description</label>
+                                <textarea class="form-control" th:field="${gem.description}" placeholder="Enter description here..." rows="3"></textarea>
+                                <span th:errors="${gem.description}" class="error"> </span>
+                            </div>
+                            <th:block th:replace="fragments :: geolocation"> </th:block><!-- GEOLOCATION FRAGMENT -->
+                        </div>
+                        <div class="col pt-4 pl-5">
+                            <div class="form-group">
+                                <label><strong>Add Photo</strong> </label><br />
+                                <input type="file" name="image" />
+                            </div>
+                            <div class="form-group ">
+                                <label th:for="categories"><strong>Categories</strong> <em>(check all that apply):</em></label><br />
+                                <th:block th:each="category : ${categories}">
+                                    <input type="checkbox" name="categories" th:object="${categories}" th:value="${category}">
+                                    <label th:text="${category.categoryName}"></label><br />
+                                </th:block>
+                            </div>
+                            <p class="error" th:errors="${gem.categories}"></p>
+                            <input type="submit" class="btn btn-primary" value="Add Gem" />
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label th:for="gemLatitude">Latitude</label>
-                        <input class="form-control" th:field="${gem.latitude}" />
-                        <span th:errors="${gem.latitude}" class="error"> </span>
-                    </div>
-                    <div class="form-group">
-                        <label th:for="gemLongitude">Longitude</label>
-                        <input class="form-control" th:field="${gem.longitude}" />
-                        <span th:errors="${gem.longitude}" class="error"> </span>
-                    </div>
-                    <div class="form-group">
-                        <label th:for="description">Description</label>
-                        <textarea class="form-control" th:field="${gem.description}" placeholder="Enter description here..." rows="3"></textarea>
-                        <span th:errors="${gem.description}" class="error"> </span>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group ">
-                        <label th:for="categories"><strong>Categories (check all that apply):</strong></label><br />
-                        <th:block th:each="category : ${categories}">
-                            <input type="checkbox" name="categories" th:object="${categories}" th:value="${category}">
-                            <label th:text="${category.categoryName}"></label><br />
-                        </th:block>
-                    </div>
-                    <div>
-                        <label>Add Photo: </label>
-                        <input type="file" name="image" />
-                    </div>
-                    <p class="error" th:errors="${gem.categories}"></p>
-                    <input type="submit" class="btn btn-primary" value="Add Gem" />
-                </div>
+                </form>
             </div>
-        </form>
-
-
-        <th:block th:replace="fragments :: geolocation"> </th:block><!-- GEOLOCATION FRAGMENT -->
+        </div>
     </div>
 
     <footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>
+
 
 

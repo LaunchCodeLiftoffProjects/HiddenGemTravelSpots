@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-
-<head th:replace="fragments :: head">
-</head>
-
+<head th:replace="fragments :: head"></head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<body>
-<header th:replace="fragments :: header"></header>
+<body class="flex-grow-1 flex-shrink-1 d-flex">
 
-<div>
-    <h1 th:text="${title}">Default Text</h1>
-</div>
+    <div class="container">
 
-<div th:replace="fragments :: review-form"></div>
+        <div class="row">
+            <header th:replace="fragments :: header"></header>
+        </div>
 
-<form th:action="@{/delete/{id}(id=${reviewDTO.review.id})}" method="post">
-    <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+        <div class="row h-100">
+            <div class="col-lg pl-5" id="main-profile">
+                <h1 th:text="${title + gem.gemName}">Default Text</h1>
 
-<footer th:replace="fragments :: footer"></footer>
+                <div th:replace="fragments :: review-form"></div>
+
+                <form th:action="@{/delete/{id}(id=${reviewDTO.review.id})}" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments :: footer"></footer>
+
 </body>
 </html>

@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 
-<head th:replace="fragments :: head">
-</head>
-<body>
-<header2 th:replace="fragments :: headerLogin"></header2>
-<br><br><br><br>
-<div> <title> About</title> </div>
+<body class="flex-grow-1 flex-shrink-1 d-flex">
 
-<div class="main">
+    <div class="container">
 
-        <center>
-
-            <h2> About Hidden Gems </h2>
-
-            <p>     We are developing Hidden Gems Travel App to help you find off-the-beaten-path tourist destinations that fit your needs and location. </p>
-            <p>     We here at QuaraTeam find that when traveling we desire to see the lesser known parts of the world. </p>
-            <p>     Hidden Gems searches for sights and experiences that fit your needs. </p>
-            <p>     Our filtering based on activity type, age/family friendliness, accessibility and cost filters.</p>
-            <p>     You can also befriend other users on the platform to stay on top of their latest and greatest adventures. </p>
-            <p>     Be sure you will find the best and most relevant travel activities every time you log in to our app. </p>
-
-        <div>
-            <h2> Our Team </h2>
-            <img src="/quarateam/forrest-burrelsman.jpg" style="width:200px;height:200px;">
-            <img src="/quarateam/elizabeth-ernst.png" style="width:200px;height:200px;">
-            <img src="/quarateam/iuliia-fieser.JPG" style="width:200px;height:200px;">
-            <img src="/quarateam/maddy-munsell.jpg" style="width:200px;height:200px;">
-            <img src="/quarateam/tom-valli.jpg" style="width:200px;height:200px;">
+        <div class="row">
+            <header2 th:replace="fragments :: headerLogin"></header2>
         </div>
-            <br>
-            <br>
-            <br>
-            <br>
-        </center>
-</div>
+
+        <div class="row h-100">
+            <div class="col-lg px-5 pb-5" id="main-profile">
+                <center>
+
+                    <h2> About Hidden Gems </h2>
+
+                    <p>     We are developing Hidden Gems Travel App to help you find off-the-beaten-path tourist destinations that fit your needs and location. </p>
+                    <p>     We here at QuaraTeam find that when traveling we desire to see the lesser known parts of the world. </p>
+                    <p>     Hidden Gems searches for sights and experiences that fit your needs. </p>
+                    <p>     Our filtering based on activity type, age/family friendliness, accessibility and cost filters.</p>
+                    <p>     You can also befriend other users on the platform to stay on top of their latest and greatest adventures. </p>
+                    <p>     Be sure you will find the best and most relevant travel activities every time you log in to our app. </p>
+
+                <div>
+                    <h2> Our Team </h2>
+                    <img src="/quarateam/forrest-burrelsman.jpg" style="width:200px;height:200px;">
+                    <img src="/quarateam/elizabeth-ernst.png" style="width:200px;height:200px;">
+                    <img src="/quarateam/iuliia-fieser.JPG" style="width:200px;height:200px;">
+                    <img src="/quarateam/maddy-munsell.jpg" style="width:200px;height:200px;">
+                    <img src="/quarateam/tom-valli.jpg" style="width:200px;height:200px;">
+                </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </center>
+            </div>
+        </div>
+    </div>
 <footer th:replace="fragments :: footer"></footer>
 </body>
 </html>

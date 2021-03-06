@@ -71,6 +71,8 @@ body {
   background-image: url(splash.jpg);
   background-color: #fff;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2176,10 +2178,10 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-top: 1rem;
+  /*margin-top: 1rem;*/
   margin-bottom: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /*margin-left: 1rem;
+  margin-right: 1rem;*/
 }
 
 .form-text {
@@ -3148,9 +3150,9 @@ fieldset:disabled a.btn {
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.3rem;
-  color: #fff;
+  /*color: #fff;
     background-color: #343a40;
-    border-color: #343a40;
+    border-color: #343a40;*/
 }
 
 .btn-block {
@@ -3489,8 +3491,9 @@ input[type="button"].btn-block {
 
 .btn-group > .btn:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
-  margin-left: 1rem;
-  margin-top: 1rem;
+    margin-left: -1px;
+  /*margin-left: 1rem;
+  margin-top: 1rem;*/
 }
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
@@ -4317,7 +4320,7 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   text-align: center;
-  font-size: .825px;
+  /*font-size: .825px;*/
 }
 
 .nav-justified > .nav-link,
@@ -4327,7 +4330,7 @@ input[type="button"].btn-block {
   -ms-flex-positive: 1;
   flex-grow: 1;
   text-align: center;
-  font-size: .825px;
+  /*font-size: .825px;*/
 }
 
 .tab-content > .tab-pane {
@@ -10632,7 +10635,7 @@ legend {
     height: 43px;
 }
 
-.nav-link {
+/*.nav-link {
 font-size: 13.25px;
 padding-top: 7px;
 }
@@ -10648,7 +10651,7 @@ padding-left: 2px;
 .input-group-btn {
 padding-top: 0px;
 padding-left: 7px;
-}
+} */
 
 #gemoji {
     font-size: 200px;
@@ -10669,46 +10672,48 @@ padding-left: 7px;
 }
 
 #main-profile {
-flex: 70%;
- -ms-flex-align: center;
- background-color: white;
- padding: 20px;
- width: 60%;
- justify-content: center;
- margin: 0 auto;
+    /*flex: 70%;*/
+    background-color: white;
+    /* -ms-flex-align: center;
+    background-color: white;
+    padding: 20px;
+    width: 60%;
+    justify-content: center;
+    margin: 0 auto; */
 
 }
 html, body {
- height: 100%;
+    height: 100%;
 }
 .profile {
-   min-height: 100%;
-   height: 100%;
+    min-height: 100%;
+    height: 100%;
 }
 
 .feed-title {
    font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.centered {
- position: absolute;
- top: 50%;
- -ms-flex-align: center;
- -ms-transform: translateY(-50%);
- transform: translateY(-50%);
- justify-content: center;
- flex: 70%;
-  background-color: #F8F9FA;
-  padding: 20px;
-  width: 60%;
-  margin: 0 auto;
+/*.centered {
+     position: absolute;
+     top: 50%;
+     -ms-flex-align: center;
+     -ms-transform: translateY(-50%);
+     transform: translateY(-50%);
+     justify-content: center;
+     flex: 70%;
+     background-color: #F8F9FA;
+     padding: 20px;
+     width: 60%;
+     margin: 0 auto;
+
 }
 .main-clear {
- flex: 70%;
- -ms-flex-align: center;
- padding: 20px;
- width: 60%;
- justify-content: center;
- margin: 0 auto;
-}
+     flex: 70%;
+     -ms-flex-align: center;
+     padding: 20px;
+     width: 60%;
+     justify-content: center;
+     margin: 0 auto;
+}*/
 

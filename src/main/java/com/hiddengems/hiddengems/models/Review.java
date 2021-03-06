@@ -31,11 +31,11 @@ public class Review extends AbstractEntity{
         this.gem = gem;
     }
 
-    public Review() {}
-
-    public boolean isThumbsup() {
-        return thumbsup;
+    public Review() {
+        this.thumbsup = true;
     }
+
+    public boolean isThumbsup() { return thumbsup; }
 
     public void setThumbsup(boolean thumbsup) {
         this.thumbsup = thumbsup;
