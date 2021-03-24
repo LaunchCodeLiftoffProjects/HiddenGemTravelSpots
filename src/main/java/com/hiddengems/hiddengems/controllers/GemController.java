@@ -94,8 +94,12 @@ public class GemController {
         newGem.setUserAccount(userAccount);
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        newGem.setPhotos(fileName);
-
+        if (multipartFile.isEmpty()) {
+            newGem.setPhotos(null);
+        }
+        if (!multipartFile.isEmpty()) {
+            newGem.setPhotos(fileName);
+        }
 
         newGem.setUser(userAccount); // TODO: refactor to make sure we keep this line OR the one above not both
         userAccount.addGem(newGem); // TODO: refactor and test to see if this line is necessary
