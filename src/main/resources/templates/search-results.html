@@ -7,20 +7,18 @@
 
     <div class="main">
         <h2>Search Results: </h2>
-        <table>
-            <tr th:each="gem : ${gems}">
-                <td>
-                    <p>
+        <div class="grid-container">
+            <div class="row">
+                <tr th:each="gem : ${gems}">
+                    <div class="col-md-4" th:switch="${gem.getPhotosImagePath == null}">
                         <a th:href="@{'gems/detail/' + ${gem.id}}" th:text="${gem.gemName}" ></a>
-                    </p>
-                    <div class="container">
-                        <div class="col-md-4 px-0">
-                            <img th:src="@{${gem.getPhotosImagePath}}" class="img-fluid">
-                        </div>
+                        <img th:case="${true}" src="/css/grid-gem.jpg" class="rounded img-fluid" width="175" height="175">
+                        <img th:case="*" th:src="@{${gem.getPhotosImagePath}}" class="rounded img-fluid" width="175" height="175" src="">
                     </div>
-                </td>
-            </tr>
-        </table>
+                </tr>
+            </div>
+        </div>
+    </div>
     </div>
         <footer th:replace="fragments :: footer"></footer>
     </body>
